@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            /* 여백 제거 */
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            border: 1px solid;
+            height: 150vh;
+            background-color: bisque;
+        }
+        .nav {
+            background-color: black;
+            color: white;
+            font-size: 20pt;
+            display: flex;
+            position: sticky;
+            top: 0px;
+            z-index: 999;
+        }
+        .nav ul {
+            text-align: center;
+            margin: 0 auto;
+            /* margin-left: auto;
+            margin-right: auto; */
+        }
+        .nav ul li {
+            list-style: none;
+            display: inline-block;
+            background-color: brown;
+            width: 130px;
+        }
+        .contents {
+            border: 2px solid red;
+            height: 200px;
+            display: flex;
+        }
+        .contents > div {
+            width: 200px;
+            height: 200px;
+            border: 1px solid;
+        }
+        .d1 {
+            background-color: rgb(0, 255, 255);
+        }
+        .d2 {
+            background-color: rgb(127, 255, 212);
+        }
+    </style>
+</head>
+<body>
+    <div style="height: 200px;"></div>
+    <div class="container">
+        <div class="nav">
+            <ul>
+                <li>메뉴 1</li>
+                <li>메뉴 2</li>
+                <li>메뉴 3</li>
+                <li>메뉴 4</li>
+            </ul>
+        </div>
+        <div class="contents">
+            <div class="d1" style="position: fixed; bottom: 0; right: 0;">1</div>
+            <div class="d2" style="position: relative; left: 100px; top: 100px; z-index: 3">2</div>
+        </div>
+        <div class="contents" style="position: relative;">
+            <div class="d1" style="position: absolute; top: 100px; left: 100px; opacity: 0.5;">1</div>
+            <div class="d2" style="z-index: 2;">2</div>
+        </div>
+        <div class="contents">
+            <div class="d1">1</div>
+            <div class="d2">2</div>
+        </div>
+        </div>
+    </div>
+</body>
+</html>
