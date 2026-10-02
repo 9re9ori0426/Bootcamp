@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang='en'>
+<head>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <title>Page Title</title>
+    <!-- 
+            CSS
+            html DOM 디자인 입힐 수 있는 언어
+
+
+            선택자 {
+                속성명 : 값;
+                속성명 : 값;
+                속성명 : 값;
+                ...
+            }
+
+            - 기본형
+                태그명  :  그거 다 
+                #id    :  id가 그거인거
+                .class :  class가 그거인것'들'
+
+            - 상태형
+                기본형:상태
+
+            - 조합형
+                여러개를 선택하거나, 하위 노드 검색 등
+    -->
+        <style>
+            h1 {
+                color : violet;
+            }
+            h2 {
+                color : gold;
+                font-weight : 900;
+            }
+            span {
+                color : red;
+            }
+            .kkk {
+                background-color: antiquewhite;
+            }
+            #span-blue {
+                color: blue;
+            }
+            h1 p {
+                font-size: 60px;
+            }
+            p {
+                color: burlywood;
+                background-color: rgb(225, 0, 255);
+            }
+            p:hover {
+                color: red;
+            }
+            p:active {
+                font-size: 30px;
+            }
+        </style>
+</head>
+<body>
+    <h1>HTML : 뼈대</h1>
+    <h1>CSS : 디자인</h1>
+    <h2 class="kkk"><span id="span-blue">Java</span>Script : 이벤트</h2>
+    <hr>
+    <h3 class="kkk">곧 쉬는시간 이에요</h3>
+    <h3 class="kkk">쫌만 힘내시죠</h3>
+
+    <h1>
+        생각보다
+        <p>참 쉽죠????</p>
+    </h1>
+
+    <p>css is easy</p>
+</body>
+</html>
