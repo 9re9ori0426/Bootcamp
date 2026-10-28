@@ -1,0 +1,101 @@
+package com.bo.servlet;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/Login")
+public class Login extends HttpServlet {
+	private static String ID = "bo";
+	private static String PW = "bo1004";
+	
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		out.print("<html>");
+		out.print("<head>");
+		out.print("<meta charset=\"UTF-8\">");
+		out.print("<style>.success { animation-duration: 3s; animation-name: rainbowLink; animation-iteration-count: infinite; } \r\n"
+				+ "@keyframes rainbowLink {     \r\n"
+				+ " 0% { color: #ff2a2a; }\r\n"
+				+ " 15% { color: #ff7a2a; }\r\n"
+				+ " 30% { color: #ffc52a; }\r\n"
+				+ " 45% { color: #43ff2a; }\r\n"
+				+ " 60% { color: #2a89ff; }\r\n"
+				+ " 75% { color: #202082; }\r\n"
+				+ " 90% { color: #6b2aff; } \r\n"
+				+ " 100% { color: #e82aff; }\r\n"
+				+ "}</style>");
+		out.print("</head>");
+		out.print("<body>");
+		out.print(String.format("<div><h1>ID : %s</h1></div>", id));
+		out.print(String.format("<div><h1>PW : %s</h1></div>", pw));
+		if( id.equals(ID) ) {
+			if( pw.equals(PW) ) {
+				out.print("<marquee><h2 class='success'>로그인 성공!!!</h2></marquee>");
+			}
+			else {
+				out.print("<h2 style='color : red'>패스워드가 틀렸습니다.</h2>");	
+			}
+		}
+		else {
+			out.print("<h2 style='color : red'>존재하지 않는 회원입니다.</h2>");
+			
+		}
+		out.print("</body>");
+		out.print("</html>");
+	
+		
+	}
+	
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+//		System.out.println(request);
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		out.print("<html>");
+		out.print("<head>");
+		out.print("<meta charset=\"UTF-8\">");
+		out.print("<style>.success { animation-duration: 3s; animation-name: rainbowLink; animation-iteration-count: infinite; } \r\n"
+				+ "@keyframes rainbowLink {     \r\n"
+				+ " 0% { color: #ff2a2a; }\r\n"
+				+ " 15% { color: #ff7a2a; }\r\n"
+				+ " 30% { color: #ffc52a; }\r\n"
+				+ " 45% { color: #43ff2a; }\r\n"
+				+ " 60% { color: #2a89ff; }\r\n"
+				+ " 75% { color: #202082; }\r\n"
+				+ " 90% { color: #6b2aff; } \r\n"
+				+ " 100% { color: #e82aff; }\r\n"
+				+ "}</style>");
+		out.print("</head>");
+		out.print("<body>");
+		out.print(String.format("<div><h1>ID : %s</h1></div>", id));
+		out.print(String.format("<div><h1>PW : %s</h1></div>", pw));
+		if( id.equals(ID) ) {
+			if( pw.equals(PW) ) {
+				out.print("<marquee><h2 class='success'>로그인 성공!!!</h2></marquee>");
+			}
+			else {
+				out.print("<h2 style='color : red'>패스워드가 틀렸습니다.</h2>");	
+			}
+		}
+		else {
+			out.print("<h2 style='color : red'>존재하지 않는 회원입니다.</h2>");
+			
+		}
+		out.print("</body>");
+		out.print("</html>");
+	}
+
+}

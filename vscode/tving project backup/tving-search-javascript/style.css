@@ -1,0 +1,193 @@
+/* =======================================
+   1. 기본 설정
+======================================= */
+* { box-sizing: border-box; }
+html, body { margin: 0; min-height: 100%; }
+body { background: #000; color: #fff; font-family: Arial, 'Noto Sans KR', sans-serif; }
+a { color: inherit; text-decoration: none; }
+ul, ol { margin: 0; padding: 0; list-style: none; }
+button, input { font: inherit; }
+
+/* =======================================
+   2. 상단 메뉴(헤더)
+======================================= */
+.site-header {
+  height: 54px;
+  padding: 0 2%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 24px;
+  background: #000;
+  position: relative;
+  z-index: 20;
+}
+.nav-left, .nav-links, .nav-right { display: flex; align-items: center; }
+.nav-left { gap: 32px; min-width: 0; }
+.logo { color: #ff174b; font-size: 25px; font-weight: 900; letter-spacing: -1.5px; }
+.nav-links { gap: 26px; }
+.nav-links a { font-size: 13px; white-space: nowrap; }
+.nav-links a:hover { color: #ff174b; }
+.nav-right { gap: 25px; flex-shrink: 0; }
+.login {
+  background: #ff174b;
+  border-radius: 18px;
+  padding: 6px 10px;
+  font-size: 11px;
+  font-weight: bold;
+}
+
+/* =======================================
+   3. 검색 버튼: 돋보기 -> X
+======================================= */
+.search-switch {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 32px;
+  padding: 0;
+  cursor: pointer;
+  color: #fff;
+  background: transparent;
+  border: 0;
+}
+.search-switch svg, .large-search-bar svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.search-switch .close-icon { display: none; }
+
+/* JavaScript가 .app에 is-search-open을 추가하면 아이콘이 바뀝니다. */
+.app.is-search-open .search-switch .search-icon { display: none; }
+.app.is-search-open .search-switch .close-icon { display: block; }
+.app.is-search-open .site-header { background: #1b1b1b; }
+.search-switch:focus-visible, .profile-button:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 3px;
+}
+
+/* =======================================
+   4. 프로필 아이콘 및 드롭다운
+======================================= */
+.profile-menu {
+  position: relative;
+  display: flex;
+  align-items: center;
+  height: 54px;
+}
+.profile-button {
+  width: 23px;
+  height: 23px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  cursor: pointer;
+  background: linear-gradient(125deg, #ff376c, #26d9c6);
+}
+.dropdown {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  width: 180px;
+  padding: 8px 0;
+  border: 1px solid #383838;
+  border-radius: 5px;
+  background: #242424;
+  box-shadow: 0 10px 24px #0008;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-8px);
+  transition: opacity .2s, transform .2s, visibility .2s;
+}
+.dropdown a { display: block; padding: 12px 17px; font-size: 13px; }
+.dropdown a:hover { background: #363636; }
+
+/* JavaScript가 is-open 클래스를 추가한 경우 메뉴를 표시합니다. */
+.profile-menu.is-open .dropdown {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* =======================================
+   5. 메인 배너 화면
+======================================= */
+.home-page { background: #000; min-height: calc(100vh - 54px); padding: 0 2.54%; }
+.hero {
+  width: 100%;
+  aspect-ratio: 1960 / 676;
+  min-height: 350px;
+  border-radius: 29px;
+  background: #5c5242 url('hero.jpg') center center / cover no-repeat;
+}
+
+/* =======================================
+   6. 검색 전용 화면으로 전환
+======================================= */
+/* 기본 상태에서는 메인만 보이고 검색 화면은 숨깁니다. */
+.search-page { display: none; background: #1b1b1b; min-height: calc(100vh - 54px); }
+
+/* JavaScript가 is-search-open을 추가하면 두 화면의 표시 여부가 반전됩니다. */
+.app.is-search-open .home-page { display: none; }
+.app.is-search-open .search-page { display: block; }
+
+/* =======================================
+   7. 검색 화면 레이아웃
+======================================= */
+.search-inner { width: min(1610px, 84%); margin: 0 auto; padding: 35px 0 50px; }
+.large-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 55px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid #ddd;
+}
+.large-search-bar input {
+  flex: 1;
+  min-width: 0;
+  color: #fff;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font-size: clamp(19px, 2vw, 26px);
+}
+.large-search-bar input::placeholder { color: #e3e3e3; opacity: 1; }
+.large-search-bar svg { width: 31px; height: 31px; flex-shrink: 0; }
+
+/* 최근 검색어는 왼쪽, 인기 검색어는 오른쪽에 배치합니다. */
+.search-columns { display: grid; grid-template-columns: 1fr 1fr; margin-top: 37px; }
+.search-columns section { min-width: 0; }
+.search-columns h2 { margin: 0 0 26px; font-size: 21px; }
+.recent-search { padding-right: 44px; }
+.recent-search p { color: #999; margin: 0; font-size: 16px; }
+.popular-search { padding-left: 45px; border-left: 1px solid #292929; }
+.popular-search ol { display: grid; gap: 18px; }
+.popular-search li { color: #aaa; font-size: 16px; display: flex; gap: 25px; align-items: baseline; }
+.popular-search li span { color: #ff174b; min-width: 10px; }
+.ranking-note { margin-top: 20px; color: #555; font-size: 13px; }
+
+/* =======================================
+   8. 좁은 화면 대응
+======================================= */
+@media (max-width: 950px) {
+  .nav-links { gap: 13px; }
+  .nav-links a { font-size: 12px; }
+  .nav-left { gap: 18px; }
+  .nav-right { gap: 13px; }
+}
+@media (max-width: 650px) {
+  .site-header { padding: 0 16px; }
+  .nav-links { display: none; }
+  .search-inner { width: calc(100% - 36px); padding-top: 22px; }
+  .search-columns { grid-template-columns: 1fr; gap: 36px; }
+  .recent-search { padding-right: 0; }
+  .popular-search { padding-left: 0; border-left: 0; border-top: 1px solid #333; padding-top: 26px; }
+  .home-page { padding: 0 10px; }
+  .hero { min-height: 270px; border-radius: 16px; }
+}

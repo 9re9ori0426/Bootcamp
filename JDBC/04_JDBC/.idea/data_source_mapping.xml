@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$PROJECT_DIR$/src/RDB.sql" value="98d79117-0bd4-49c5-a422-6d7b5048464a" />
+    <file url="file://$PROJECT_DIR$/src/bmi.sql" value="98d79117-0bd4-49c5-a422-6d7b5048464a" />
+    <file url="file://$PROJECT_DIR$/src/coffee.sql" value="98d79117-0bd4-49c5-a422-6d7b5048464a" />
+  </component>
+</project>

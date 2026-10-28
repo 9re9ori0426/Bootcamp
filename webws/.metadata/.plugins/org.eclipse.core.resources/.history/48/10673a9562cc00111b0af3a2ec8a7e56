@@ -1,0 +1,152 @@
+package com.bo.io;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/Reg")
+public class Reg extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String name = request.getParameter("name");
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		String gender = request.getParameter("gender");
+		String addr = request.getParameter("addr");
+		String[] interests  = request.getParameterValues("interest");
+		String introduce = request.getParameter("introduce");
+
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		
+//		out.print("<html>");
+//		out.print("<head>");
+//		out.print("<meta charset=\"UTF-8\">");
+//		out.print("<link rel='stylesheet' href='test.css'>");
+//		out.print("</head>");
+//		out.print("<body>");
+//		
+//		out.print("<div class='flex-box'>");
+//		
+//		out.printf("<h1>%s</h1>", name);
+//		out.printf("<h1>%s</h1>", id);
+//		out.printf("<h1>%s</h1>", pw);
+//		out.printf("<h1>%s</h1>", gender);
+//		out.printf("<h1>%s</h1>", addr);
+//		out.print("<h2>interest : ");
+//		for(String interest : interests) {
+//			out.print(interest + " ");
+//		}
+//		out.print("</h2>");
+//		out.printf("<h2>%s</h2>", introduce);
+		
+		
+		/* gpt의 짓
+		out.print("<div class='result-container'>");
+
+		out.print("<h1 class='result-title'>회원가입 정보</h1>");
+
+		out.print("<div class='result-card'>");
+
+		out.print("<div class='result-row'>");
+		out.print("<span class='result-label'>Name</span>");
+		out.printf("<span class='result-value'>%s</span>", name);
+		out.print("</div>");
+
+		out.print("<div class='result-row'>");
+		out.print("<span class='result-label'>ID</span>");
+		out.printf("<span class='result-value'>%s</span>", id);
+		out.print("</div>");
+
+		out.print("<div class='result-row'>");
+		out.print("<span class='result-label'>PW</span>");
+		out.printf("<span class='result-value'>%s</span>", pw);
+		out.print("</div>");
+
+		out.print("<div class='result-row'>");
+		out.print("<span class='result-label'>Gender</span>");
+		out.printf("<span class='result-value'>%s</span>", gender);
+		out.print("</div>");
+
+		out.print("<div class='result-row'>");
+		out.print("<span class='result-label'>Address</span>");
+		out.printf("<span class='result-value'>%s</span>", addr);
+		out.print("</div>");
+
+		out.print("<div class='result-row'>");
+		out.print("<span class='result-label'>Interest</span>");
+		out.print("<div class='interest-list'>");
+
+		for (String interest : interests) {
+		    out.printf("<span class='interest-tag'>%s</span>", interest);
+		}
+
+		out.print("</div>");
+		out.print("</div>");
+
+		out.print("<div class='result-introduce'>");
+		out.print("<span class='result-label'>Introduction</span>");
+		out.printf("<p>%s</p>", introduce);
+		out.print("</div>");
+
+		out.print("</div>");
+		out.print("</div>");
+		*/
+		
+//		out.print("</div>");
+//		out.print("</body>");
+//		out.print("</html>");
+		
+		out.print("\r\n"
+				+ "<html>\r\n"
+				+ "<head>\r\n"
+				+ "<meta charset=\"UTF-8\">\r\n"
+				+ "<title>Insert title here</title>\r\n"
+				+ "<link rel='stylesheet' href='reg.css'>\r\n"
+				+ "</head>\r\n"
+				+ "<body>\r\n"
+				+ "		<div class=\"signup-row\">\r\n"
+				+ "			<div>Name</div>\r\n"
+				+ name + "\r\n"
+				+ "		</div>\r\n"
+				+ "		<div class=\"signup-row\">\r\n"
+				+ "			<div>ID</div>\r\n"
+				+ id + "			\r\n"
+				+ "		</div>\r\n"
+				+ "		<div class=\"signup-row\">\r\n"
+				+ "			<div>PW</div>\r\n"
+				+ pw + "\r\n"
+				+ "		</div>\r\n"
+				+ "		<div class=\"signup-row\">\r\n"
+				+ "			<div>Gender</div>\r\n"
+				+ "			"+ gender == "m" ? "male" : "female"   + "\r\n"
+				+ "		</div>\r\n"
+				+ "		<div class=\"signup-row\">\r\n"
+				+ "			<div>Addr</div>\r\n"
+				+ "			"+ addr + "\r\n"
+				+ "		</div>\r\n"
+				+ "		<div class=\"signup-row\">\r\n"
+				+ "			<div>Interest</div>\r\n"
+				+ "			"+ interests.toString() + "\r\n"
+				+ "		</div>\r\n"
+				+ "		<div class=\"signup-row\">\r\n"
+				+ "			<div>Introduce</div>\r\n"
+				+ "			" + introduce + "\r\n"
+				+ "		</div>\r\n"
+				+ "\r\n"
+				+ "</body>\r\n"
+				+ "</html>");
+	
+		
+		
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+
+}

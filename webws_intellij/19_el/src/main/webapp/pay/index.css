@@ -1,0 +1,264 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Share+Tech+Mono&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    display: grid;
+    place-items: center;
+    overflow: hidden;
+
+    background: #080808;
+    color: white;
+    font-family: 'Share Tech Mono', monospace;
+
+    background-image:
+            radial-gradient(ellipse at 15% 20%, rgba(255, 0, 60, 0.15), transparent 35%),
+            radial-gradient(ellipse at 85% 80%, rgba(190, 255, 0, 0.12), transparent 35%),
+            linear-gradient(rgba(255,255,255,0.025) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255,255,255,0.025) 1px, transparent 1px);
+    background-size: auto, auto, 30px 30px, 30px 30px;
+}
+
+/* 터미널 패널 */
+form {
+    position: relative;
+    width: min(90vw, 560px);
+    padding: 42px 34px;
+
+    background: #101010;
+    border: 1px solid #555;
+    outline: 1px solid #222;
+    outline-offset: 8px;
+
+    box-shadow:
+            0 0 25px rgba(0, 0, 0, 0.8),
+            0 0 60px rgba(190, 255, 0, 0.08);
+
+    transform: skewY(-2deg);
+    animation: boot 0.65s ease-out both;
+}
+
+/* 상단 시스템 경고 */
+form::before {
+    content: '◉ SYSTEM OVERRIDE  /  MONEY.exe';
+    display: block;
+    margin: 0 0 38px;
+    padding: 0 0 15px;
+
+    border-bottom: 1px dashed #555;
+    color: #c6ff00;
+    font-size: 12px;
+    letter-spacing: 3px;
+}
+
+/* 하단 상태 표시 */
+form::after {
+    content: 'WARNING: YOUR WALLET IS UNDER ATTACK';
+    display: block;
+    margin-top: 26px;
+
+    color: #ff1744;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-align: center;
+
+    animation: blink 1.5s steps(2, start) infinite;
+}
+
+/* 레이블 */
+form label {
+    display: inline-block;
+    width: 95px;
+    margin-bottom: 34px;
+
+    color: #c6ff00;
+    font-size: 15px;
+    letter-spacing: 2px;
+    vertical-align: middle;
+}
+
+/* 두 번째 레이블 */
+form label:nth-of-type(2) {
+    color: #ff1744;
+}
+
+/* 입력창 */
+form input {
+    width: calc(100% - 105px);
+    height: 58px;
+    margin-bottom: 34px;
+    padding: 0 16px;
+
+    background: #050505;
+    border: 1px solid #444;
+    border-bottom: 3px solid #c6ff00;
+    border-radius: 0;
+
+    color: #c6ff00;
+    font-family: 'Share Tech Mono', monospace;
+    font-size: 23px;
+    letter-spacing: 2px;
+
+    outline: none;
+    vertical-align: middle;
+    transition: 0.2s;
+    caret-color: #c6ff00;
+}
+
+/* 지출 입력창 */
+form input[name="spend"] {
+    border-bottom-color: #ff1744;
+    color: #ff1744;
+    caret-color: #ff1744;
+}
+
+/* 포커스 시 네온 발광 */
+form input:focus {
+    background: #171d00;
+    border-color: #c6ff00;
+    box-shadow: 0 0 20px rgba(198, 255, 0, 0.2);
+}
+
+form input[name="spend"]:focus {
+    background: #20070d;
+    border-color: #ff1744;
+    box-shadow: 0 0 20px rgba(255, 23, 68, 0.2);
+}
+
+/* 기존 줄바꿈 */
+form br {
+    display: none;
+}
+
+/* 실행 버튼 */
+button {
+    position: relative;
+    display: block;
+    width: 100%;
+    min-height: 76px;
+    margin-top: 2px;
+    padding: 16px;
+
+    overflow: hidden;
+    border: 2px solid #c6ff00;
+    border-radius: 0;
+
+    background: #c6ff00;
+    color: #080808;
+
+    font-family: 'Black Ops One', cursive;
+    font-size: 23px;
+    letter-spacing: 3px;
+
+    cursor: pointer;
+    clip-path: polygon(
+            0 0, 95% 0, 100% 25%,
+            100% 100%, 5% 100%, 0 75%
+    );
+
+    transition: 0.2s;
+}
+
+/* 버튼 내부 스캔 효과 */
+button::after {
+    content: '';
+    position: absolute;
+    top: -100%;
+    left: -30%;
+    width: 30%;
+    height: 300%;
+
+    background: rgba(255, 255, 255, 0.35);
+    transform: rotate(25deg);
+    transition: left 0.4s;
+}
+
+button:hover {
+    background: #ff1744;
+    border-color: #ff1744;
+    color: white;
+
+    box-shadow: 0 0 30px rgba(255, 23, 68, 0.5);
+    transform: scale(1.035) skewX(-3deg);
+}
+
+button:hover::after {
+    left: 130%;
+}
+
+button:active {
+    transform: scale(0.97);
+    filter: brightness(0.75);
+}
+
+/* 화면 진입 애니메이션 */
+@keyframes boot {
+    from {
+        opacity: 0;
+        transform: translateY(20px) skewY(-2deg);
+        filter: blur(5px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0) skewY(-2deg);
+        filter: blur(0);
+    }
+}
+
+/* 경고등 깜박임 */
+@keyframes blink {
+    50% {
+        opacity: 0.3;
+    }
+}
+
+/* 모션 최소화 설정 존중 */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}
+
+/* 모바일 */
+@media (max-width: 480px) {
+    form {
+        padding: 30px 20px;
+        transform: none;
+    }
+
+    form::before {
+        font-size: 10px;
+        letter-spacing: 1px;
+    }
+
+    form label {
+        width: 75px;
+        font-size: 12px;
+    }
+
+    form input {
+        width: calc(100% - 85px);
+        height: 52px;
+        padding: 0 10px;
+        font-size: 18px;
+    }
+
+    button {
+        min-height: 64px;
+        font-size: 19px;
+    }
+
+    form::after {
+        font-size: 8px;
+        letter-spacing: 1px;
+    }
+}

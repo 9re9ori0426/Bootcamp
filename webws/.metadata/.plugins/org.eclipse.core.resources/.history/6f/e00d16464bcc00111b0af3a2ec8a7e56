@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+.flex-box {
+	display : flex;
+	flex-direction : column;
+	justify-content : space-between;
+
+	& div {
+		
+	display : flex;
+	flex-direction : row;
+	}
+}

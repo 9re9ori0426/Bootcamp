@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .container {
+            border: 1px solid;
+            height: calc(200vh - 2px);
+            background-color: #333333;
+            color: white;
+        }
+
+        .nav {
+            background-color: #565656;
+            font-size: 20pt;
+            display: flex;
+            position: sticky;
+            z-index: 99999;
+            top: 0;
+        }
+
+        .nav ul {
+            text-align: center;
+            /* margin: 0 auto; */
+            margin-left: auto;
+            margin-right: auto;
+
+            li {
+                list-style: none;
+                display: inline-block;
+                /* background-color: red; */
+                width: 130px;
+            }
+        }
+
+        .contents {
+            display: flex;
+            border: 2px solid rgb(236, 231, 231);
+            min-height: 200px;
+        }
+
+        .contents>div {
+            /* flex-grow: 1; */
+            width: 200px;
+            height: 200px;
+            border: 2px solid;
+        }
+
+        .d1 {
+            background-color: rgb(87, 39, 39);
+        }
+
+        .d2 {
+            background-color: rgb(150, 63, 63);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="nav">
+            <ul>
+                <li>메뉴 1</li>
+                <li>메뉴 2</li>
+                <li>메뉴 3</li>
+                <li>메뉴 4</li>
+            </ul>
+        </div>
+
+        <div class="contents">
+            <div class="d1" style="position:fixed; right : 0; bottom : 0;">1 광고 클릭하면 닫기</div>
+            <div class="d2" style="position: relative; left: 100px; top:100px;">2</div>
+        </div>
+
+        <div class="contents" style="height: 400px; position: relative;">
+            <div class="d1" style="position: absolute; top : 100px; left:100px;">1</div>
+            <div class="d2" style="position:sticky; top: 0">2</div>
+        </div>
+
+        <div class="contents">
+            <div class="d1">1</div>
+            <div class="d2">2</div>
+        </div>
+    </div>
+</body>
+
+</html>

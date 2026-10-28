@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="Calc">
+		<input type="checkbox"> 가 <input type="checkbox"> 다 <input
+			type="checkbox"> 다 <input type="checkbox"> 라
+		<button>calc</button>
+	</form>
+
+</body>
+</html>

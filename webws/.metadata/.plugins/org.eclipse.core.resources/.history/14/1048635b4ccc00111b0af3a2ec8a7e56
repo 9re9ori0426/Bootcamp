@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+test {
+	display: flex;
+	justify-content: 'spacebetween'
+}
+</style>
+
+</head>
+<body>
+	<form action="Calc">
+		<input name="x"> <br>
+		<input name="y">
+		<p>
+			<input type = "checkbox" > + 
+			<input type = "checkbox" > -
+			<input type = "checkbox" > ×
+			<input type = "checkbox" > ÷
+		</p>
+		<button>calc</button>
+	</form>
+
+</body>
+</html>

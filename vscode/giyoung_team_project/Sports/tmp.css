@@ -1,0 +1,145 @@
+.search-switch {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 32px;
+  padding: 0;
+  cursor: pointer;
+  color: white;
+  background: transparent;
+  border: 0;
+}
+.search-switch svg,
+.large-search-bar svg {
+  width: 21px;
+  height: 21px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 2;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+}
+.search-switch .close-icon {
+  display: none;
+}
+
+.app.is-search-open .search-switch .search-icon {
+  display: none;
+}
+.app.is-search-open .search-switch .close-icon {
+  display: block;
+}
+.app.is-search-open .site-header {
+  background-color: black;
+}
+.search-switch:focus-visible {
+  outline: 2px solid white;
+  outline-offset: 3px;
+}
+.home-page {
+  background-color: black;
+  /* min-height: calc(100vh - 54px); */
+  padding: 0 2.54%;
+  height: 540px !important;
+}
+.search-page {
+  display: none;
+  background: black;
+  min-height: calc(100vh - 54px);
+}
+.app.is-search-open .home-page {
+  display: none;
+}
+.app.is-search-open .search-page {
+  display: block;
+}
+.search-inner {
+  background-color: black;
+  width: min(1680px, 84%);
+  margin: 0 auto;
+  padding: 35px 0 50px;
+}
+.large-search-bar {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  height: 55px;
+  padding-bottom: 12px;
+  border-bottom: 2px solid white;
+}
+.large-search-bar input {
+  flex: 1;
+  min-width: 0;
+  color: white;
+  background: transparent;
+  border: 0;
+  outline: 0;
+  font-size: clamp(19px, 2vw, 26px);
+}
+.large-search-bar input::placeholder {
+  color: white;
+  opacity: 1;
+}
+.large-search-bar svg {
+  width: 31px;
+  height: 31px;
+  flex-shrink: 0;
+}
+.search-columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin-top: 37px;
+}
+.search-columns section {
+  min-width: 0;
+}
+.search-columns h2 {
+  margin: 0 0 26px;
+  font-size: 21px;
+}
+.recent-search {
+  padding-right: 44px;
+}
+.recent-search h2 {
+  color: white;
+  font-size: 21px;
+}
+.recent-search p {
+  color: gray;
+  margin: 0;
+  font-size: 16px;
+}
+.popular-search {
+  padding-left: 45px;
+  border-left: 1px solid #292929;
+}
+.popular-search h2 {
+  color: white;
+  font-size: 21px;
+}
+.popular-search ol {
+  display: grid;
+  gap: 18px;
+  color: white;
+}
+.popular-search li {
+  opacity: 0.7;
+  font-size: 16px;
+  display: flex;
+  gap: 25px;
+}
+.popular-search li:hover {
+  opacity: 1;
+  cursor: pointer;
+  font-weight: bold;
+}
+.popular-search li span {
+  color: red;
+  min-width: 10px;
+}
+
+.ranking-note {
+  margin: 20px;
+  color: gray;
+  font-size: 13px;
+}

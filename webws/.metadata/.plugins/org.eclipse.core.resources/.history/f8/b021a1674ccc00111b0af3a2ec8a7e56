@@ -1,0 +1,18 @@
+@charset "UTF-8";
+
+.flex-box {
+	display : flex;
+	flex-direction : column;
+	padding : 60px;
+	border : 1px solid black;
+	font-size : 24px;
+	background-color : #333;
+	color : white;
+
+	& > div {
+		width : 100px;
+		display : flex;
+		flex-direction : row;
+		justify-content : space-between;
+	}
+}

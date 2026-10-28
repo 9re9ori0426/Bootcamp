@@ -1,0 +1,168 @@
+@charset "UTF-8";
+
+
+:root {
+  --primary: #4f6bed;
+  --primary-hover: #3d55d6;
+  --text: #263449;
+  --text-muted: #6b7280;
+  --border: #d1d5db;
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --radius: 8px;
+  --focus-shadow: rgba(79, 107, 237, 0.15);
+}
+
+form {
+  width: 100%;
+  max-width: 480px;
+  margin: 40px auto;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  font-family: Arial, sans-serif;
+}
+
+.signup-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+.signup-row > div {
+  flex: 0 0 80px;
+  color: var(--text);
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* Text, ID, Password inputs */
+.signup-row input:not([type="radio"]) {
+  flex: 1;
+  min-width: 0;
+  height: 42px;
+  padding: 0 12px;
+  color: var(--text);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* Select */
+.signup-row select {
+  flex: 1;
+  min-width: 0;
+  height: 42px;
+  padding: 0 12px;
+  color: var(--text);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  cursor: pointer;
+}
+
+/* Textarea row */
+.signup-row:has(textarea) {
+  align-items: stretch;
+}
+
+.signup-row textarea {
+  width: 100%;
+  min-height: 110px;
+  padding: 12px;
+  color: var(--text);
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font: inherit;
+  resize: vertical;
+  outline: none;
+}
+
+/* Focus effect */
+.signup-row input:focus,
+.signup-row select:focus,
+.signup-row textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--focus-shadow);
+}
+
+/* Radio buttons */
+.signup-row input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  margin: 0 2px 0 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+/* Submit button */
+form > button {
+  width: 100%;
+  padding: 13px;
+  color: #fff;
+  background: var(--primary);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+form > button:hover {
+  background: var(--primary-hover);
+}
+
+form > button:active {
+  transform: scale(0.98);
+}
+
+/* Mobile */
+@media (max-width: 520px) {
+  form {
+    width: calc(100% - 32px);
+    padding: 24px 18px;
+  }
+
+  .signup-row {
+    gap: 10px;
+  }
+
+  .signup-row > div {
+    flex-basis: 65px;
+  }
+}
+/* Interest checkbox */
+.signup-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0 4px 0 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+  vertical-align: middle;
+}
+
+/* Interest row layout */
+.signup-row:has(input[type="checkbox"]) {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.signup-row:has(input[type="checkbox"]) > div {
+  flex: 0 0 80px;
+}
+
+/* Checkbox hover */
+.signup-row input[type="checkbox"]:hover {
+  filter: brightness(0.9);
+}

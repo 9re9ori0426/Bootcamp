@@ -1,0 +1,15 @@
+.button-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+
+  & > button:nth-child(2) {
+    background-color: rgb(85, 85, 134);
+    border: 1px solid #333;
+  }
+  & > button:nth-child(3) {
+    background-color: white;
+    color: black;
+    border: 1px solid #333;
+  }
+}

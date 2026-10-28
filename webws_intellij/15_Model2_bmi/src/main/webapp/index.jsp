@@ -2,11 +2,11 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <script>
-        location.href="hc";
-    </script>
+    <title>JSP - Hello World</title>
 </head>
+<script>
+    location.href = 'hc'
+</script>
 <body>
-
 </body>
 </html>

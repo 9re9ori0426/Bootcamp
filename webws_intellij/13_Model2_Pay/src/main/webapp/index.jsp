@@ -3,11 +3,10 @@
 <html>
 <head>
     <title>JSP - Hello World</title>
-    <script>
-        location.href="hc"
-    </script>
 </head>
+<script>
+    location.href = 'hc';
+</script>
 <body>
-
 </body>
 </html>

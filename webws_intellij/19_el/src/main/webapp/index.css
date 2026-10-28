@@ -1,0 +1,186 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&family=Space+Mono:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    padding: 60px 8%;
+
+    background-color: #0a0a0a;
+    background-image:
+            linear-gradient(rgba(190, 255, 0, 0.06) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(190, 255, 0, 0.06) 1px, transparent 1px);
+    background-size: 35px 35px;
+
+    color: #f3f3f3;
+    font-family: 'Space Mono', monospace;
+
+    overflow-x: hidden;
+}
+
+/* 대문 타이틀 */
+h1 {
+    position: relative;
+    width: fit-content;
+    margin: 0 0 70px -8px;
+
+    font-family: 'Black Ops One', cursive;
+    font-size: clamp(70px, 15vw, 180px);
+    line-height: 0.95;
+    letter-spacing: -8px;
+    color: #c6ff00;
+
+    text-transform: uppercase;
+    transform: skew(-5deg);
+
+    text-shadow:
+            5px 5px 0 #ff1744,
+            10px 10px 0 #292929;
+}
+
+/* 타이틀 밑의 경고 문구 느낌 */
+h1::after {
+    content: '// SYSTEM OVERRIDE';
+    position: absolute;
+    right: 0;
+    bottom: -32px;
+
+    font-family: 'Space Mono', monospace;
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: #ff1744;
+}
+
+/* 링크를 거대한 메뉴 패널로 */
+a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    min-height: 100px;
+    padding: 20px 30px;
+    margin: 0 0 14px;
+
+    border: 2px solid #373737;
+    background: #111111;
+
+    color: #f3f3f3;
+    font-family: 'Black Ops One', cursive;
+    font-size: clamp(32px, 6vw, 64px);
+    text-decoration: none;
+    text-transform: uppercase;
+
+    transition:
+            background 0.15s,
+            color 0.15s,
+            border-color 0.15s,
+            transform 0.15s,
+            box-shadow 0.15s;
+}
+
+/* 메뉴 번호 */
+a::before {
+    content: '[ ACCESS ]';
+    margin-right: 24px;
+
+    font-family: 'Space Mono', monospace;
+    font-size: 11px;
+    letter-spacing: 2px;
+    color: #c6ff00;
+}
+
+/* 오른쪽 화살표 */
+a::after {
+    content: '↗';
+    margin-left: auto;
+
+    font-family: Arial, sans-serif;
+    font-size: 48px;
+    color: #c6ff00;
+}
+
+/* 각 메뉴를 비대칭으로 배치 */
+a:nth-of-type(1) {
+    width: 85%;
+    margin-left: 8%;
+    transform: rotate(-1deg);
+}
+
+a:nth-of-type(2) {
+    width: 95%;
+    margin-left: 0;
+    transform: rotate(0.7deg);
+}
+
+a:nth-of-type(3) {
+    width: 78%;
+    margin-left: 18%;
+    transform: rotate(-0.5deg);
+}
+
+a:nth-of-type(4) {
+    width: 90%;
+    margin-left: 4%;
+    transform: rotate(1deg);
+}
+
+/* 호버 시 화면을 침범하는 효과 */
+a:hover {
+    z-index: 2;
+    color: #0a0a0a;
+    background: #c6ff00;
+    border-color: #c6ff00;
+
+    transform: translateX(18px) scale(1.025) rotate(0deg);
+    box-shadow: -10px 10px 0 #ff1744;
+}
+
+a:hover::before,
+a:hover::after {
+    color: #0a0a0a;
+}
+
+/* HTML의 hr을 두꺼운 공격적인 구분선으로 */
+hr {
+    display: none;
+}
+
+/* 모바일 */
+@media (max-width: 600px) {
+    body {
+        padding: 45px 16px;
+    }
+
+    h1 {
+        margin-bottom: 65px;
+        letter-spacing: -4px;
+    }
+
+    a,
+    a:nth-of-type(n) {
+        width: 100%;
+        min-height: 78px;
+        margin: 0 0 16px;
+        padding: 16px;
+        font-size: 32px;
+        transform: none;
+    }
+
+    a::before {
+        margin-right: 12px;
+        font-size: 9px;
+    }
+
+    a::after {
+        font-size: 32px;
+    }
+
+    a:hover {
+        transform: translateX(5px);
+    }
+}

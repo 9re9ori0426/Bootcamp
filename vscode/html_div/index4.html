@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        header,
+        nav,
+        footer,
+        div {
+            border: 1px solid black;
+            margin: 10px;
+            font-size: 20pt;
+            text-align: center;
+        }
+
+        nav {
+            background-color: black;
+            color: white;
+        }
+
+        main {
+            display: flex;
+
+            &>div {
+                height: 100vh;
+
+                &:nth-child(1) {
+                    flex-grow: 1;
+                }
+
+                &:nth-child(2) {
+                    flex-grow: 3;
+                }
+            }
+        }
+
+        footer {
+            height: 200px;
+            background-color: gainsboro;
+        }
+    </style>
+</head>
+
+<body>
+    <header>Title</header>
+    <nav>Navigator</nav>
+    <main>
+        <div>Content1</div>
+        <div>Content2</div>
+    </main>
+    <footer>Footer</footer>
+</body>
+
+</html>

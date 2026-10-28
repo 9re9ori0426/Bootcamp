@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="요청할 url">
+		<input name="요청 파라미터 명">
+		<input>
+		<button>확인</button>
+		
+	</form>
+</body>
+</html>

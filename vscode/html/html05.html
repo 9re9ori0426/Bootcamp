@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        table {
+            text-align : center;
+        }
+    </style>
+</head>
+<body>
+    <table class="black-table" border="1" width="300px" height="300px">
+        <tr>
+            <th>음식</th>
+            <th>장소</th>
+        </tr>
+        <tr>
+            <td>얼큰 뚝배기 불고기</td>
+            <td>ㅁㄴㅇㄹ</td>
+        </tr>
+        <tr>
+            <td>부대찌개</td>
+            <td>ㅁㄴㅇㄹ</td>
+        </tr>
+        <tr>
+            <td>부대찌개</td>
+            <td>ㅁㄴㅇㄹ</td>
+        </tr>
+        <tr>
+            <td>부대찌개</td>
+            <td>ㅁㄴㅇㄹ</td>
+        </tr>
+    </table>
+
+    <table border="1" width="300px" height="300px">
+        <tr>
+            <td id="a" colspan="2"></td>
+            <td id="b" rowspan="2"></td>
+        </tr>
+        <tr>
+            <td id="c" rowspan="2"></td>
+            <td id="d"></td>
+        </tr>
+        <tr>
+            <td colspan="2"></td>
+        </tr>
+    </table>
+    <button onclick="handleReverse()">asdf</button>
+
+    <script>
+        let isReverse = true;
+        const handleReverse = () => {
+            let a = document.getElementById("a");
+            let b = document.getElementById("b");
+            let c = document.getElementById("c");
+            let d = document.getElementById("d");
+            let e = document.getElementById("e");
+            if(isReverse){
+                a.setAttribute("colspan", 1);
+                a.setAttribute("rowspan", 2);
+                b.setAttribute("colspan", 2);
+                b.setAttribute("rowspan", 1);
+                c.setAttribute("colspan", 1);
+                c.setAttribute("rowspan", 1);
+                d.setAttribute("colspan", 1);
+                d.setAttribute("rowspan", 2);
+            }
+            else{
+                a.setAttribute("colspan", 2);
+                a.setAttribute("rowspan", 1);
+                b.setAttribute("colspan", 1);
+                b.setAttribute("rowspan", 2);
+                c.setAttribute("colspan", 1);
+                c.setAttribute("rowspan", 2);
+                d.setAttribute("colspan", 1);
+                d.setAttribute("rowspan", 1);
+            }
+            isReverse = !isReverse;
+        }
+    </script>
+</body>
+</html>

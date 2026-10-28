@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta lang="ko">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="AAA">
+		<input name="bb">
+		<input name="cc">
+		<button>확인(누르면 action으로 감)</button>
+	</form>
+	<hr>
+	
+	<form action="Output">
+		<input name="say">
+		<input name="cnt">
+		<button>확인</button>
+	</form>
+</body>
+</html>

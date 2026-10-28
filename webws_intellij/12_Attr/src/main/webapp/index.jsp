@@ -4,9 +4,10 @@
 <head>
     <title>JSP - Hello World</title>
     <script>
-        location.href="hc";
+        location.href = "hc";
     </script>
 </head>
 <body>
+
 </body>
 </html>

@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .header {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 100%;
+            height: 90px;
+            position: sticky;
+            top: 0;
+        }
+
+        .inner {
+            display: flex;
+            gap: 16px;
+            width: 90%;
+        }
+
+        .logo {
+            display: flex;
+            gap: 16px;
+            height: 90px;
+        }
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            width: 70%;
+
+            span {
+                padding: 0 40px;
+            }
+        }
+
+        .container {
+            height: 100vh;
+        }
+
+        .contents-wrap {
+            position: relative;
+            width: 100%;
+
+
+        }
+
+        .content-img {
+            width: 100%;
+            height: calc(100vh - 90px);
+            overflow: hidden;
+        }
+
+        .upper {
+            position: absolute;
+            top: calc(50% - 162px);
+            left: calc(50% - 160px);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 324px;
+            flex-direction: column;
+        }
+
+        .upper-text {
+            font-size: 32px;
+            color: white;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="header">
+        <div class="inner">
+            <div class="img-crop">
+                <img class="logo" src="./logo.svg" width="246px">
+            </div>
+            <div class="nav">
+                <span>즐길거리</span>
+                <span>TOPICS</span>
+                <span>스토리</span>
+                <span>여행 일정</span>
+                <span>비디오</span>
+                <span>여행 정보</span>
+            </div>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="contents-wrap">
+            <img class="content-img" src="home-visual07.jpg" width="100%">
+            <div class="upper">
+                <img src="common-symbol-0.svg" style="filter: invert(100%);">
+                <div class="upper-text">공식 현지 여행 정보</div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

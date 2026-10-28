@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<style>
+	test {
+		display : flex;
+		justify-content : 'spacebetween'
+	}
+</style>
+
+</head>
+<body>
+	<form action="Calc">
+		<input name="x">
+		<input name="y">
+		<button>calc</button>
+	</form>
+	
+	<div class='test-box'>
+	<div class='test'>%d+%d+%d</div>
+	<div class='test'>%d+%d+%d</div>
+	<div class='test'>%d+%d+%d</div>
+	<div class='test'>%d+%d+%d</div>
+	</div>
+</body>
+</html>

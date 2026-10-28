@@ -1,0 +1,38 @@
+package com.bo.io;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/Calc")
+public class Calc extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int x = Integer.parseInt(request.getParameter("x"));
+		int y = Integer.parseInt(request.getParameter("y"));
+		
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		out.print("<html>");
+		out.print("<head>");
+		out.print("<meta charset=\"UTF-8\">");
+		out.print("</head>");
+		out.print("<body>");
+		out.printf("<h1>%d + %d = %d", x, y, x+y);
+		out.printf("<h1>%d - %d = %d", x, y, x-y);
+		out.printf("<h1>%d * %d = %d", x, y, x*y);
+		out.printf("<h1>%d / %d = %1.f", x, y, x/(double)y);
+		out.print("</body>");
+		out.print("</html>");
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+}

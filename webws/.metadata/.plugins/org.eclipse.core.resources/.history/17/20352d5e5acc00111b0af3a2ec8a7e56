@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+<link rel='stylesheet' href='reg.css'>
+</head>
+<body>
+	<form action="">
+		<div class="signup-row">
+			<div>Name</div>
+			<input>
+		</div>
+		<div class="signup-row">
+			<div>ID</div>
+			<input>
+		</div>
+		<div class="signup-row">
+			<div>PW</div>
+			<input>
+		</div>
+		<div class="signup-row">
+			<div>Gender</div>
+			<input type="radio" name="gender" checked>male
+			<input type="radio" name="gender">female
+		</div>
+		<div class="signup-row">
+			<div>Addr</div>
+			<select>
+				<option>Seoul</option>
+				<option selected>Busan</option>
+				<option>Cheonan</option>
+			</select>
+		</div>
+		<div class="signup-row">
+			<div>Interest</div>
+			<input type="checkbox">Food
+			<input type="checkbox">Excer
+			<input type="checkbox">Develop
+			<input type="checkbox">Travel
+		</div>
+		<div class="signup-row">
+			<textarea></textarea>
+		</div>
+
+
+		<button>sign up</button>
+	</form>
+</body>
+</html>

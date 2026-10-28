@@ -1,0 +1,37 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="bmi/theme.css">
+</head>
+<body>
+<form action="bmi" onsubmit="return isValidate()" method="post">
+    <div class="form-group">
+        <label>이름
+            <input name="name" autocomplete="off" oninput="isChangeInput()">
+        </label>
+        <div class="warn_msg" id="warn_name">이름을 입력하세요</div>
+    </div>
+    <div class="form-group">
+        <label>키
+            <input name="height" autocomplete="off" oninput="isChangeInput()">
+        </label>
+        <div class="warn_msg" id="warn_height">키를 입력하세요</div>
+    </div>
+    <div class="form-group">
+        <label>체중
+            <input name="weight" autocomplete="off" oninput="isChangeInput()">
+        </label>
+        <div class="warn_msg" id="warn_weight">체중을 입력하세요</div>
+    </div>
+
+    <button>결과 확인</button>
+    <button style="filter : grayscale(1)" type="button" onclick="location.href='/'">뒤로</button>
+</form>
+</body>
+<script src="bmi/input.js"></script>
+</html>

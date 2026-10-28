@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="root"></div>
+    <button onclick="printInfo()">이름, 나이</button>
+    <button ondblclick="print2Dan()">2단 더블클릭</button>
+    <button onclick="add(1, 2)">더하기</button>
+    <button onclick="gugudan(9)">구구단</button>
+
+    <hr>
+    <input type="text" id="i1" onchange="printGugudan()"> <button onclick="printGugudan()">단</button>
+    <div id="gugudan"></div>
+    <hr>
+    
+    <form name="myForm" onsubmit="return gugudan2()">
+        <input type="text" id="i2" name="myInput"> <button>단</button>
+    </form>
+    <hr>
+
+    <button style="
+        background-color: black;
+        color : white;
+        width: 180px;
+        height: 80px;
+        font-size: 20pt;
+        letter-spacing: 5px;
+    " id="b1" onclick="
+        const styles = document.getElementById('b1').style;
+        styles.backgroundColor = 'orange'
+        styles.color = '#ffff00'
+        styles.width = 'blue'
+        styles.height = '100px'
+        styles.fontSize = '25pt'
+    ">눌러눌러</button>
+
+    <button style="
+        background-color: black;
+        color : white;
+        width: 180px;
+        height: 80px;
+        font-size: 20pt;
+        letter-spacing: 5px;
+    " id="b2" onclick="
+        const styles = this.style;
+        styles.backgroundColor = 'orange'
+        styles.color = '#ffff00'
+        styles.width = 'blue'
+        styles.height = '100px'
+        styles.fontSize = '25pt'
+    ">눌러눌러</button>
+
+    
+
+    <button style="
+        background-color: black;
+        color : white;
+        width: 180px;
+        height: 80px;
+        font-size: 20pt;
+        letter-spacing: 5px;
+    " id="b3" onclick="
+        const styles = this.style;
+        styles.backgroundColor = 'orange'
+        styles.color = '#ffff00'
+        styles.width = 'blue'
+        styles.height = '100px'
+        styles.fontSize = '25pt'
+    ">눌러눌러</button>
+
+
+<script>
+    document.querySelector("#b3").addEventListener("click", () => {
+        alert(11);
+    })
+</script>
+</body>
+<script src="js08.js"></script>
+</html>

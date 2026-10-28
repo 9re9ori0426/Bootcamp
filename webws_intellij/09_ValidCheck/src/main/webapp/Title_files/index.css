@@ -1,0 +1,279 @@
+@import url('https://fonts.googleapis.com/css2?family=Jua&family=Noto+Sans+KR:wght@400;500;600;700&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 50px 20px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 22px;
+
+    background-color: #fffaf3;
+    background-image: radial-gradient(#eadfd0 1px, transparent 1px);
+    background-size: 22px 22px;
+
+    color: #5c5149;
+    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 15px;
+}
+
+/* 제목 */
+h1 {
+    width: min(100%, 560px);
+    margin: 0;
+    padding: 24px 20px;
+
+    color: #5d786b;
+    background: #e4f0e8;
+    border: 2px solid #c9dfd1;
+    border-radius: 24px;
+
+    font-family: 'Jua', sans-serif;
+    font-size: 30px;
+    font-weight: normal;
+    text-align: center;
+    line-height: 1.5;
+
+    box-shadow: 0 5px 0 #d2e4d8;
+}
+
+/* 상품 가격 입력 폼 */
+body > form:first-of-type {
+    width: min(100%, 560px);
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    background: #ffffff;
+    border: 2px solid #f0e3d7;
+    border-radius: 24px;
+
+    box-shadow: 0 8px 24px rgba(119, 96, 75, 0.08);
+}
+
+/* 각 입력 항목 */
+body > form:first-of-type > div {
+    padding: 18px;
+
+    background: #fff8f1;
+    border: 1px solid #f3e5d8;
+    border-radius: 16px;
+}
+
+body > form:first-of-type > div > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 14px;
+
+    color: #78675b;
+    font-weight: 600;
+}
+
+/* 입력창 */
+input[type="text"]:not([hidden]) {
+    width: 58%;
+    min-width: 0;
+    padding: 12px 14px;
+
+    color: #5c5149;
+    background: #fff;
+    border: 2px solid #e8ded4;
+    border-radius: 12px;
+
+    font: inherit;
+    text-align: right;
+
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input[type="text"]:not([hidden]):focus {
+    border-color: #9fc9b0;
+    box-shadow: 0 0 0 4px rgba(159, 201, 176, 0.2);
+}
+
+/* 버튼 공통 */
+button {
+    padding: 13px 22px;
+
+    color: #fff;
+    background: #8fbaa0;
+    border: none;
+    border-radius: 14px;
+
+    font-family: 'Jua', sans-serif;
+    font-size: 18px;
+    letter-spacing: 0.5px;
+
+    cursor: pointer;
+    box-shadow: 0 4px 0 #719b82;
+
+    transition: transform 0.15s, box-shadow 0.15s, background 0.15s;
+}
+
+button:hover {
+    background: #78aa8d;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 0 #719b82;
+}
+
+button:active {
+    transform: translateY(2px);
+    box-shadow: 0 2px 0 #719b82;
+}
+
+/* 첫 번째 폼의 계산 버튼 */
+body > form:first-of-type > div:last-child {
+    padding: 0;
+    background: transparent;
+    border: none;
+}
+
+body > form:first-of-type > div:last-child > div {
+    display: block;
+}
+
+body > form:first-of-type > div:last-child button {
+    width: 100%;
+    padding: 16px;
+    font-size: 20px;
+}
+
+/* 결과 페이지의 가격 정보 */
+body > div {
+    width: min(100%, 560px);
+    padding: 20px 24px;
+
+    background: #fff;
+    border: 2px solid #f0e3d7;
+    border-radius: 18px;
+
+    box-shadow: 0 5px 16px rgba(119, 96, 75, 0.05);
+}
+
+body > div > div {
+    padding: 10px 0;
+    color: #78675b;
+    font-size: 16px;
+    line-height: 1.8;
+}
+
+body > div > div + div {
+    border-top: 1px dashed #e8ded4;
+}
+
+/* GET/POST 확인 폼 */
+body > form:not(:first-of-type) {
+    width: min(100%, 560px);
+    margin: 0;
+    padding: 18px 22px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+
+    background: #fff;
+    border: 1px solid #f0e3d7;
+    border-radius: 18px;
+
+    box-shadow: 0 4px 12px rgba(119, 96, 75, 0.05);
+}
+
+/* 숨겨진 값은 레이아웃에 영향을 주지 않음 */
+input[hidden] {
+    display: none;
+}
+
+/* 확인 버튼은 조금 더 작고 차분하게 */
+body > form:not(:first-of-type) button {
+    flex: 1;
+    min-width: 0;
+    padding: 13px 12px;
+    font-size: 16px;
+}
+
+/* 구분선 */
+hr {
+    width: min(100%, 560px);
+    margin: 4px 0;
+
+    border: none;
+    border-top: 2px dashed #e5d5c5;
+}
+
+/* 결과 메시지 페이지 */
+h1 + h1 {
+    background: #fff0e9;
+    border-color: #f4d2c3;
+    color: #b87967;
+    box-shadow: 0 5px 0 #f2d9ce;
+}
+
+/* 화면이 좁을 때 */
+@media (max-width: 480px) {
+    body {
+        padding: 30px 14px;
+        gap: 16px;
+    }
+
+    h1 {
+        padding: 20px 14px;
+        font-size: 25px;
+        border-radius: 20px;
+        overflow-wrap: anywhere;
+    }
+
+    body > form:first-of-type {
+        padding: 18px;
+        gap: 13px;
+    }
+
+    body > form:first-of-type > div {
+        padding: 14px;
+    }
+
+    body > form:first-of-type > div > div {
+        align-items: stretch;
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    input[type="text"]:not([hidden]) {
+        width: 100%;
+        text-align: left;
+    }
+
+    body > form:not(:first-of-type) {
+        padding: 14px;
+    }
+
+    body > form:not(:first-of-type) button {
+        padding: 12px 8px;
+        font-size: 14px;
+    }
+
+    body > div {
+        padding: 16px 18px;
+    }
+}
+
+/* 애니메이션 최소화 설정 존중 */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}

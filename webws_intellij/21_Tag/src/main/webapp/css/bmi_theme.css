@@ -1,0 +1,221 @@
+/* 전체 페이지 */
+body {
+    margin: 0;
+    /*min-height: 100vh;*/
+    /*padding: 30px 16px;*/
+    box-sizing: border-box;
+
+    /*background:*/
+    /*        linear-gradient(*/
+    /*                180deg,*/
+    /*                #83d9ff 0%,*/
+    /*                #d9f5ff 45%,*/
+    /*                #a9df8e 100%*/
+    /*        );*/
+
+    /*font-family: "Malgun Gothic", sans-serif;*/
+    color: #553b25;
+    background-image: url("https://preview.redd.it/do-you-know-the-classic-maple-login-page-is-actually-a-v0-lcmwfcfy3qve1.jpeg?auto=webp&s=809ee710dc59a54bb1e49c4e9db2533568cde7a0");
+
+    background-size: cover;
+    background-position: 0 -1600px;
+}
+
+/* 폼 패널 */
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+
+    width: 100%;
+    max-width: 420px;
+    margin: 30px auto;
+    padding: 30px;
+
+    box-sizing: border-box;
+    background: #fff4d9;
+    border: 5px solid #a96c37;
+    border-radius: 22px;
+
+    box-shadow:
+            0 7px 0 #754622,
+            0 12px 24px rgba(65, 83, 42, 0.25);
+
+    position: relative;
+}
+
+/* 상단 제목 */
+form > div:first-child:not(.form-group) {
+    font-size: 28px;
+    font-weight: 900;
+    text-align: center;
+    color: #fff4c2;
+    background: linear-gradient(#b97a3d, #865026);
+
+    padding: 14px;
+    border: 3px solid #714321;
+    border-radius: 12px;
+
+    text-shadow: 2px 3px 0 #654020;
+    box-shadow: inset 0 2px 0 #e6b875;
+}
+
+/* 입력 항목 */
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    position: relative;
+}
+
+/* 항목 라벨 */
+.form-group label {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+
+    font-size: 16px;
+    font-weight: 800;
+    color: #704b2b;
+
+    &::before{
+        content: '';
+        position: absolute;
+        right : 0;
+        height: 20px;
+        width: 20px;
+        background-image: url("https://upload.wikimedia.org/wikipedia/commons/1/1d/A_Maple_Icon_Like_MapleStory%2CMay_2022.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original");
+        background-size: cover;
+    }
+}
+
+/* 입력창 */
+.form-group input {
+    width: 100%;
+    height: 46px;
+    padding: 0 14px;
+
+    box-sizing: border-box;
+    background: #fffdf7;
+    border: 2px solid #d8bd96;
+    border-radius: 10px;
+
+    color: #553b25;
+    font-size: 15px;
+    outline: none;
+
+    box-shadow: inset 0 2px 3px rgba(105, 70, 30, 0.08);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* 입력창 포커스 */
+.form-group input:focus {
+    border-color: #6eaf43;
+    box-shadow: 0 0 0 4px rgba(116, 190, 71, 0.2);
+}
+
+/* 결과 페이지의 값 표시 */
+.form-group label > div {
+    display: flex;
+    align-items: center;
+
+    min-height: 46px;
+    padding: 10px 14px;
+    box-sizing: border-box;
+
+    background: #fffdf7;
+    border: 2px solid #dfc69f;
+    border-radius: 10px;
+
+    font-size: 16px;
+    font-weight: 700;
+    overflow-wrap: anywhere;
+}
+
+/* BMI 결과 메시지 */
+form h1, form h2 {
+    margin: 0;
+    padding: 16px 12px;
+
+    border: 3px solid #91c878;
+    border-radius: 12px;
+    background: linear-gradient(#e5f8d6, #c9edb2);
+
+    color: #39733c;
+    font-size: 21px;
+    font-weight: 900;
+    line-height: 1.5;
+    text-align: center;
+    overflow-wrap: anywhere;
+
+    text-shadow: 0 1px 0 #ffffff;
+}
+
+/* 버튼 */
+form button {
+    width: 100%;
+    min-height: 50px;
+    padding: 12px;
+
+    border: 3px solid #4b812b;
+    border-radius: 14px;
+    background: linear-gradient(#9de45d, #65b832);
+
+    color: #ffffff;
+    font-size: 17px;
+    font-weight: 900;
+    text-shadow: 1px 2px 0 #44752c;
+
+    cursor: pointer;
+    box-shadow: 0 5px 0 #47762a;
+
+    transition: transform 0.1s, box-shadow 0.1s;
+}
+
+/* 버튼 호버 */
+form button:hover {
+    background: linear-gradient(#b0f274, #79c943);
+}
+
+/* 버튼 클릭 */
+form button:active {
+    transform: translateY(4px);
+    box-shadow: 0 1px 0 #47762a;
+}
+
+
+.warn_msg {
+    position: absolute;
+    top : 100%;
+    left : 4px;
+    color: red !important;
+    font-size: 13px;
+    font-weight: 700;
+
+    background: none !important;
+    border: none !important;
+    visibility: hidden;
+}
+h2.msg::after {
+    content: "";
+    display:block;
+    margin: 0 auto;
+    height: 200px;
+    width: 200px;
+    background-image: url("https://g.nexonstatic.com/media/clkdzwkq/beginner-large.png");
+    background-size: cover;
+}
+
+form h2 {
+    font-size: 18px;
+}
+
+button::after {
+    content: '';
+    position: absolute;
+    height: 30px;
+    width: 30px;
+    background-image: url("https://upload.wikimedia.org/wikipedia/commons/1/1d/A_Maple_Icon_Like_MapleStory%2CMay_2022.png?utm_source=commons.wikimedia.org&utm_campaign=index&utm_content=original");
+    background-size: cover;
+    filter: brightness(0) invert(1);
+}

@@ -1,0 +1,448 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TVING</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="main.css" />
+  <link rel="stylesheet" href="header.css" />
+  <link rel="stylesheet" href="footer.css" />
+  <link rel="stylesheet" href="slid.css" />
+  <link rel="stylesheet" href="slick.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.css" />
+  <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+  <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+  <script type="text/javascript" src="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+</head>
+
+<body>
+  <div class="app">
+    <header>
+      <div class="header logo">
+        <a href="../tving main gi/main1.html"><img src="./1695032536_1.svg" alt="" /></a>
+      </div>
+      <div class="header-nav">
+        <div class="header drama">드라마</div>
+        <div class="header variety" onclick="location.href='../entertaiment/index.html'">예능</div>
+        <div class="header movie">영화</div>
+        <div class="header sports" onclick="location.href='../sports/Sports.html'">스포츠</div>
+        <div class="header ani" onclick="location.href='../ani/ani.html'">애니</div>
+        <div class="header news" onclick="location.href='../news/index.html'">뉴스</div>
+        <div class="header live">라이브</div>
+        <div class="header short">쇼츠</div>
+      </div>
+      <div class="header-nav2">
+        <div class="header login"><button>로그인</button></div>
+        <div class="header search">
+          <div class="button">
+            <button type="button" id="search-toggle" class="search-switch" aria-label="검색 화면 열기" aria-expanded="false"
+              aria-controls="search-page" onclick="changeToggle()">
+              <img src="./icon_search.svg" alt="" class="search-icon" aria-hidden="true" />
+              <img src="./x.svg" alt="" class="close-icon" aria-hidden="true" />
+            </button>
+            <!-- <button id="close-toggle"> -->
+            <!-- </button> -->
+          </div>
+        </div>
+        <div class="icon-group" onmouseover="handleMouseOverProfile()" onmouseout="handleMouseOutProfile()">
+          <div class="header icon"></div>
+          <div class="dropDown" id="dropDown">
+            <div class="group">
+              <div class="icon-menu"></div>
+              <div class="menu">
+                가입하고 시작하기<img src="./www.tving.com-5.svg" alt="" />
+              </div>
+              <div class="line"></div>
+              <div class="my">MY</div>
+              <div class="ticket">이용권 목록</div>
+              <div class="sale coupon-btn">쿠폰 등록</div>
+              <div class="serviceCenter" onclick="window.open('https://www.tving.com/help/notice')">고객센터</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+    <div class="home-page" id="home-page">
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+          <div class="swiper-slide">
+            <img class="main1Img" src="./1776952492_1.webp" alt="" />
+            <div class="main1text-in">놀면 뭐하니?</div>
+            <div class="main1text-in2">오늘은 뭐 하고 놀까?</div>
+            <div class="main1text-in3">연예계 웃수저들의 웃음!재미!감동!</div>
+          </div>
+          <div class="swiper-slide">
+            <img class="main2Img" src="./1704963898_1.webp" alt="" />
+            <img class="main2Img-in" src="./티빙 사진/brother.webp" alt="" style="width: 262px; height: 142px" />
+            <div class="main2text-in">궁금증에 몸으로 답하는</div>
+            <div class="main2text-in2">질문 해결 버라이어티 한 판</div>
+          </div>
+          <div class="swiper-slide">
+            <img class="main3Img" src="./1787029982_1.webp" alt="" />
+            <img class="main3Img-in" src="./티빙 사진/tonly.svg" alt="" style="width: 72px; height: 18px" />
+            <img class="main3Img-in2" src="./티빙 사진/theStreet.webp" alt="" style="width: 460px; height: 114px" />
+            <div class="main3text-in">머리로 싸우고 몸으로 증명하는</div>
+            <div class="main3text-in2">안무가들의 작품 전쟁</div>
+          </div>
+          <div class="swiper-slide">
+            <img class="main4Img" src="./1784783342_1.webp" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img class="main5Img" src="./1786842570_1.webp" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img class="main6Img" src="./1785253939_1.webp" alt="" />
+          </div>
+          <div class="swiper-slide">
+            <img class="main7Img" src="./1791437302_1.webp" alt="" />
+          </div>
+        </div>
+        <div class="swiper-button-next"></div>
+        <div class="swiper-button-prev"></div>
+        <div class="swiper-pagination"></div>
+      </div>
+    </div>
+    <main class="search-page" id="search-page">
+      <div class="search-inner">
+        <div class="large-search-bar">
+          <input id="search-input" type="search" placeholder="제목, 인물명을 입력해보세요." aria-label="검색어 입력" />
+          <img src="./icon_search.svg" alt="" aria-hidden="true" />
+        </div>
+
+        <div class="search-columns">
+          <section class="recent-search">
+            <h2>최근 검색어</h2>
+            <p>검색 내역이 없습니다.</p>
+          </section>
+          <section class="popular-search">
+            <h2>실시간 인기 검색어</h2>
+
+            <ol>
+              <li><span>1</span>닥터 X 시즌1</li>
+              <li><span>2</span>신인감독 김연경2</li>
+              <li><span>3</span>오은영 리포트 - 결혼 지옥</li>
+              <li><span>4</span>로또 1등도 출근합니다</li>
+              <li><span>5</span>먼작귀 몰아보기</li>
+              <li><span>6</span>심야괴담회 시즌6</li>
+              <li><span>7</span>100일의 거짓말</li>
+              <li><span>8</span>놀면 뭐하니?</li>
+              <li><span>9</span>탐정들의 영업비밀</li>
+              <li><span>10</span>신인감독 김연경</li>
+            </ol>
+            <p class="ranking-note">2026.10.13 09:24기준</p>
+          </section>
+        </div>
+      </div>
+    </main>
+    <div style="display: flex; width: 100%; justify-content: center;">
+      <div class="slider-container">
+        <div class="my-slick" data-slick='{"slidesToShow": 12, "slidesToScroll": 8}'>
+          <div class="slick-item">
+            <img src="./1787526995_1.png" alt="" />
+            <p>🏆2026🏆<span>KBO 리그</span></p>
+          </div>
+          <div class="slick-item">
+            <img src="./1790906516_1.png" alt="" />
+            <p>원수는<span>외야석에서♥</span></p>
+          </div>
+          <div class="slick-item">
+            <img src="./1791269821_1.png" alt="" />
+            <p>100일의<span>거짓말</span></p>
+          </div>
+          <div class="slick-item">
+            <img src="./1784772237_1.png" alt="" />
+            <p>우주떡집</p>
+          </div>
+          <div class="slick-item">
+            <img src="./티빙 사진/street.png" alt="" />
+            <p>스트릿<span>월드 파이터</span></p>
+          </div>
+          <div class="slick-item">
+            <img src="./티빙 사진/pointshop.png" alt="" />
+            <p>포인트샵</p>
+          </div>
+          <div class="slick-item">
+            <img src="./티빙 사진/appleTv.png" alt="" />
+            <p>애플 TV</p>
+          </div>
+          <div class="slick-item">
+            <img src="./티빙 사진/soon.png" alt="" />
+            <p>공개예정</p>
+          </div>
+          <div class="slick-item">
+            <img src="./1790732311_1.gif" alt="" />
+            <p>오늘 뭐 볼까?</p>
+          </div>
+          <div class="slick-item">
+            <img src="./티빙 사진/kbl.png" alt="" />
+            <p>26-27 KBL</p>
+          </div>
+          <div class="slick-item">
+            <img src="./티빙 사진/spiderman.png" alt="" />
+            <p>스파이더맨<span>특집</span></p>
+          </div>
+          <div class="slick-item">
+            <img src="./1784616081_1.png" alt="" />
+            <p>UFC</p>
+          </div>
+          <div class="slick-item">
+            <img src="./티빙 사진/original.png" alt="" />
+            <p>오리지널</p>
+          </div>
+          <div class="slick-item">
+            <img src="./티빙 사진/singger.png" alt="" />
+            <p>가왕쇼</p>
+          </div>
+          <div class="slick-item">
+            <img src="./티빙 사진/china.png" alt="" />
+            <p>중국드라마</p>
+          </div>
+          <div class="slick-item">
+            <img src="./티빙 사진/clip.png" alt="" />
+            <p>클립</p>
+          </div>
+          <div class="slick-item">
+            <img src="./티빙 사진/shotdrama.png" alt="" />
+            <p>숏드라마</p>
+          </div>
+          <div class="slick-item">
+            <img src="./티빙 사진/news.png" alt="" />
+            <p>뉴스</p>
+          </div>
+          <div class="slick-item">
+            <img src="./티빙 사진/creator.png" alt="" />
+            <p>크리에이터<span>클럽</span></p>
+          </div>
+          <div class="slick-item">
+            <img src="./티빙 사진/kids.png" alt="" />
+            <p>키즈</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center;">
+      <div class="poster">
+        <a href="https://www.tving.com/compensation?home_type=HOME&v=202610151120" target="_blank"><img
+            src="./티빙 사진/poster.webp" alt="" /></a>
+      </div>
+    </div>
+    <div style="display: flex; justify-content: center">
+      <div class="first-free" style="width: 1672px;">
+        <div class="free-font">첫 화는 티빙이 쏩니다! 1화 무료 보기</div>
+        <img class="free-img" src="./티빙 사진/lotto1.webp" alt="" />
+        <img class="free-img2" src="./티빙 사진/baseball.webp" alt="" />
+        <img class="free-img2" src="./티빙 사진/baseball.webp" alt="" />
+        <img class="free-img2" src="./티빙 사진/baseball.webp" alt="" />
+        <img class="free-img2" src="./티빙 사진/baseball.webp" alt="" />
+        <img class="free-img2" src="./티빙 사진/baseball.webp" alt="" />
+      </div>
+    </div>
+  </div>
+  <footer class="tving-footer">
+    <table class="footer-table">
+      <tr class="footer-notice">
+        <td colspan="2">
+          <a href="#">
+            <strong>공지</strong>
+            <span>사이버 침해 사고 보상 미신청 회원 신청 기간 연장 운영
+              안내</span>
+          </a>
+          <span class="notice-arrow"><img src="./티빙 사진/www.tving.com-52.svg" alt="" /></span>
+        </td>
+      </tr>
+      <tr class="footer-menu-row">
+        <td class="footer-menu">
+          <a href="">고객센터</a>
+          <a href="">이용약관</a>
+          <a href="" class="privacy">개인정보처리방침</a>
+          <a href="">청소년 보호정책</a>
+          <a href="">법적고지</a>
+          <a href="">이벤트</a>
+          <a href="">인재채용</a>
+        </td>
+        <td class="footer-dropDown-area">
+          <details class="footer-dropDown">
+            <summary class="brand">브랜드 바로가기</summary>
+            <div class="dropDown-content">
+              <a href="#">tvN</a>
+              <a href="#">tvN SPORTS</a>
+              <a href="#">tvN STORY</a>
+              <a href="#">tvN DRAMA</a>
+              <a href="#">tvN SHOW</a>
+              <a href="#">OCN</a>
+              <a href="#">중화TV</a>
+              <a href="#">UXN</a>
+              <a href="#">CATCHON</a>
+              <a href="#">Tooniverse</a>
+            </div>
+          </details>
+          <details class="footer-dropDown">
+            <summary>그룹 계열사 바로가기</summary>
+            <div class="dropDown-content">
+              <a href="#">CJ주식회사</a>
+              <a href="#">CJ ENM 엔터테인먼트부문</a>
+              <a href="#">CJ CGV</a>
+              <a href="#">CJ제일제앋(식품)</a>
+              <a href="#">CJ프레시웨이</a>
+              <a href="#">CJ푸드빌</a>
+              <a href="#">CJ엠디원</a>
+              <a href="#">CJ제일제당(바이오)</a>
+              <a href="#">CJ ENM 커머스부문</a>
+              <a href="#">CJ대한통운</a>
+              <a href="#">CJ텔레닉스</a>
+              <a href="#">CJ올리브영</a>
+              <a href="#">CJ대한통운(건설)</a>
+              <a href="#">CJ올리브네트웍스</a>
+            </div>
+          </details>
+        </td>
+      </tr>
+      <tr class="footer-info">
+        <td colspan="2">
+          대표이사:최주희 |
+          <a href="#">사업자정보확인</a> | 사업자등록번호: 188-88-01893 |
+          통신판매신고번호: 2020-서울마포-3641호
+        </td>
+      </tr>
+      <tr class="footer-info">
+        <td colspan="2">
+          사업장: 서울특별시 마포구 상암산로 34, DMC디지털큐브 15층(상암동) |
+          호스팅사업자: 아마존웹서비시즈코리아 유한책임회사
+        </td>
+      </tr>
+      <tr class="footer-info">
+        <td colspan="2">
+          고객센터 평일 09:00~17:00(점심시간 13:00~14:00)/공휴일 휴무 |
+          <a href="#">챗봇/채팅 상담</a> | <a href="#">1:1 게시판 문의</a> |
+          대표메일:tving@cj.net | 대표번호(유료): 1670-1525
+        </td>
+      </tr>
+      <tr class="footer-info">
+        <td colspan="2">
+          ENM 시청자 상담실(편성 문의 및 시청자 의견):080-080-0780 | Mnet
+          고객센터(방송편성문의) : 1855-1631
+        </td>
+      </tr>
+      <tr class="footer-img">
+        <td colspan="2">
+          <a href="https://www.youtube.com/c/TVING_official" target="_blank"><img src="./티빙 사진/tivingYoutube.svg"
+              alt="" /></a>
+          <img class="insta" src="./티빙 사진/tvingInsta.svg" alt="" />
+          <img src="./티빙 사진/tvingTw.svg" alt="" />
+          <img src="./티빙 사진/tvingFace.svg" alt="" />
+        </td>
+      </tr>
+      <tr class="footer-bottom">
+        <td colspan="2">© TVING Corp. ALL RIGHTS RESERVED.</td>
+      </tr>
+    </table>
+  </footer>
+
+  <div class="modal alert-modal">
+    <div class="modal-box">
+      <div class="modal-title">알림</div>
+      <div class="modal-text">라이브 시작 후 시청 가능합니다.</div>
+      <div class="modal-btn" data-close=".alert-modal">확인</div>
+    </div>
+  </div>
+  <div class="modal coupon-modal">
+    <div class="modal-box">
+      <div class="modal-close" data-close=".coupon-modal">✕</div>
+      <div class="modal-text">지금 가입하고<br />무료로 이용해보세요</div>
+      <div class="modal-btn">가입하고 시작하기</div>
+      <div class="sns">
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+            <g clip-path="url(#a)">
+              <path fill="#F152D9" d="M3.168 3.877A11.96 11.96 0 0 0 .01 11.499L5.4 9.267z" />
+              <path fill="#F268DD" d="M3.877 3.168 9.267 5.4 11.5.01a11.96 11.96 0 0 0-7.622 3.157" />
+              <path fill="#ED27CF" d="m12.501.01 2.232 5.39 5.39-2.232A11.96 11.96 0 0 0 12.501.01" />
+              <path fill="#F693E7" d="M12.501.01q-.503-.021-1.002 0L9.267 5.4h5.467z" />
+              <path fill="#F47DE2" d="M5.4 9.267.01 11.499q-.022.502 0 1.002l5.39 2.232V9.265z" />
+              <path fill="#F8A9EC" d="m9.267 5.4-5.39-2.232q-.37.34-.709.709L5.4 9.267z" />
+              <path fill="#9D49F4" d="M5.4 14.733.01 12.501a11.96 11.96 0 0 0 3.156 7.622l2.232-5.39z" />
+              <path fill="#CEA4F9" d="m18.6 9.267 2.232-5.39a12 12 0 0 0-.709-.709L14.734 5.4z" />
+              <path fill="#9D49F4" d="m18.6 9.267 5.39 2.232a11.96 11.96 0 0 0-3.157-7.622z" />
+              <path fill="#CEA4F9" d="m5.4 14.733-2.232 5.39q.34.37.709.709l5.39-2.232z" />
+              <path fill="#7189FF" d="M20.832 20.123a11.96 11.96 0 0 0 3.157-7.622l-5.39 2.232 2.232 5.39z" />
+              <path fill="#617CFF" d="m9.267 18.6-5.39 2.232a11.96 11.96 0 0 0 7.622 3.157l-2.232-5.39z" />
+              <path fill="#91A4FF" d="M23.99 11.499 18.6 9.267v5.468l5.39-2.232q.021-.503 0-1.003" />
+              <path fill="#7ECDF2" d="M11.499 23.99q.503.021 1.002 0l2.232-5.39H9.266z" />
+              <path fill="#46B7EC" d="m14.733 18.6-2.232 5.39a11.96 11.96 0 0 0 7.622-3.157l-5.39-2.232z" />
+              <path fill="#A2DBF5" d="m14.733 18.6 5.39 2.232q.37-.34.71-.709l-2.233-5.39z" />
+            </g>
+            <defs>
+              <clipPath id="a">
+                <path fill="#fff" d="M0 0h24v24H0z" />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+            <path fill="#00C73C"
+              d="m15.288 12.644-6.84-9.831H2.775v18.363h5.943v-9.831l6.84 9.831h5.672V2.816h-5.942z" />
+          </svg>
+        </div>
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+            <path fill="#F7E317"
+              d="M9.997 2.5c-4.602 0-8.333 2.95-8.333 6.587a6.44 6.44 0 0 0 3.954 5.605c-.175.651-.632 2.358-.723 2.723-.114.456.166.447.349.325.143-.096 2.28-1.55 3.207-2.178a10.6 10.6 0 0 0 1.546.114c4.602 0 8.334-2.95 8.334-6.588S14.599 2.5 9.997 2.5" />
+          </svg>
+        </div>
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+            <path fill="#fff"
+              d="M21.199 8.118a5.8 5.8 0 0 0-1.032-1.406 4.6 4.6 0 0 0-3.213-1.2 9.5 9.5 0 0 0-2.725.803 4.2 4.2 0 0 1-1.605.316c-.643 0-1.272-.19-1.808-.545a5.34 5.34 0 0 0-2.494-.574c-3.413-.004-5.675 3.408-5.675 6.966a12.78 12.78 0 0 0 4.011 9.377 3.93 3.93 0 0 0 2.553 1.063c.46-.038.912-.135 1.347-.289a7.7 7.7 0 0 1 2.094-.631c.58.035 1.147.191 1.664.458a5.2 5.2 0 0 0 1.95.431 3.5 3.5 0 0 0 2.065-.569 11.1 11.1 0 0 0 3.36-5.104c-1.92-.516-3.097-2.724-3.097-4.79-.005-1.611 1.027-3.82 2.605-4.306m-9.15-2.468a4.2 4.2 0 0 0 3.24-1.52A5.4 5.4 0 0 0 16.582.598 5.47 5.47 0 0 0 13.37 2.32a5.2 5.2 0 0 0-1.32 3.331" />
+          </svg>
+        </div>
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+            <path fill="#1877F2"
+              d="M13.477 5.893v2.619h4.147l-.545 4.255h-3.6V23.13H9.116V12.767H5.625V8.512h3.49v-3.71c0-6.327 8.51-4.581 8.51-4.581V3.93h-2.182a1.82 1.82 0 0 0-1.966 1.963" />
+          </svg>
+        </div>
+      </div>
+      <div class="modal-login">
+        <div class="modal-login-text">이미 계정이 있나요?</div>
+        <div class="modal-login-link">로그인</div>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.js"></script>
+    <script>
+      var swiper = new Swiper(".mySwiper", {
+        autoplay: { delay: 5000 },
+        pagination: {
+          el: ".swiper-pagination",
+          type: "fraction",
+        },
+        navigation: {
+          nextEl: ".swiper-button-next",
+          prevEl: ".swiper-button-prev",
+        },
+      });
+    </script>
+    <!-- <script>
+      $(document).ready(function () {
+        $(".my-slick").slick();
+      });
+    </script> -->
+    <script>
+      $(document).ready(function () {
+        $(".my-slick").slick({
+          slidesToShow: 12,
+          slidesToScroll: 8,
+          arrows: true,
+          prevArrow: '<button type="button" class="slick-prev">이전</button>',
+          nextArrow: '<button type="button" class="slick-next">다음</button>',
+        });
+      });
+    </script>
+</body>
+<script src="header.js"></script>
+<script src="./modal.js"></script>
+
+</html>

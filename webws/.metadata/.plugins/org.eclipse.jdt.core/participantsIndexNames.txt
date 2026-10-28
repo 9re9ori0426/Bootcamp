@@ -1,0 +1,3 @@
+INDEX VERSION 1.134
+C:\bo\webws\.metadata\.plugins\org.eclipse.jst.jsp.core\jspsearch\4160592172.index
+\03_InputOutput\src\main\java

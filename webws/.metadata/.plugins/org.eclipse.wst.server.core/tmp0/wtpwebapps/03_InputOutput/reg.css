@@ -1,0 +1,168 @@
+@charset "UTF-8";
+
+:root {
+  --primary: #4f6bed;
+  --primary-hover: #3d55d6;
+  --text: #263449;
+  --border: #d1d5db;
+  --background: #f8fafc;
+  --surface: #ffffff;
+  --radius: 8px;
+  --focus-shadow: rgba(79, 107, 237, 0.15);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+form {
+  width: 100%;
+  max-width: 500px;
+  margin: 40px auto;
+  padding: 32px;
+  background: var(--surface);
+  border: 1px solid #e5e7eb;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.06);
+  font-family: Arial, sans-serif;
+  color: var(--text);
+}
+
+/* 각 입력 행 */
+.signup-row {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+
+/* 항목 이름 */
+.signup-row > div {
+  flex: 0 0 80px;
+  font-size: 14px;
+  font-weight: 600;
+}
+
+/* 일반 텍스트 입력 */
+.signup-row > input {
+  flex: 1;
+  min-width: 0;
+  height: 42px;
+  padding: 0 12px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* 입력창 포커스 */
+.signup-row > input:focus,
+.signup-row select:focus,
+.signup-row textarea:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px var(--focus-shadow);
+}
+
+/* 비밀번호 입력창도 동일하게 적용 가능 */
+.signup-row > input[type="password"] {
+  letter-spacing: 1px;
+}
+
+/* 라디오 버튼 및 체크박스의 라벨 */
+.signup-row > label {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 14px;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+/* 라디오 버튼 */
+.signup-row input[type="radio"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+/* 체크박스 */
+.signup-row input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  margin: 0;
+  accent-color: var(--primary);
+  cursor: pointer;
+}
+
+/* 주소 선택 */
+.signup-row select {
+  flex: 1;
+  min-width: 0;
+  height: 42px;
+  padding: 0 12px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  outline: none;
+  cursor: pointer;
+}
+
+/* 내용 입력 영역 */
+.signup-row:has(textarea) {
+  align-items: stretch;
+}
+
+.signup-row textarea {
+  width: 100%;
+  min-height: 110px;
+  padding: 12px;
+  background: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  font: inherit;
+  resize: vertical;
+  outline: none;
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+/* 회원가입 버튼 */
+form > button {
+  width: 100%;
+  padding: 13px;
+  color: white;
+  background: var(--primary);
+  border: none;
+  border-radius: var(--radius);
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.2s;
+}
+
+form > button:hover {
+  background: var(--primary-hover);
+}
+
+form > button:active {
+  transform: scale(0.98);
+}
+
+/* 모바일 화면 */
+@media (max-width: 520px) {
+  form {
+    width: calc(100% - 32px);
+    padding: 24px 18px;
+  }
+
+  .signup-row {
+    gap: 10px;
+  }
+
+  .signup-row > div {
+    flex-basis: 65px;
+  }
+}

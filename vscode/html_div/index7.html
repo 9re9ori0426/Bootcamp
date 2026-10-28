@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .black-box {
+            display: inline-block;
+            background-color: black;
+            padding: 60px;
+        }
+
+        .white-box {
+            display: inline-block;
+            background-color: white;
+            padding: 20px;
+            padding-top: 0;
+            text-align: center;
+        }
+
+        .flex-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+        }
+
+        .actors {
+            position: absolute;
+            bottom: 20px;
+            right: 20px;
+            padding: 8px;
+            display: inline-block;
+            border-radius: 16px;
+            background-color: white;
+        }
+
+        .banner {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            background-color: #eee;
+            gap: 8px;
+        }
+
+        .banner-wrap {
+            display: flex;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .banner-desc {
+            position: absolute;
+            bottom: 24px;
+            left: 0;
+            color: white;
+            padding: 48px;
+            width: 1250px
+        }
+
+        hr {
+            border: 4px solid red;
+        }
+
+        .banner-header {
+            font-size: 32pt;
+            font-weight: bold;
+            margin-bottom: 8px;
+
+            animation: fadeUp;
+            animation-duration: .5s;
+            animation-fill-mode: backwards;
+        }
+
+        .banner-content {
+            font-size: 14pt;
+            font-weight: bold;
+            margin-bottom: 24px;
+            animation: fadeUp;
+            animation-duration: .5s;
+            animation-delay: 0.3s;
+            animation-fill-mode: backwards;
+        }
+
+        .banner-wrap button {
+            padding: 14px 24px;
+            border-radius: 32px;
+            font-size: 10pt;
+        }
+
+        .btn-white {
+            background-color: white;
+            color: rgb(89, 37, 236);
+            font-weight: bold;
+            border: none;
+        }
+
+        .btn-violet {
+            background-color: rgb(132, 88, 252);
+            border: 1px solid white;
+            color: white;
+            font-weight: bold;
+        }
+
+        .banner-button-container {
+            display: flex;
+            gap: 16px;
+
+            animation: fadeUp;
+            animation-duration: .5s;
+            animation-delay: 0.6s;
+            animation-fill-mode: backwards;
+
+            & span {
+                flex-grow: 1;
+            }
+        }
+
+        .banner-button-flex-container {
+            display: flex;
+            align-items: center;
+
+            background-color: rgb(45, 18, 119);
+            border-radius: 32px;
+            padding: 8px 24px;
+            gap: 8px;
+
+
+            &>span {
+                height: 80%;
+                opacity: 0.2;
+                border: 1px solid white;
+            }
+
+            &>div>img {
+                margin-left: 8px;
+            }
+
+            & button {
+                all: unset;
+                text-align: center;
+            }
+        }
+
+        @keyframes fadeUp {
+            0% {
+                opacity: 0;
+                transform: translate3d(0, 50px, 0);
+            }
+
+            100% {
+                opacity: 1;
+                transform: translateZ(0);
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <img src="index7/slider-gara.png">
+        <div class="banner-wrap">
+            <img src="./index7/202609171a0adfad3ef30" alt="" style="border-radius: 64px;">
+            <div class="banner-desc">
+                <div class="banner-header">도심 속 판타지 롯데월드 어드벤처</div>
+                <div class="banner-content">남녀노소 누구나 즐기는 환상과 모험이 가득한 곳!</div>
+
+                <div class="banner-button-container">
+                    <button class="btn-white">예매하기</button>
+                    <button class="btn-violet">홈페이지 바로가기</button>
+                    <span></span>
+                    <div class="banner-button-flex-container">
+                        <button>민속박물관<img src="./index7/arrow.png" width="15%"></button>
+                        <span></span>
+                        <button>아이스링크<img src="./index7/arrow.png" width="15%"></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <hr>
+    <div class="black-box">
+        <div class="white-box">
+            ちいかわ
+            <div class="black-box flex-box">
+                <img width="400px" src="https://cdn.imweb.me/upload/S202207276eb21328c800f/c3a8e998b30b5.png">
+                <div class="actors">
+                    ナガノ
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

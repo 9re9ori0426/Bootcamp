@@ -1,0 +1,419 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="./chiikawa_style.css" />
+
+  <link rel="stylesheet" href="../tving main gi/header.css">
+  <link rel="stylesheet" href="./tmp.css" />
+</head>
+
+<body>
+  <!-- 공통 헤더: 왼쪽 로고·장르 메뉴와 오른쪽 로그인·검색·프로필로 구성. sticky는 연결된 CSS에서 설정. -->
+
+  <div class="app">
+    <header>
+      <div class="header logo">
+        <a href="../tving main gi/main1.html"><img src="../tving main gi/1695032536_1.svg" alt="" /></a>
+      </div>
+      <div class="header-nav">
+        <div class="header drama">드라마</div>
+        <div class="header variety" onclick="location.href='../entertaiment/index.html'">예능</div>
+        <div class="header movie">영화</div>
+        <div class="header sports" onclick="location.href='../sports/Sports.html'">스포츠</div>
+        <div class="header ani" onclick="location.href='../ani/ani.html'" style="color:white; opacity: 1;">애니</div>
+        <div class="header news" onclick="location.href='../news/index.html'">뉴스</div>
+        <div class="header live">라이브</div>
+        <div class="header short">쇼츠</div>
+      </div>
+      <div class="header-nav2">
+        <div class="header login"><button>로그인</button></div>
+        <div class="header search">
+          <div class="button">
+            <button type="button" id="search-toggle" class="search-switch" aria-label="검색 화면 열기" aria-expanded="false"
+              aria-controls="search-page">
+              <img src="../tving main gi/icon_search.svg" alt="" class="search-icon" aria-hidden="true" />
+              <img src="../tving main gi/x.svg" alt="" class="close-icon" aria-hidden="true" />
+            </button>
+            <!-- <button id="close-toggle"> -->
+            <!-- </button> -->
+          </div>
+        </div>
+        <div class="icon-group" onmouseover="handleMouseOverProfile()" onmouseout="handleMouseOutProfile()">
+          <div class="header icon"></div>
+          <div class="dropDown" id="dropDown">
+            <div class="group">
+              <div class="icon-menu"></div>
+              <div class="menu">
+                가입하고 시작하기<img src="../tving main gi/www.tving.com-5.svg" alt="" />
+              </div>
+              <div class="line"></div>
+              <div class="my">MY</div>
+              <div class="ticket">이용권 목록</div>
+              <div class="sale coupon-btn">쿠폰 등록</div>
+              <div class="serviceCenter" onclick="window.open('https://www.tving.com/help/notice')">고객센터</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="search-page" id="search-page">
+      <div class="search-inner">
+        <div class="large-search-bar">
+          <input id="search-input" type="search" placeholder="제목, 인물명을 입력해보세요." aria-label="검색어 입력" />
+          <img src="../tving main gi/icon_search.svg" alt="" aria-hidden="true" />
+        </div>
+
+        <div class="search-columns">
+          <section class="recent-search">
+            <h2>최근 검색어</h2>
+            <p>검색 내역이 없습니다.</p>
+          </section>
+          <section class="popular-search">
+            <h2>실시간 인기 검색어</h2>
+
+            <ol>
+              <li><span>1</span>닥터 X 시즌1</li>
+              <li><span>2</span>신인감독 김연경2</li>
+              <li><span>3</span>오은영 리포트 - 결혼 지옥</li>
+              <li><span>4</span>로또 1등도 출근합니다</li>
+              <li><span>5</span>먼작귀 몰아보기</li>
+              <li><span>6</span>심야괴담회 시즌6</li>
+              <li><span>7</span>100일의 거짓말</li>
+              <li><span>8</span>놀면 뭐하니?</li>
+              <li><span>9</span>탐정들의 영업비밀</li>
+              <li><span>10</span>신인감독 김연경</li>
+            </ol>
+            <p class="ranking-note">2026.10.13 09:24기준</p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+
+    <section>
+
+      <!-- 작품 소개 전체: CSS 가상 요소로 흐린 배경을 깔고 포스터와 설명은 선명하게 표시한다. -->
+      <div class="desc-wrap">
+        <!-- 포스터 묶음: HTML에서는 먼저 나오지만 Flex order로 화면 오른쪽에 배치한다. -->
+        <div class="poster">
+          <img class="loaded css-1doy9ip etlpyr42"
+            src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20251219/0831/P001780494.jpg/dims/resize/480"
+            alt="먼작귀 몰아보기" fetchpriority="high" loading="eager" />
+        </div>
+        <!-- 작품 제목 이미지, 정보 태그, 구독·소셜 버튼, 제작진과 줄거리 순서. -->
+        <div class="desc">
+          <img class="loaded css-1doy9ip etlpyr42"
+            src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP1800/ko/20251219/0831/P001780494.png/dims/resize/800"
+            alt="먼작귀 몰아보기" />
+          <!-- 첫 빈 div는 전체 관람가 배경 이미지용. 각 div가 개별 태그이며 nth-child 규칙은 이 순서에 의존한다. -->
+          <div class="tags">
+            <div></div>
+            <div>
+              <span>더빙</span>
+            </div>
+            <div>2022</div>
+            <div>애니메이션</div>
+            <div>ANIBOX</div>
+            <div>시즌 1개</div>
+          </div>
+          <!-- 구독 버튼의 id는 하단 모달 열기 이벤트와 연결된다. -->
+          <div class="buttons">
+            <button type="button" id="subscribe-open">
+              <span>이용권 구독하고 시청하기</span>
+            </button>
+            <!-- 찜·공유는 각각 아이콘과 글씨를 한 버튼에 묶음. 현재 hover 효과만 있고 클릭 동작은 없다. -->
+            <div class="social">
+              <button>
+                <div>
+                  <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 24 24"
+                    width="24" height="24" preserveAspectRatio="xMidYMid meet" style="
+                      width: 100%;
+                      height: 100%;
+                      transform: translate3d(0px, 0px, 0px);
+                      content-visibility: visible;
+                    ">
+                    <defs>
+                      <clipPath id="__lottie_element_29">
+                        <rect width="24" height="24" x="0" y="0"></rect>
+                      </clipPath>
+                    </defs>
+                    <g clip-path="url(#__lottie_element_29)">
+                      <g id="54" transform="matrix(1,0,0,1,12.027999877929688,11.970999717712402)" opacity="1"
+                        style="display: block">
+                        <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                          <path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4"
+                            stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="2.2"
+                            d=" M-9.038999557495117,-0.02800000086426735 C-9.038999557495117,-0.02800000086426735 8.982000350952148,-0.02800000086426735 8.982000350952148,-0.02800000086426735">
+                          </path>
+                        </g>
+                      </g>
+                      <g id="55" transform="matrix(0,-1,1,0,12.027999877929688,11.972000122070312)" opacity="1"
+                        style="display: block">
+                        <g opacity="1" transform="matrix(1,0,0,1,0,0)">
+                          <path stroke-linecap="round" stroke-linejoin="miter" fill-opacity="0" stroke-miterlimit="4"
+                            stroke="rgb(255,255,255)" stroke-opacity="1" stroke-width="2.2"
+                            d=" M-9.038999557495117,-0.02800000086426735 C-9.038999557495117,-0.02800000086426735 8.982000350952148,-0.02800000086426735 8.982000350952148,-0.02800000086426735">
+                          </path>
+                        </g>
+                      </g>
+                    </g>
+                  </svg>
+                </div>
+                <span>찜</span>
+              </button>
+              <button>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"
+                  class="fill-white">
+                  <path fill="#fff"
+                    d="M21 12.6a.9.9 0 0 1 .9.9V18a3.4 3.4 0 0 1-3.4 3.4h-13A3.4 3.4 0 0 1 2.1 18v-4.5a.9.9 0 0 1 1.8 0V18a1.6 1.6 0 0 0 1.6 1.6h13a1.6 1.6 0 0 0 1.6-1.6v-4.5a.9.9 0 0 1 .9-.9">
+                  </path>
+                  <path fill="#fff"
+                    d="M11.432 2.802a.9.9 0 0 1 1.205.062l4 4 .061.068a.9.9 0 0 1-1.266 1.266l-.069-.061L12.9 5.674V13a.9.9 0 0 1-1.8 0V5.674L8.637 8.137a.9.9 0 0 1-1.274-1.273l4-4z">
+                  </path>
+                </svg>
+                <span>공유</span>
+              </button>
+            </div>
+          </div>
+          <div class="sul">
+
+            <!-- info-label의 오른쪽 여백으로 항목명과 이름 사이 간격을 조절한다. -->
+            <span class="info-label">크리에이터</span>미하라 타케노리<br />
+            <span class="info-label">출연</span>이주은, 권다예, 손정민
+          </div>
+          <div class="sul">
+            먼가 작고 귀여운 녀석, '먼작귀'들이 펼치는 즐겁고, 애잔하고, 살짝
+            거친 날들의 이야기.
+          </div>
+        </div>
+      </div>
+
+      <!-- 회차 목록용 빈 영역. 현재 콘텐츠나 동작은 구현하지 않은 상태. -->
+      <div class="episode"></div>
+    </section>
+  </div>
+  <!-- 공통 footer: 공지, 정책 링크, details 드롭다운, 회사 정보, SNS 순서. 빈 주소와 # 링크는 연결 전 자리표시자. -->
+  <footer class="tving-footer">
+    <!-- colspan="2" 행은 좌우 셀을 합쳐 전체 너비 사용. 메뉴 행만 링크와 드롭다운으로 나뉜다. -->
+    <table class="footer-table">
+      <tr class="footer-menu-row" style="border-top : none;">
+        <td class="footer-menu" style="border-top : none;">
+          <a href="">고객센터</a>
+          <a href="">이용약관</a>
+          <a href="" class="privacy">개인정보처리방침</a>
+          <a href="">청소년 보호정책</a>
+          <a href="">법적고지</a>
+          <a href="">이벤트</a>
+          <a href="">인재채용</a>
+        </td>
+        <td class="footer-dropDown-area" style="border-top : none;">
+          <!-- details/summary는 JavaScript 없이 클릭으로 목록을 열고 닫는다. CSS는 목록을 위쪽으로 배치한다. -->
+          <details class="footer-dropDown">
+            <summary class="brand">브랜드 바로가기</summary>
+            <div class="dropDown-content">
+              <a href="#">tvN</a>
+              <a href="#">tvN SPORTS</a>
+              <a href="#">tvN STORY</a>
+              <a href="#">tvN DRAMA</a>
+              <a href="#">tvN SHOW</a>
+              <a href="#">OCN</a>
+              <a href="#">중화TV</a>
+              <a href="#">UXN</a>
+              <a href="#">CATCHON</a>
+              <a href="#">Tooniverse</a>
+            </div>
+          </details>
+          <details class="footer-dropDown">
+            <summary>그룹 계열사 바로가기</summary>
+            <div class="dropDown-content">
+              <a href="#">CJ주식회사</a>
+              <a href="#">CJ ENM 엔터테인먼트부문</a>
+              <a href="#">CJ CGV</a>
+              <a href="#">CJ제일제앋(식품)</a>
+              <a href="#">CJ프레시웨이</a>
+              <a href="#">CJ푸드빌</a>
+              <a href="#">CJ엠디원</a>
+              <a href="#">CJ제일제당(바이오)</a>
+              <a href="#">CJ ENM 커머스부문</a>
+              <a href="#">CJ대한통운</a>
+              <a href="#">CJ텔레닉스</a>
+              <a href="#">CJ올리브영</a>
+              <a href="#">CJ대한통운(건설)</a>
+              <a href="#">CJ올리브네트웍스</a>
+            </div>
+          </details>
+        </td>
+      </tr>
+      <tr class="footer-info">
+        <td colspan="2">
+          대표이사:최주희 |
+          <a href="#">사업자정보확인</a> | 사업자등록번호: 188-88-01893 |
+          통신판매신고번호: 2020-서울마포-3641호
+        </td>
+      </tr>
+      <tr class="footer-info">
+        <td colspan="2">
+          사업장: 서울특별시 마포구 상암산로 34, DMC디지털큐브 15층(상암동) |
+          호스팅사업자: 아마존웹서비시즈코리아 유한책임회사
+        </td>
+      </tr>
+      <tr class="footer-info">
+        <td colspan="2">
+          고객센터 평일 09:00~17:00(점심시간 13:00~14:00)/공휴일 휴무 |
+          <a href="#">챗봇/채팅 상담</a> | <a href="#">1:1 게시판 문의</a> |
+          대표메일:tving@cj.net | 대표번호(유료): 1670-1525
+        </td>
+      </tr>
+      <tr class="footer-info">
+        <td colspan="2">
+          ENM 시청자 상담실(편성 문의 및 시청자 의견):080-080-0780 | Mnet
+          고객센터(방송편성문의) : 1855-1631
+        </td>
+      </tr>
+      <tr class="footer-img">
+        <td colspan="2">
+          <a href="https://www.youtube.com/c/TVING_official" target="_blank"><img
+              src="../tving main gi/티빙 사진/tivingYoutube.svg" alt="" /></a>
+          <img class="insta" src="../tving main gi/티빙 사진/tvingInsta.svg" alt="" />
+          <img src="../tving main gi/티빙 사진/tvingTw.svg" alt="" />
+          <img src="../tving main gi/티빙 사진/tvingFace.svg" alt="" />
+        </td>
+      </tr>
+      <tr class="footer-bottom">
+        <td colspan="2">© TVING Corp. ALL RIGHTS RESERVED.</td>
+      </tr>
+    </table>
+  </footer>
+
+  <div class="modal alert-modal">
+    <div class="modal-box">
+      <div class="modal-title">알림</div>
+      <div class="modal-text">라이브 시작 후 시청 가능합니다.</div>
+      <div class="modal-btn" data-close=".alert-modal">확인</div>
+    </div>
+  </div>
+  <div class="modal coupon-modal">
+    <div class="modal-box">
+      <div class="modal-close" data-close=".coupon-modal">✕</div>
+      <div class="modal-text">지금 가입하고<br />무료로 이용해보세요</div>
+      <div class="modal-btn">가입하고 시작하기</div>
+      <div class="sns">
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+            <g clip-path="url(#a)">
+              <path fill="#F152D9" d="M3.168 3.877A11.96 11.96 0 0 0 .01 11.499L5.4 9.267z" />
+              <path fill="#F268DD" d="M3.877 3.168 9.267 5.4 11.5.01a11.96 11.96 0 0 0-7.622 3.157" />
+              <path fill="#ED27CF" d="m12.501.01 2.232 5.39 5.39-2.232A11.96 11.96 0 0 0 12.501.01" />
+              <path fill="#F693E7" d="M12.501.01q-.503-.021-1.002 0L9.267 5.4h5.467z" />
+              <path fill="#F47DE2" d="M5.4 9.267.01 11.499q-.022.502 0 1.002l5.39 2.232V9.265z" />
+              <path fill="#F8A9EC" d="m9.267 5.4-5.39-2.232q-.37.34-.709.709L5.4 9.267z" />
+              <path fill="#9D49F4" d="M5.4 14.733.01 12.501a11.96 11.96 0 0 0 3.156 7.622l2.232-5.39z" />
+              <path fill="#CEA4F9" d="m18.6 9.267 2.232-5.39a12 12 0 0 0-.709-.709L14.734 5.4z" />
+              <path fill="#9D49F4" d="m18.6 9.267 5.39 2.232a11.96 11.96 0 0 0-3.157-7.622z" />
+              <path fill="#CEA4F9" d="m5.4 14.733-2.232 5.39q.34.37.709.709l5.39-2.232z" />
+              <path fill="#7189FF" d="M20.832 20.123a11.96 11.96 0 0 0 3.157-7.622l-5.39 2.232 2.232 5.39z" />
+              <path fill="#617CFF" d="m9.267 18.6-5.39 2.232a11.96 11.96 0 0 0 7.622 3.157l-2.232-5.39z" />
+              <path fill="#91A4FF" d="M23.99 11.499 18.6 9.267v5.468l5.39-2.232q.021-.503 0-1.003" />
+              <path fill="#7ECDF2" d="M11.499 23.99q.503.021 1.002 0l2.232-5.39H9.266z" />
+              <path fill="#46B7EC" d="m14.733 18.6-2.232 5.39a11.96 11.96 0 0 0 7.622-3.157l-5.39-2.232z" />
+              <path fill="#A2DBF5" d="m14.733 18.6 5.39 2.232q.37-.34.71-.709l-2.233-5.39z" />
+            </g>
+            <defs>
+              <clipPath id="a">
+                <path fill="#fff" d="M0 0h24v24H0z" />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+            <path fill="#00C73C"
+              d="m15.288 12.644-6.84-9.831H2.775v18.363h5.943v-9.831l6.84 9.831h5.672V2.816h-5.942z" />
+          </svg>
+        </div>
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+            <path fill="#F7E317"
+              d="M9.997 2.5c-4.602 0-8.333 2.95-8.333 6.587a6.44 6.44 0 0 0 3.954 5.605c-.175.651-.632 2.358-.723 2.723-.114.456.166.447.349.325.143-.096 2.28-1.55 3.207-2.178a10.6 10.6 0 0 0 1.546.114c4.602 0 8.334-2.95 8.334-6.588S14.599 2.5 9.997 2.5" />
+          </svg>
+        </div>
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+            <path fill="#fff"
+              d="M21.199 8.118a5.8 5.8 0 0 0-1.032-1.406 4.6 4.6 0 0 0-3.213-1.2 9.5 9.5 0 0 0-2.725.803 4.2 4.2 0 0 1-1.605.316c-.643 0-1.272-.19-1.808-.545a5.34 5.34 0 0 0-2.494-.574c-3.413-.004-5.675 3.408-5.675 6.966a12.78 12.78 0 0 0 4.011 9.377 3.93 3.93 0 0 0 2.553 1.063c.46-.038.912-.135 1.347-.289a7.7 7.7 0 0 1 2.094-.631c.58.035 1.147.191 1.664.458a5.2 5.2 0 0 0 1.95.431 3.5 3.5 0 0 0 2.065-.569 11.1 11.1 0 0 0 3.36-5.104c-1.92-.516-3.097-2.724-3.097-4.79-.005-1.611 1.027-3.82 2.605-4.306m-9.15-2.468a4.2 4.2 0 0 0 3.24-1.52A5.4 5.4 0 0 0 16.582.598 5.47 5.47 0 0 0 13.37 2.32a5.2 5.2 0 0 0-1.32 3.331" />
+          </svg>
+        </div>
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+            <path fill="#1877F2"
+              d="M13.477 5.893v2.619h4.147l-.545 4.255h-3.6V23.13H9.116V12.767H5.625V8.512h3.49v-3.71c0-6.327 8.51-4.581 8.51-4.581V3.93h-2.182a1.82 1.82 0 0 0-1.966 1.963" />
+          </svg>
+        </div>
+      </div>
+      <div class="modal-login">
+        <div class="modal-login-text">이미 계정이 있나요?</div>
+        <div class="modal-login-link">로그인</div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- 구독 안내 모달: 기본은 닫힘. showModal()로 열고 close()로 닫으며 Esc 닫기는 브라우저가 처리한다. -->
+  <dialog id="subscribe-modal" aria-labelledby="subscribe-title">
+
+    <button type="button" id="subscribe-close" aria-label="닫기">×</button>
+
+
+    <h2 id="subscribe-title">
+      이용권을 구독하면<br />콘텐츠를 시청할 수 있어요
+    </h2>
+    <div>
+      <img src="https://r2.chiikawawallpaper.com/wallpaper/gif/e94fbd12d9e7448faed0bcea891389c2.gif" alt="" />
+    </div>
+    <!-- 계속하기는 현재 디자인만 있으며 별도 클릭 동작은 연결하지 않았다. -->
+    <button id="continue">계속하기</button>
+  </dialog>
+</body>
+
+<script>
+  // HTML id와 정확히 일치해야 이벤트가 연결된다.
+  const subscribeOpen = document.getElementById("subscribe-open");
+  const subscribeModal = document.getElementById("subscribe-modal");
+  const subscribeClose = document.getElementById("subscribe-close");
+
+  // showModal()은 배경 클릭을 막고 키보드 초점을 모달 안에서 관리한다.
+  subscribeOpen.addEventListener("click", function () {
+    subscribeModal.showModal();
+  });
+
+  // 오른쪽 위 닫기 버튼으로 모달 종료.
+  subscribeClose.addEventListener("click", function () {
+    subscribeModal.close();
+  });
+
+  // 클릭 좌표를 dialog 테두리와 비교하여 내용 안쪽 클릭과 바깥 배경 클릭을 구분한다.
+  subscribeModal.addEventListener("click", function (event) {
+    const rect = subscribeModal.getBoundingClientRect();
+
+    if (
+      event.clientX < rect.left ||
+      event.clientX > rect.right ||
+      event.clientY < rect.top ||
+      event.clientY > rect.bottom
+    ) {
+      subscribeModal.close();
+    }
+  });
+
+</script>
+<script src="../tving main gi/header.js"></script>
+<script src="../tving main gi/modal.js"></script>
+
+</html>

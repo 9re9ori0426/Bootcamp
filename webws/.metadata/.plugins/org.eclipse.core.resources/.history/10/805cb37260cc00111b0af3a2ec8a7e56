@@ -1,0 +1,56 @@
+package com.bo.io;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/Reg")
+public class Reg extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		String name = request.getParameter("name");
+		String id = request.getParameter("id");
+		String pw = request.getParameter("pw");
+		String gender = request.getParameter("gender");
+		String addr = request.getParameter("addr");
+		String[] interests  = request.getParameterValues("interest");
+		String introduce = request.getParameter("introduce");
+
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+		
+		out.print("<html>");
+		out.print("<head>");
+		out.print("<meta charset=\"UTF-8\">");
+		out.print("<link rel='stylesheet' href='test.css'>");
+		out.print("</head>");
+		out.print("<body>");
+		out.print("<div class='flex-box'>");
+		
+		out.printf("<h1>%s</h1>", name);
+		out.printf("<h1>%s</h1>", id);
+		out.printf("<h1>%s</h1>", pw);
+		out.printf("<h1>%s</h1>", gender);
+		out.printf("<h1>%s</h1>", addr);
+		out.print("<h2>interest : ");
+		for(String interest : interests) {
+			out.print(interest + " ");
+		}
+		out.print("</h2>");
+		out.printf("<h2>%s</h2>", introduce);
+		
+		out.print("</div>");
+		out.print("</body>");
+		out.print("</html>");
+	
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+	}
+
+}

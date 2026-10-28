@@ -1,0 +1,6 @@
+@charset "UTF-8";
+
+.test-box {
+	display : flex;
+	justifycontent : "spacebetween"	;
+}

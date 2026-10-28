@@ -1,26 +1,33 @@
-<%@ page import="com.dw._4_model2_unit.Bean" %>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="com.bo._4_model2_unit.Bean" %>
+<%@ page contentType="text/html; charset=UTF-8" pageEncoding="UTF-8" %>
+<!DOCTYPE html>
 <html>
 <head>
-    <title>Title</title>
-    <link rel="stylesheet" href="input.css">
+    <title>JSP - Hello World</title>
+    <link href="index.css" rel="stylesheet">
 </head>
-<body>
+<%--<jsp:useBean id="b" class="com.bo._4_model2_unit.Bean"></jsp:useBean>--%>
 <%
-    Bean bb = (Bean) request.getAttribute("bean");
+    Bean b = (Bean) request.getAttribute("bean");
 %>
-<form action="index.jsp">
-    <div class="container bg-<%=bb.getCc()%>">
-        <div>변환결과</div>
-        <div><%=String.format("%.1f", bb.getNum())%> <span class="<%=bb.getCc()%>"> <%=bb.getUnit()%></span>
-        </div>
-        <div> ↓</div>
-        <div><%=String.format("%.1f", bb.getResult())%>   <span class="<%=bb.getCc()%>">  <%=bb.getConvertedUnit()%></span>
-        </div>
-        <div>
-            <button>돌아가기</button>
-        </div>
+<body>
+<div class="flex-box <%=b.getBack_color()%>">
+    <div>변환 결과</div>
+    <div class="flex-row">
+        <div><%=b.getValue()%></div>
+        <div class="<%=b.getFont_color()%>"><%=b.getStart_unit()%></div>
     </div>
-</form>
+    <div class="arrow">⬇</div>
+    <div class="flex-row">
+        <div><%b.getRet()%></div>
+        <div class="<%=b.getFont_color()%>"><%=b.getRet_unit()%></div>
+    </div>
+
+    <button class="back_btn" onclick="location.href='input.html'">돌아가기</button>
+</div>
 </body>
+<script>
+    const back_btn = document.querySelector(".back_btn");
+    back_btn.focus();
+</script>
 </html>

@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="join.css">
+    <style>
+        h1 {
+            animation-duration: 1s;
+            animation-name: rainbowLink;
+            animation-iteration-count: infinite;
+        }
+
+        @keyframes rainbowLink {
+            0% {
+                color: #ff2a2a;
+            }
+
+            15% {
+                color: #ff7a2a;
+            }
+
+            30% {
+                color: #ffc52a;
+            }
+
+            45% {
+                color: #43ff2a;
+            }
+
+            60% {
+                color: #2a89ff;
+            }
+
+            75% {
+                color: #202082;
+            }
+
+            90% {
+                color: #6b2aff;
+            }
+
+            100% {
+                color: #e82aff;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="join-wrap">
+        <div class="join-row">
+            <h1></h1>
+        </div>
+    </div>
+</body>
+<script>
+    const params = new URL(location.href).searchParams;
+    document.querySelector("h1").innerText = `당신의 나이는 ${params.get('age')}살 입니다.`
+</script>
+
+</html>

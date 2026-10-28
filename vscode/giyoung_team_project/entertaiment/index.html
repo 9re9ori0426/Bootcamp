@@ -1,0 +1,694 @@
+<!doctype html>
+<html lang="ko">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>TVING</title>
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="css/style2.css" />
+  <link rel="stylesheet" href="css/footer.css" />
+  <link rel="stylesheet" href="css/header.css" />
+  <link rel="stylesheet" href="css/tmp.css" />
+  <link rel="stylesheet" href="../tving main gi/header.css">
+</head>
+
+<body>
+  <!-- 상단 헤더 -->
+
+  <div class="app">
+    <header>
+      <div class="header logo">
+        <a href="../tving main gi/main1.html"><img src="../tving main gi/1695032536_1.svg" alt="" /></a>
+      </div>
+      <div class="header-nav">
+        <div class="header drama">드라마</div>
+        <div class="header variety" onclick="location.href='../entertaiment/index.html'"
+          style="color:white; opacity: 1;">예능</div>
+        <div class="header movie">영화</div>
+        <div class="header sports" onclick="location.href='../sports/Sports.html'">스포츠</div>
+        <div class="header ani" onclick="location.href='../ani/ani.html'">애니</div>
+        <div class="header news" onclick="location.href='../news/index.html'">뉴스</div>
+        <div class="header live">라이브</div>
+        <div class="header short">쇼츠</div>
+      </div>
+      <div class="header-nav2">
+        <div class="header login"><button>로그인</button></div>
+        <div class="header search">
+          <div class="button">
+            <button type="button" id="search-toggle" class="search-switch" aria-label="검색 화면 열기" aria-expanded="false"
+              aria-controls="search-page" onclick="changeToggle()">
+              <img src="../tving main gi/icon_search.svg" alt="" class="search-icon" aria-hidden="true" />
+              <img src="../tving main gi/x.svg" alt="" class="close-icon" aria-hidden="true" />
+            </button>
+            <!-- <button id="close-toggle"> -->
+            <!-- </button> -->
+          </div>
+        </div>
+        <div class="icon-group" onmouseover="handleMouseOverProfile()" onmouseout="handleMouseOutProfile()">
+          <div class="header icon"></div>
+          <div class="dropDown" id="dropDown">
+            <div class="group">
+              <div class="icon-menu"></div>
+              <div class="menu">
+                가입하고 시작하기<img src="../tving main gi/www.tving.com-5.svg" alt="" />
+              </div>
+              <div class="line"></div>
+              <div class="my">MY</div>
+              <div class="ticket">이용권 목록</div>
+              <div class="sale coupon-btn">쿠폰 등록</div>
+              <div class="serviceCenter" onclick="window.open('https://www.tving.com/help/notice')">고객센터</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="search-page" id="search-page">
+      <div class="search-inner">
+        <div class="large-search-bar">
+          <input id="search-input" type="search" placeholder="제목, 인물명을 입력해보세요." aria-label="검색어 입력" />
+          <img src="../tving main gi/icon_search.svg" alt="" aria-hidden="true" />
+        </div>
+
+        <div class="search-columns">
+          <section class="recent-search">
+            <h2>최근 검색어</h2>
+            <p>검색 내역이 없습니다.</p>
+          </section>
+          <section class="popular-search">
+            <h2>실시간 인기 검색어</h2>
+
+            <ol>
+              <li><span>1</span>닥터 X 시즌1</li>
+              <li><span>2</span>신인감독 김연경2</li>
+              <li><span>3</span>오은영 리포트 - 결혼 지옥</li>
+              <li><span>4</span>로또 1등도 출근합니다</li>
+              <li><span>5</span>먼작귀 몰아보기</li>
+              <li><span>6</span>심야괴담회 시즌6</li>
+              <li><span>7</span>100일의 거짓말</li>
+              <li><span>8</span>놀면 뭐하니?</li>
+              <li><span>9</span>탐정들의 영업비밀</li>
+              <li><span>10</span>신인감독 김연경</li>
+            </ol>
+            <p class="ranking-note">2026.10.13 09:24기준</p>
+          </section>
+        </div>
+      </div>
+    </main>
+
+    <main id="entertainment">
+      <!-- 큰 배너 전체 -->
+      <div class="slidewrap">
+        <!-- 배너가 보이는 영역 -->
+        <div class="banner-window">
+          <!-- 가로로 움직이는 배너 묶음 -->
+          <div class="slides">
+            <!-- 첫 번째 배너 -->
+            <div class="section1 slide">
+              <!--배경 이미지-->
+
+              <img class="banner-background"
+                src="https://image.tving.com/ntgs/operation/banner/2026/09/10/1789047643_1.jpg/dims/resize/F_webp,1920"
+                alt="첫 번째 예능 배너" />
+              <!--배너 하단 로고 및 제목-->
+              <div class="banner-content">
+                <img class="banner-only-logo" src="images/KakaoTalk_20261014_092043650.png" alt="T-only" />
+                <h2 class="banner-title">
+                  생존을 위한 <br />
+                  마지막 무대
+                </h2>
+                <p class="banner-subtitle">라스트 스테이지 :24h</p>
+              </div>
+            </div>
+
+            <!-- 두 번째 배너 -->
+            <div class="section2 slide">
+              <!--배경 이미지-->
+              <img
+                src="https://image.tving.com/ntgs/operation/banner/2026/10/11/1791681265_1.jpg/dims/resize/F_webp,1920"
+                alt="두 번째 예능 배너" />
+              <!--배너 왼쪽 김연경 로고 및 제목-->
+              <div class="banner-content">
+                <img class="banner-only-logo"
+                  src="https://image.tving.com/ntgs/operation/banner/2026/10/11/1791681358_2.png/dims/resize/F_webp,1024"
+                  alt="김연경 로고" />
+                <h2 class="banner-title">
+                  '신인감독' 김연경,<br />
+                  '경력감독'이 되어 돌아왔다!
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- 배너 왼쪽 화살표: 처음에는 숨김 -->
+        <button type="button" class="arrow arrow-left" id="prev-btn" style="display: none" aria-label="이전 배너">
+          <img src="https://www.tving.com/img/icon_slide_left.svg" alt="" />
+        </button>
+
+        <!-- 배너 오른쪽 화살표 -->
+        <button type="button" class="arrow arrow-right" id="next-btn" aria-label="다음 배너">
+          <img src="https://www.tving.com/img/icon_slide_right.svg" alt="" />
+        </button>
+      </div>
+
+      <!-- 배너 아래 카테고리 전체 -->
+      <section class="category-wrap" aria-label="예능 카테고리">
+        <!-- 카테고리가 보이는 영역 -->
+        <div class="category-window">
+          <!-- 가로로 움직이는 카테고리 묶음 -->
+          <div class="category-track">
+            <!-- 첫 번째 카테고리 -->
+            <div class="category-page">
+              <a href="#">버라이어티</a>
+              <a href="#">다큐멘터리</a>
+              <a href="#">여행</a>
+              <a href="#">쿡방/먹방</a>
+              <a href="#">연애 리얼리티토크쇼</a>
+              <a href="#">나영석 예능</a>
+              <a href="#">게임/퀴즈쇼</a>
+              <a href="#">서바이벌</a>
+              <a href="#">관찰리얼리티</a>
+            </div>
+
+            <!-- 두 번째 카테고리 -->
+            <div class="category-page">
+              <a href="#">토크쇼</a>
+              <a href="#">스포츠예능</a>
+              <a href="#">교육&독서예능</a>
+              <a href="#">힐링 예능</a>
+              <a href="#">아이돌(리얼리티)</a>
+              <a href="#">음악서바이벌</a>
+              <a href="#">음악예능</a>
+              <a href="#">코미디</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- 카테고리 왼쪽 화살표: 처음에는 숨김 -->
+        <button type="button" class="category-arrow category-left" id="category-prev" style="display: none"
+          aria-label="이전 카테고리">
+          <img src="https://www.tving.com/img/icon_slide_left.svg" alt="" />
+        </button>
+
+        <!-- 카테고리 오른쪽 화살표 -->
+        <button type="button" class="category-arrow category-right" id="category-next" aria-label="다음 카테고리">
+          <img src="https://www.tving.com/img/icon_slide_right.svg" alt="" />
+        </button>
+      </section>
+      <!-- 최신회차 모음 -->
+      <section class="latest">
+        <div class="latest-heading">
+          <h2>따근한 예능 최신회차 모음</h2>
+        </div>
+
+        <!-- 화살표 위치의 기준 -->
+        <div class="latest-slider">
+          <!-- 가로로 이동할 카드 목록 -->
+          <div class="latest-list">
+            <!-- 첫 번째 카드 -->
+            <div class="latest-card">
+              <a href="#video1" class="latest-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caie/CAIE0400/com/20261012/1150/E004646757.jpg/dims/resize/F_webp,400"
+                  alt="첫 번째 예능 썸네일" />
+                <span class="play-icon">▶</span>
+              </a>
+
+              <div class="latest-info">
+                <span class="episode">132화</span>
+                <span> · 107분 · 2026.10.12</span>
+              </div>
+
+              <p class="latest-description">
+                ▶생활 밀착형 직업 탐정의 세계 <탐정 24시> "수상한 세입자" -1부.
+                  세입자에게 사기를 당하고 있는 건지 확신이 서지 않는다며, 아들과
+                  함께 부부 탐정단을 찾은 의뢰인. 계좌 내역....
+              </p>
+            </div>
+
+            <!-- 두 번째 카드 -->
+            <div class="latest-card">
+              <a href="#video2" class="latest-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caie/CAIE0400/com/20261012/0031/E004643715.jpg/dims/resize/F_webp,400"
+                  alt="두 번째 예능 썸네일" />
+                <span class="play-icon">▶</span>
+              </a>
+
+              <div class="latest-info">
+                <span class="episode">275화</span>
+                <span> · 90분 · 2026.10.12</span>
+              </div>
+
+              <p class="latest-description">
+                ▶'히스토리 에어라인' 설레는 이백일흔다섯 번째 여행! <한반도를 집어삼킨 일본 군벌! 조선총독부의 만행> 35년간 한반도의
+                  행정·입법·사법권을 거머쥐고 식민 통치의 사령탑으로 군림..
+              </p>
+            </div>
+
+            <!-- 세 번째 카드 -->
+            <div class="latest-card">
+              <a href="#video3" class="latest-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caie/CAIE0400/com/20261012/1144/E004647392.jpg/dims/resize/F_webp,400"
+                  alt="세 번째 예능 썸네일" />
+                <span class="play-icon">▶</span>
+              </a>
+
+              <div class="latest-info">
+                <span class="episode">187화</span>
+                <span> · 80분 · 2026.10.12</span>
+              </div>
+
+              <p class="latest-description">
+                ▶'오은영 리포트-결혼 지옥'에서 '고발 부부' 남편의 심각한 술
+                문제가 공개된다. 10월 12일(월) 밤 9시 방송되는 MBC '오은영
+                리포트-결혼 지옥' 187회에는 서로의 문제..
+              </p>
+            </div>
+
+            <!-- 네 번째 카드 -->
+            <div class="latest-card">
+              <a href="#video4" class="latest-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caie/CAIE0400/com/20261013/0254/E004646774.jpg/dims/resize/F_webp,400"
+                  alt="네 번째 예능 썸네일" />
+                <span class="play-icon">▶</span>
+              </a>
+
+              <div class="latest-info">
+                <span class="episode">105화</span>
+                <span> · 87분 · 2026.10.12</span>
+              </div>
+
+              <p class="latest-description">
+                ▶김동현 때문에 UFC 입문까지 했다? 배우 김현주의 남다른 팬심
+                고백! ▶'실종자와 연락됐다' 거짓말한 제주 부 경장의 황당 변명!
+                일이 많아 허위 종결했다? ▶'장난인 줄' 책임 회피...
+              </p>
+            </div>
+
+            <!-- 다섯 번째 카드 -->
+            <div class="latest-card">
+              <a href="#video5" class="latest-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caie/CAIE0400/com/20261012/0314/E004646769.jpg/dims/resize/F_webp,400"
+                  alt="다섯 번째 예능 썸네일" />
+                <span class="play-icon">▶</span>
+              </a>
+
+              <div class="latest-info">
+                <span class="episode">385화</span>
+                <span> · 61분 · 2026.10.12</span>
+              </div>
+
+              <p class="latest-description">
+                "11년째 프로 진출에 도전 중인 야구선수, 계속 도전해도 될까요?"
+                캠핑카 생활까지 불사하는 무명의 야구 선수. 프로 진출을 꿈꾸며
+                11년째 도전 중이라는데 불확실한 미래에 점점 떨어...
+              </p>
+            </div>
+
+            <!-- 여섯 번째 카드 -->
+            <div class="latest-card">
+              <a href="#video6" class="latest-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caie/CAIE0400/com/20261011/0948/E004646114.jpg/dims/resize/F_webp,400"
+                  alt="여섯 번째 예능 썸네일" />
+                <span class="play-icon">▶</span>
+              </a>
+
+              <div class="latest-info">
+                <span class="episode">769화</span>
+                <span> · 80분 · 2026.10.11</span>
+              </div>
+
+              <p class="latest-description">
+                <북한으로 끌려간 아버지를 구출하라! 남북 가족 합작 아버지 송환 작전> 휴전 두 달 전 북한에 끌려간 국군포로 '손동식' 씨. 평생
+                  고향을 그리던 그가 딸 손명화 씨에게 전한 진실은?...
+              </p>
+            </div>
+            <!--일곱 번째 썸네일-->
+            <div class="latest-card">
+              <a href="#video7" class="latest-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caie/CAIE0400/com/20261011/1143/E004644180.jpg/dims/resize/F_webp,400"
+                  alt="일곱 번째 예능 썸네일" />
+                <span class="play-icon">▶</span>
+              </a>
+
+              <div class="latest-info">
+                <span class="episode">92화</span>
+                <span> · 91분 · 2026.10.11</span>
+              </div>
+
+              <p class="latest-description">
+                ▶화제의 중심에 있는 인물 최고의 전성기를 맞은 이선민과 HOT 한
+                예능 대세 코드 쿤스트의 등장! 예능 브랜드 평판 1위 유재석, 다음
+                이선민 출세한 대세 이선민의 리센느 원이와 얽힌...
+              </p>
+            </div>
+            <!--여덟 번째 썸네일-->
+            <div class="latest-card">
+              <a href="#video8" class="latest-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caie/CAIE0400/com/20261011/0051/E004646696.jpg/dims/resize/F_webp,400"
+                  alt="여덟 번째 예능 썸네일" />
+                <span class="play-icon">▶</span>
+              </a>
+
+              <div class="latest-info">
+                <span class="episode">1657화</span>
+                <span> · 58분 · 2026.10.11</span>
+              </div>
+
+              <p class="latest-description">
+                1.기막힌 이야기 <킬링타임>2.온 영화<하트 오브 비스트>& <스트리트 파이터>3.흥행 보증성지순례단 배우 조여정 4.영화대 영화 <실낙원>
+                        VS<형> 5.짜짜무비 <쿵푸허슬>...
+              </p>
+            </div>
+          </div>
+
+          <!-- 왼쪽 화살표: 처음에는 숨김 -->
+          <button type="button" class="latest-arrow latest-left" id="latest-prev" style="display: none"
+            aria-label="이전 최신회차">
+            <img src="https://www.tving.com/img/icon_slide_left.svg" alt="" />
+          </button>
+
+          <!-- 오른쪽 화살표 -->
+          <button type="button" class="latest-arrow latest-right" id="latest-next" aria-label="다음 최신회차">
+            <img src="https://www.tving.com/img/icon_slide_right.svg" alt="여덟번째 배너" />
+          </button>
+        </div>
+      </section>
+
+      <section class="under-banner">
+        <h2>실시간 인기 예능</h2>
+
+        <div class="under-slider">
+          <div class="under-category">
+            <!--1위 카드-->
+            <div class="live-card">
+              <a href="#live-video1" class="live-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260817/2359/P001789206.jpg/dims/resize/F_webp,400"
+                  alt="실시간 인기 예능 1위" />
+
+                <span class="live-new">NEW</span>
+              </a>
+
+              <!-- 이미지 밖, 카드 안에 배치 -->
+              <span class="live-rank">1</span>
+            </div>
+            <!--2위 카드 -->
+            <div class="live-card">
+              <a href="#live-video2" class="live-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260105/1856/P001781344.jpg/dims/resize/F_webp,400"
+                  alt=" 실시간 인기 예능 2위" />
+                <span class="live-new">NEW</span>
+              </a>
+              <!-- 이미지 밖, 카드 안에 배치 -->
+              <span class="live-rank">2</span>
+            </div>
+            <!--실시간 인기 예능 3위-->
+            <div class="live-card">
+              <a href="#live-video3" class="live-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260709/0629/P001789273.jpg/dims/resize/F_webp,400"
+                  alt="실시간 인기 예능 3위" />
+              </a>
+              <span class="live-rank">3</span>
+            </div>
+            <!--4번째 실시간 예능 카드-->
+            <div class="live-card">
+              <a href="#live-video4" class="live-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20241212/0436/P001765388.jpg/dims/resize/F_webp,400"
+                  alt="실시간 인기 예능 4위" />
+                <span class="live-new">NEW</span>
+              </a>
+              <span class="live-rank">4</span>
+            </div>
+            <!--5번째 실시간 예능 카드-->
+            <div class="live-card">
+              <a href="#live-video5" class="live-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260212/0321/P001782817.jpg/dims/resize/F_webp,400"
+                  alt="실시간 예능 5위" />
+              </a>
+              <span class="live-rank">5</span>
+            </div>
+            <!--6번째 실시간 예능 카드-->
+            <div class="live-card">
+              <a href="#live-video6" class="live-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260714/0720/P001789236.jpg/dims/resize/F_webp,400"
+                  alt="실시간 예능 순위6" />
+              </a>
+              <span class="live-rank">6</span>
+            </div>
+            <!--7번째 실시간 예능 카드-->
+            <div class="live-card">
+              <a href="#live-video7" class="live-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260622/1845/P001788561.jpg/dims/resize/F_webp,400"
+                  alt="실시간 예능 순위 7" />
+                <span class="live-new">NEW</span>
+              </a>
+              <span class="live-rank">7</span>
+            </div>
+            <!--8번째 실시간 예능 카드-->
+            <div class="live-card">
+              <a href="#live-video8" class="live-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20251216/0815/P001780220.jpg/dims/resize/F_webp,400"
+                  alt="실시간 예능 순위 8" />
+              </a>
+              <span class="live-rank">8</span>
+            </div>
+            <!--9번째 실시간 예능 카드-->
+            <div class="live-card">
+              <a href="#live-video9" class="live-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260922/2152/P001792268.jpg/dims/resize/F_webp,400"
+                  alt="실시간 예능 순위 9위" />
+                <span class="live-new">NEW</span>
+              </a>
+              <span class="live-rank">9</span>
+            </div>
+            <!--10번째 실시간 예능 카드-->
+            <div class="live-card">
+              <a href="#live-video10" class="live-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20231030/0130/P001392765.jpg/dims/resize/F_webp,400"
+                  alt="실시간 예능 순위 10위" />
+                <span class="live-new">NEW</span>
+              </a>
+              <span class="live-rank">10</span>
+            </div>
+            <!--11번째 실시간 예능 카드-->
+            <div class="live-card">
+              <a href="#live-video11" class="live-image">
+                <img
+                  src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20250423/0536/P001644914.jpg/dims/resize/F_webp,400"
+                  alt="실시간 예능 순위 11위" />
+                <span class="live-new">NEW</span>
+              </a>
+              <span class="live-rank">11</span>
+            </div>
+          </div>
+          <button type="button" class="live-arrow live-left" id="live-prev" style="display: none" aria-label="이전 인기 예능">
+            <img src="https://www.tving.com/img/icon_slide_left.svg" alt="" />
+          </button>
+
+          <button type="button" class="live-arrow live-right" id="live-next" aria-label="다음 인기 예능">
+            <img src="https://www.tving.com/img/icon_slide_right.svg" alt="" />
+          </button>
+        </div>
+        <!-- under-slider 끝 -->
+      </section>
+    </main>
+  </div>
+  <!--하단 사이트 정보 영역-->
+  <footer class="tving-footer">
+    <table class="footer-table">
+      <tr class="footer-notice">
+        <td colspan="2">
+          <a href="#">
+            <strong>공지</strong>
+            <span>사이버 침해 사고 보상 미신청 회원 신청 기간 연장 운영
+              안내</span>
+          </a>
+          <span class="notice-arrow"><img src="../tving main gi/티빙 사진/www.tving.com-52.svg" alt="" /></span>
+        </td>
+      </tr>
+      <tr class="footer-menu-row">
+        <td class="footer-menu">
+          <a href="">고객센터</a>
+          <a href="">이용약관</a>
+          <a href="" class="privacy">개인정보처리방침</a>
+          <a href="">청소년 보호정책</a>
+          <a href="">법적고지</a>
+          <a href="">이벤트</a>
+          <a href="">인재채용</a>
+        </td>
+        <td class="footer-dropDown-area">
+          <details class="footer-dropDown">
+            <summary class="brand">브랜드 바로가기</summary>
+            <div class="dropDown-content">
+              <a href="#">tvN</a>
+              <a href="#">tvN SPORTS</a>
+              <a href="#">tvN STORY</a>
+              <a href="#">tvN DRAMA</a>
+              <a href="#">tvN SHOW</a>
+              <a href="#">OCN</a>
+              <a href="#">중화TV</a>
+              <a href="#">UXN</a>
+              <a href="#">CATCHON</a>
+              <a href="#">Tooniverse</a>
+            </div>
+          </details>
+          <details class="footer-dropDown">
+            <summary>그룹 계열사 바로가기</summary>
+            <div class="dropDown-content">
+              <a href="#">CJ주식회사</a>
+              <a href="#">CJ ENM 엔터테인먼트부문</a>
+              <a href="#">CJ CGV</a>
+              <a href="#">CJ제일제앋(식품)</a>
+              <a href="#">CJ프레시웨이</a>
+              <a href="#">CJ푸드빌</a>
+              <a href="#">CJ엠디원</a>
+              <a href="#">CJ제일제당(바이오)</a>
+              <a href="#">CJ ENM 커머스부문</a>
+              <a href="#">CJ대한통운</a>
+              <a href="#">CJ텔레닉스</a>
+              <a href="#">CJ올리브영</a>
+              <a href="#">CJ대한통운(건설)</a>
+              <a href="#">CJ올리브네트웍스</a>
+            </div>
+          </details>
+        </td>
+      </tr>
+      <tr class="footer-info">
+        <td colspan="2">
+          대표이사:최주희 |
+          <a href="#">사업자정보확인</a> | 사업자등록번호: 188-88-01893 |
+          통신판매신고번호: 2020-서울마포-3641호
+        </td>
+      </tr>
+      <tr class="footer-info">
+        <td colspan="2">
+          사업장: 서울특별시 마포구 상암산로 34, DMC디지털큐브 15층(상암동) |
+          호스팅사업자: 아마존웹서비시즈코리아 유한책임회사
+        </td>
+      </tr>
+      <tr class="footer-info">
+        <td colspan="2">
+          고객센터 평일 09:00~17:00(점심시간 13:00~14:00)/공휴일 휴무 |
+          <a href="#">챗봇/채팅 상담</a> | <a href="#">1:1 게시판 문의</a> |
+          대표메일:tving@cj.net | 대표번호(유료): 1670-1525
+        </td>
+      </tr>
+      <tr class="footer-info">
+        <td colspan="2">
+          ENM 시청자 상담실(편성 문의 및 시청자 의견):080-080-0780 | Mnet
+          고객센터(방송편성문의) : 1855-1631
+        </td>
+      </tr>
+      <tr class="footer-img">
+        <td colspan="2">
+          <a href="https://www.youtube.com/c/TVING_official" target="_blank"><img src="images/티빙 사진/tivingYoutube.svg"
+              alt="" /></a>
+          <img class="insta" src="images/티빙 사진/tvingInsta.svg" alt="" />
+          <img src="images/티빙 사진/tvingTw.svg" alt="" />
+          <img src="images/티빙 사진/tvingFace.svg" alt="" />
+        </td>
+      </tr>
+      <tr class="footer-bottom">
+        <td colspan="2">© TVING Corp. ALL RIGHTS RESERVED.</td>
+      </tr>
+    </table>
+  </footer>
+
+  <div class="modal alert-modal">
+    <div class="modal-box">
+      <div class="modal-title">알림</div>
+      <div class="modal-text">라이브 시작 후 시청 가능합니다.</div>
+      <div class="modal-btn" data-close=".alert-modal">확인</div>
+    </div>
+  </div>
+  <div class="modal coupon-modal">
+    <div class="modal-box">
+      <div class="modal-close" data-close=".coupon-modal">✕</div>
+      <div class="modal-text">지금 가입하고<br />무료로 이용해보세요</div>
+      <div class="modal-btn">가입하고 시작하기</div>
+      <div class="sns">
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+            <g clip-path="url(#a)">
+              <path fill="#F152D9" d="M3.168 3.877A11.96 11.96 0 0 0 .01 11.499L5.4 9.267z" />
+              <path fill="#F268DD" d="M3.877 3.168 9.267 5.4 11.5.01a11.96 11.96 0 0 0-7.622 3.157" />
+              <path fill="#ED27CF" d="m12.501.01 2.232 5.39 5.39-2.232A11.96 11.96 0 0 0 12.501.01" />
+              <path fill="#F693E7" d="M12.501.01q-.503-.021-1.002 0L9.267 5.4h5.467z" />
+              <path fill="#F47DE2" d="M5.4 9.267.01 11.499q-.022.502 0 1.002l5.39 2.232V9.265z" />
+              <path fill="#F8A9EC" d="m9.267 5.4-5.39-2.232q-.37.34-.709.709L5.4 9.267z" />
+              <path fill="#9D49F4" d="M5.4 14.733.01 12.501a11.96 11.96 0 0 0 3.156 7.622l2.232-5.39z" />
+              <path fill="#CEA4F9" d="m18.6 9.267 2.232-5.39a12 12 0 0 0-.709-.709L14.734 5.4z" />
+              <path fill="#9D49F4" d="m18.6 9.267 5.39 2.232a11.96 11.96 0 0 0-3.157-7.622z" />
+              <path fill="#CEA4F9" d="m5.4 14.733-2.232 5.39q.34.37.709.709l5.39-2.232z" />
+              <path fill="#7189FF" d="M20.832 20.123a11.96 11.96 0 0 0 3.157-7.622l-5.39 2.232 2.232 5.39z" />
+              <path fill="#617CFF" d="m9.267 18.6-5.39 2.232a11.96 11.96 0 0 0 7.622 3.157l-2.232-5.39z" />
+              <path fill="#91A4FF" d="M23.99 11.499 18.6 9.267v5.468l5.39-2.232q.021-.503 0-1.003" />
+              <path fill="#7ECDF2" d="M11.499 23.99q.503.021 1.002 0l2.232-5.39H9.266z" />
+              <path fill="#46B7EC" d="m14.733 18.6-2.232 5.39a11.96 11.96 0 0 0 7.622-3.157l-5.39-2.232z" />
+              <path fill="#A2DBF5" d="m14.733 18.6 5.39 2.232q.37-.34.71-.709l-2.233-5.39z" />
+            </g>
+            <defs>
+              <clipPath id="a">
+                <path fill="#fff" d="M0 0h24v24H0z" />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+            <path fill="#00C73C"
+              d="m15.288 12.644-6.84-9.831H2.775v18.363h5.943v-9.831l6.84 9.831h5.672V2.816h-5.942z" />
+          </svg>
+        </div>
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+            <path fill="#F7E317"
+              d="M9.997 2.5c-4.602 0-8.333 2.95-8.333 6.587a6.44 6.44 0 0 0 3.954 5.605c-.175.651-.632 2.358-.723 2.723-.114.456.166.447.349.325.143-.096 2.28-1.55 3.207-2.178a10.6 10.6 0 0 0 1.546.114c4.602 0 8.334-2.95 8.334-6.588S14.599 2.5 9.997 2.5" />
+          </svg>
+        </div>
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+            <path fill="#fff"
+              d="M21.199 8.118a5.8 5.8 0 0 0-1.032-1.406 4.6 4.6 0 0 0-3.213-1.2 9.5 9.5 0 0 0-2.725.803 4.2 4.2 0 0 1-1.605.316c-.643 0-1.272-.19-1.808-.545a5.34 5.34 0 0 0-2.494-.574c-3.413-.004-5.675 3.408-5.675 6.966a12.78 12.78 0 0 0 4.011 9.377 3.93 3.93 0 0 0 2.553 1.063c.46-.038.912-.135 1.347-.289a7.7 7.7 0 0 1 2.094-.631c.58.035 1.147.191 1.664.458a5.2 5.2 0 0 0 1.95.431 3.5 3.5 0 0 0 2.065-.569 11.1 11.1 0 0 0 3.36-5.104c-1.92-.516-3.097-2.724-3.097-4.79-.005-1.611 1.027-3.82 2.605-4.306m-9.15-2.468a4.2 4.2 0 0 0 3.24-1.52A5.4 5.4 0 0 0 16.582.598 5.47 5.47 0 0 0 13.37 2.32a5.2 5.2 0 0 0-1.32 3.331" />
+          </svg>
+        </div>
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+            <path fill="#1877F2"
+              d="M13.477 5.893v2.619h4.147l-.545 4.255h-3.6V23.13H9.116V12.767H5.625V8.512h3.49v-3.71c0-6.327 8.51-4.581 8.51-4.581V3.93h-2.182a1.82 1.82 0 0 0-1.966 1.963" />
+          </svg>
+        </div>
+      </div>
+      <div class="modal-login">
+        <div class="modal-login-text">이미 계정이 있나요?</div>
+        <div class="modal-login-link">로그인</div>
+      </div>
+    </div>
+
+    <!-- 배너와 카테고리 이동 기능 -->
+    <script src="../tving main gi/header.js"></script>
+    <script src="../tving main gi/modal.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>

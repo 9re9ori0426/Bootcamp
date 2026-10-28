@@ -1,0 +1,37 @@
+
+<!-- saved from url=(0026)http://localhost:8080/attr -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Title</title>
+    <link href="./Title_files/index.css" rel="stylesheet">
+</head>
+<body>
+<h1>계산 결과</h1>
+<div>
+    <div>상품 가격 : 10000
+    </div>
+</div>
+<div>
+    <div>지불한 돈 : 1000
+    </div>
+</div>
+
+
+<hr>
+<form action="http://localhost:8080/attr/ExController" method="get">
+    <input type="text" name="howmuch" hidden="" value="9000">
+    <button>GET 확인</button>
+</form>
+<hr>
+<form action="http://localhost:8080/attr/ExController" method="post">
+    <input type="text" name="asd" hidden="" value="9000">
+    <button>POST 확인 (데이터 이미 완성)</button>
+</form>
+<form action="http://localhost:8080/attr/ExController" method="post">
+    <input type="text" name="asd" hidden="" value="9000">
+    <button>POST 확인 (데이터 미완성)</button>
+</form>
+<button type="button" style="margin-top : 20px; filter : grayscale(1)" onclick="location.href='/'">뒤로</button>
+
+
+
+</body></html>

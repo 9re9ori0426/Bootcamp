@@ -1,0 +1,49 @@
+package com.bo.io;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/Calc")
+public class Calc extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int x = Integer.parseInt(request.getParameter("x"));
+		int y = Integer.parseInt(request.getParameter("y"));
+
+		int plus = x + y;
+		int minus = x - y;
+		int multiply = x*y;
+		double divide = y != 0 ? x/(double)y : 0;
+		
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+
+		out.print("<html>");
+		out.print("<head>");
+		out.print("<meta charset=\"UTF-8\">");
+		out.print("<link rel='stylesheet' href='test.css'>");
+		out.print("</head>");
+		out.print("<body>");
+		out.print("<div class='flex-box'>");
+		out.printf("<div>%d + %d = %d</h1>", x, y, plus);
+		out.printf("<h1>%d - %d = %d</h1>", x, y, minus);
+		out.printf("<h1>%d × %d = %d</h1>", x, y, multiply);
+		out.printf("<h1>%d ÷ %d = %.1f</h1>", x, y, divide);
+		out.print("</div>");
+		out.print("</body>");
+		out.print("</html>");
+;
+
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+}

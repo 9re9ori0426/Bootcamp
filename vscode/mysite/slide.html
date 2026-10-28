@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>my site</title>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            $(".slider").bxSlider({
+                auto: true,
+                autoControls: true,
+                stopAutoOnClick: true,
+                pager: true,
+                mode: 'fade',
+                captions: true,
+                slideWidth: 500,
+                pause: 1000,
+            });
+        });
+    </script>
+
+    <link rel="stylesheet" href="index.css">
+    <link rel="stylesheet" href="slide.css">
+</head>
+
+<body>
+
+    <header><a href="index.html">bo's website</a></header>
+
+    <nav>
+        <ul>
+            <li class="dropdown">
+                <a href="menu1.html">menu1</a>
+                <!-- <ul class="dropdown-menu">
+                    <li><a href="#">sub menu 1</a></li>
+                    <li><a href="#">sub menu 2</a></li>
+                    <li><a href="#">sub menu 3</a></li>
+                </ul> -->
+            </li>
+            <li><a href="join.html">join</a></li>
+            <li><a href="slide.html">슬라이드</a></li>
+            <li><a href="https://www.naver.com" target="_blank">네이버로</a></li>
+            <li><a href="login.html">로그인</a></li>
+            <li><a href="age.html">나이</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <div class="slider">
+            <div class="slider-wrap"><img
+                    src="https://img1.kakaocdn.net/thumb/R1280x0.fwebp/?fname=http://t1.daumcdn.net/brunch/service/user/a2To/image/-4ZDMcKlWuZ11l5yCt_V-lzbDxM.jpeg">
+            </div>
+            <div class="slider-wrap"><img
+                    src="https://cryptonews.com/wp-content/uploads/sites/18/2024/02/1709126465-pepe-1024x576.webp">
+            </div>
+            <div class="slider-wrap"><img
+                    src="https://i.namu.wiki/i/WkPZlLjf0g5i_o4r5j08iC9l29cT-RDp6jc1oQsheTjeVW_hJ31K2Qt_JV6PzSqR0DhsCWkWm8IxM7e-HNKBdQ.webp">
+            </div>
+        </div>
+    </main>
+
+
+
+
+</body>
+
+</html>

@@ -1,0 +1,73 @@
+Create TABLE COFFEE_TEST(
+    C_NO number(2) primary key,
+    C_NAME varchar2(30 char) not null,
+    C_PRICE number(5) not null,
+    C_ORIGIN varchar(20 char) not null
+);
+
+create sequence COFFEE_TEST_SEQ;
+
+insert into COFFEE_TEST VALUES (COFFEE_TEST_SEQ.nextval, 'c1', 20000, 'o1');
+insert into COFFEE_TEST VALUES (COFFEE_TEST_SEQ.nextval, 'c2', 20000, 'o2');
+
+select * FROM COFFEE_TEST;
+
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '에티오피아 예가체프', 18000, '에티오피아');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '에티오피아 시다모', 17000, '에티오피아');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '에티오피아 구지', 19000, '에티오피아');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '에티오피아 코케허니', 22000, '에티오피아');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '에티오피아 아리차', 21000, '에티오피아');
+
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '케냐 AA', 20000, '케냐');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '케냐 AB', 18000, '케냐');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '케냐 키암부', 23000, '케냐');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '케냐 니에리', 21000, '케냐');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '케냐 카라티나', 24000, '케냐');
+
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '콜롬비아 수프리모', 16000, '콜롬비아');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '콜롬비아 후일라', 17000, '콜롬비아');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '콜롬비아 나리뇨', 19000, '콜롬비아');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '콜롬비아 핑크버번', 25000, '콜롬비아');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '콜롬비아 카우카', 18000, '콜롬비아');
+
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '브라질 세하도', 14000, '브라질');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '브라질 산토스', 15000, '브라질');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '브라질 옐로우버번', 18000, '브라질');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '브라질 미나스제라이스', 16000, '브라질');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '브라질 모지아나', 19000, '브라질');
+
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '과테말라 안티구아', 17000, '과테말라');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '과테말라 아카테낭고', 19000, '과테말라');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '과테말라 우에우에테낭고', 20000, '과테말라');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '과테말라 산타로사', 18000, '과테말라');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '과테말라 엘판테온', 22000, '과테말라');
+
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '코스타리카 따라주', 19000, '코스타리카');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '코스타리카 웨스트밸리', 20000, '코스타리카');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '코스타리카 센트럴밸리', 18000, '코스타리카');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '코스타리카 허니프로세스', 22000, '코스타리카');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '코스타리카 타라주 레드허니', 24000, '코스타리카');
+
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '파나마 보케테', 22000, '파나마');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '파나마 게이샤', 35000, '파나마');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '파나마 에스메랄다', 40000, '파나마');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '파나마 볼칸', 25000, '파나마');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '파나마 돈파치', 28000, '파나마');
+
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '인도네시아 만델링', 16000, '인도네시아');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '인도네시아 가요마운틴', 18000, '인도네시아');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '인도네시아 토라자', 19000, '인도네시아');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '인도네시아 자바', 17000, '인도네시아');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '인도네시아 발리 킨타마니', 20000, '인도네시아');
+
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '르완다 후예마운틴', 19000, '르완다');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '르완다 니아마셰케', 20000, '르완다');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '르완다 기콩고로', 21000, '르완다');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '르완다 무사사', 22000, '르완다');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '르완다 카라메', 23000, '르완다');
+
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '엘살바도르 산타아나', 18000, '엘살바도르');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '엘살바도르 파카마라', 22000, '엘살바도르');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '엘살바도르 아파네카', 19000, '엘살바도르');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '엘살바도르 산타리타', 21000, '엘살바도르');
+INSERT INTO COFFEE_TEST VALUES(COFFEE_TEST_SEQ.nextval, '엘살바도르 엘보스케', 20000, '엘살바도르');

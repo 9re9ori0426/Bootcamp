@@ -1,0 +1,603 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width, viewport-fit=cover" />
+  <title>Document</title>
+
+  <link rel="stylesheet" as="style" crossorigin
+    href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css" />
+  <!-- 라이브러리 CSS보다 뒤에서 사용자 디자인을 적용. CSS 파일의 규칙 순서와 선택자 우선순위에 주의. -->
+  <link rel="stylesheet" href="./ani_style.css" />
+  <link rel="stylesheet" href="../tving main gi/main.css" />
+  <link rel="stylesheet" href="../tving main gi/header.css">
+</head>
+
+<body>
+  <!-- 공통 헤더: 왼쪽 로고·장르 메뉴와 오른쪽 로그인·검색·프로필로 구성. sticky는 연결된 CSS에서 설정. -->
+
+  <div class="app">
+    <header>
+      <div class="header logo">
+        <a href="../tving main gi/main1.html"><img src="../tving main gi/1695032536_1.svg" alt="" /></a>
+      </div>
+      <div class="header-nav">
+        <div class="header drama">드라마</div>
+        <div class="header variety" onclick="location.href='../entertaiment/index.html'">예능</div>
+        <div class="header movie">영화</div>
+        <div class="header sports" onclick="location.href='../sports/Sports.html'">스포츠</div>
+        <div class="header ani" onclick="location.href='../ani/ani.html'" style="color:white; opacity: 1;">애니</div>
+        <div class="header news" onclick="location.href='../news/index.html'">뉴스</div>
+        <div class="header live">라이브</div>
+        <div class="header short">쇼츠</div>
+      </div>
+      <div class="header-nav2">
+        <div class="header login"><button>로그인</button></div>
+        <div class="header search">
+          <div class="button">
+            <button type="button" id="search-toggle" class="search-switch" aria-label="검색 화면 열기" aria-expanded="false"
+              aria-controls="search-page" onclick="changeToggle()">
+              <img src="../tving main gi/icon_search.svg" alt="" class="search-icon" aria-hidden="true" />
+              <img src="../tving main gi/x.svg" alt="" class="close-icon" aria-hidden="true" />
+            </button>
+            <!-- <button id="close-toggle"> -->
+            <!-- </button> -->
+          </div>
+        </div>
+        <div class="icon-group" onmouseover="handleMouseOverProfile()" onmouseout="handleMouseOutProfile()">
+          <div class="header icon"></div>
+          <div class="dropDown" id="dropDown">
+            <div class="group">
+              <div class="icon-menu"></div>
+              <div class="menu">
+                가입하고 시작하기<img src="../tving main gi/www.tving.com-5.svg" alt="" />
+              </div>
+              <div class="line"></div>
+              <div class="my">MY</div>
+              <div class="ticket">이용권 목록</div>
+              <div class="sale coupon-btn">쿠폰 등록</div>
+              <div class="serviceCenter" onclick="window.open('https://www.tving.com/help/notice')">고객센터</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </header>
+
+    <main class="search-page" id="search-page">
+      <div class="search-inner">
+        <div class="large-search-bar">
+          <input id="search-input" type="search" placeholder="제목, 인물명을 입력해보세요." aria-label="검색어 입력" />
+          <img src="../tving main gi/icon_search.svg" alt="" aria-hidden="true" />
+        </div>
+
+        <div class="search-columns">
+          <section class="recent-search">
+            <h2>최근 검색어</h2>
+            <p>검색 내역이 없습니다.</p>
+          </section>
+          <section class="popular-search">
+            <h2>실시간 인기 검색어</h2>
+
+            <ol>
+              <li><span>1</span>닥터 X 시즌1</li>
+              <li><span>2</span>신인감독 김연경2</li>
+              <li><span>3</span>오은영 리포트 - 결혼 지옥</li>
+              <li><span>4</span>로또 1등도 출근합니다</li>
+              <li><span>5</span>먼작귀 몰아보기</li>
+              <li><span>6</span>심야괴담회 시즌6</li>
+              <li><span>7</span>100일의 거짓말</li>
+              <li><span>8</span>놀면 뭐하니?</li>
+              <li><span>9</span>탐정들의 영업비밀</li>
+              <li><span>10</span>신인감독 김연경</li>
+            </ol>
+            <p class="ranking-note">2026.10.13 09:24기준</p>
+          </section>
+        </div>
+      </div>
+    </main>
+    <!-- 상단 배너: swiper 계열 클래스는 라이브러리 구조용, mySwiper는 이 슬라이더만 실행하기 위한 이름. -->
+    <section class="swiper mySwiper banner" aria-label="추천 애니메이션">
+
+      <div class="swiper-wrapper">
+
+        <div class="swiper-slide">
+          <img class="banner-bg"
+            src="https://image.tving.com/ntgs/operation/banner/2026/09/23/1790139365_1.jpg/dims/resize/F_webp,1920"
+            alt="" />
+          <img class="banner-title"
+            src="https://image.tving.com/ntgs/operation/banner/2026/09/23/1790139331_2.png/dims/resize/F_webp,1024"
+            alt="첫 번째 추천 애니메이션" />
+          <div class="banner-text">
+            먼가 작고 귀여운 녀석<br />'먼작귀'들의 이야기
+          </div>
+        </div>
+
+
+        <div class="swiper-slide">
+          <img class="banner-bg"
+            src="https://image.tving.com/ntgs/operation/banner/2026/09/01/1788250616_1.jpg/dims/resize/F_webp,1920"
+            alt="" />
+          <img class="banner-title"
+            src="https://image.tving.com/ntgs/operation/banner/2026/09/01/1788250606_2.png/dims/resize/F_webp,1024"
+            alt="두 번째 추천 애니메이션" />
+          <div class="banner-text">
+            멈추지 않는 두뇌플레이<br />코난 2026 시즌 에피소드!
+          </div>
+        </div>
+      </div>
+
+
+      <div class="swiper-button-next"></div>
+      <div class="swiper-button-prev"></div>
+      <div class="swiper-pagination"></div>
+    </section>
+
+
+    <!-- 카테고리 Slick 슬라이더. data-slick의 JSON은 10개 표시·1개 이동·반복 없음 설정이며 하단 slick()에서 실행. -->
+    <section class="content-row">
+
+      <div class="anime-slider" data-slick='{"slidesToShow":10,"slidesToScroll":1,"infinite":false}'>
+        <div><span class="genre-item">전체</span></div>
+        <div><span class="genre-item">키즈</span></div>
+        <div><span class="genre-item">액션</span></div>
+        <div><span class="genre-item">코미디</span></div>
+        <div><span class="genre-item">미스터리/스릴러</span></div>
+        <div><span class="genre-item">모험/판타지</span></div>
+        <div><span class="genre-item">로맨스/순정</span></div>
+        <div><span class="genre-item">스포츠</span></div>
+        <div><span class="genre-item">SF</span></div>
+        <div><span class="genre-item">음식</span></div>
+        <div><span class="genre-item">학원/성장</span></div>
+      </div>
+    </section>
+
+
+    <!-- 랭킹 전체 hover 범위: 제목·점·더보기·순위 목록을 함께 포함한다. -->
+    <section class="ranking-section">
+
+      <div class="ranking-heading">
+        <h3>실시간 인기 애니메이션</h3>
+        <div class="ranking-tools">
+
+          <!-- 점은 하단 rankingSwiper의 pagination 설정으로 자동 생성되며 클릭 시 해당 그룹으로 이동. -->
+          <div class="ranking-pagination"></div>
+
+
+          <!-- 현재 더보기는 문구와 hover 스타일만 제공하며 이동 기능은 없다. -->
+          <span class="ranking-more">더보기</span>
+        </div>
+      </div>
+
+
+      <div class="swiper ranking-slider">
+        <!-- 각 ranking-item은 첫 div에 순위 SVG, 두 번째 div에 포스터 이미지. 숫자 영역을 고정해 사진 크기를 통일한다. -->
+        <div class="swiper-wrapper ranking-list">
+          <div class="swiper-slide ranking-item">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="30" height="87" fill="none" viewBox="0 0 30 87">
+                <path fill="#fff"
+                  d="M20.107.766C17.711 7 14.286 12.782 2.157 13.866l-1.3 8.673h10.595L1.86 86.505h15.072L29.79.765z">
+                </path>
+              </svg>
+            </div>
+            <div>
+              <img alt="명탐정 코난 24기 (더빙) 포스터 포스터" class="atom-poster-img visible"
+                data-src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260410/1640/P001784913.jpg/dims/resize/F_webp,400"
+                src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260410/1640/P001784913.jpg/dims/resize/F_webp,400" />
+            </div>
+          </div>
+          <div class="swiper-slide ranking-item">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="54" height="84" fill="none" viewBox="0 0 54 84"
+                class="css-1u2bdbp">
+                <path fill="#fff"
+                  d="M45.89 72.627H19.07c1.988-13.26 29.988-28.18 32.998-48.245l1.073-7.154C54.646 7.195 47.828.303 36.094.303c-14.205 0-22.895 7.939-24.57 19.106L9.758 31.187h14.027l1.702-11.342c.746-4.973 3.948-7.503 7.742-7.503 3.352 0 5.711 1.92 4.913 7.242l-1.1 7.328c-2.21 14.744-31.611 25.475-35.76 53.13L.746 83.62H44.24z">
+                </path>
+              </svg>
+            </div>
+            <div>
+              <img alt="짱구는못말려 26 포스터 포스터" class="atom-poster-img visible"
+                data-src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260904/0529/P001791455.jpg/dims/resize/F_webp,400"
+                src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260904/0529/P001791455.jpg/dims/resize/F_webp,400" />
+            </div>
+          </div>
+          <!-- 세 번째 항목의 id는 하단 클릭 이벤트와 연결되어 현재 탭에서 상세 페이지로 이동한다. -->
+          <div class="swiper-slide ranking-item" id="ranking-third">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="49" height="85" fill="none" viewBox="0 0 49 85"
+                class="css-1pkr4dc">
+                <path fill="#fff"
+                  d="m35.115 40.676.105-.699c7.397-2.268 10.561-6.892 11.673-14.308l1.191-7.94C49.68 7.086 42.683.805 31.303.805c-13.85 0-22.03 6.892-23.849 19.02l-1.661 11.08h13.762l1.635-10.906c.694-4.624 3.72-7.154 7.248-7.154 3.53 0 5.43 2.617 4.802 6.805l-1.243 8.288c-.693 4.625-1.883 7.853-7.882 7.853h-9.969l.292 10.993h8.558c4.499 0 6.668 2.006 5.778 7.94l-1.518 10.12c-.837 5.584-3.7 8.201-7.405 8.201-3.529 0-6.087-2.356-5.367-7.154l2.12-14.134H2.577L.431 66.064c-1.819 12.128 4.836 18.933 17.804 18.933s21.676-6.893 23.521-19.195l1.479-9.858c1.387-9.248-1.03-14.309-8.12-15.269">
+                </path>
+              </svg>
+            </div>
+            <div>
+              <img alt="먼작귀 몰아보기 포스터 포스터" class="atom-poster-img visible"
+                data-src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20251219/0831/P001780494.jpg/dims/resize/F_webp,400"
+                src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20251219/0831/P001780494.jpg/dims/resize/F_webp,400" />
+            </div>
+          </div>
+          <div class="swiper-slide ranking-item">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="54" height="83" fill="none" viewBox="0 0 54 83"
+                class="css-17vwk9j">
+                <path fill="#fff"
+                  d="M48.65.545H34.268C30.343 26.721 13.75 41.466 2.029 53.158L.496 63.366H29.17l-2.945 19.632h14.557l2.945-19.632h8.469l1.636-10.906h-8.47l3.887-25.914H45.19c-2.36 7.504-7.257 15.444-13.456 19.72l-.93 6.194H20.308l-.209-.96C33.673 39.81 45.328 24.452 48.65.545">
+                </path>
+              </svg>
+            </div>
+            <div>
+              <img alt="여기는 내게 맡기고 먼저 가라고 말한 지 10년이 지났더니 전설이 되어 있었다. 포스터 포스터" class="atom-poster-img visible"
+                data-src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20261002/0708/P001792593.jpg/dims/resize/F_webp,400"
+                src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20261002/0708/P001792593.jpg/dims/resize/F_webp,400" />
+            </div>
+          </div>
+          <div class="swiper-slide ranking-item">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="50" height="84" fill="none" viewBox="0 0 50 84"
+                class="css-14z87yo">
+                <path fill="#fff"
+                  d="M19.98 38.102h-.794l5.818-26.435H46.71L49.682.675H13.507L4.153 44.209l13.407 2.966c1.262-2.53 3.288-4.275 6.641-4.275 3.53 0 5.523 2.007 4.907 6.107L26.57 65.932c-.616 4.1-3.564 6.107-7.005 6.107-3.705 0-6.113-2.18-5.367-7.154l2.015-13.435H2.184L.43 63.14c-2.107 14.047 4.46 20.852 17.254 20.852 13.147 0 21.857-6.893 23.872-20.328l2.408-16.053c1.65-10.992-3.15-16.052-10.562-16.052-5.646 0-10.376 2.704-13.422 6.543">
+                </path>
+              </svg>
+            </div>
+            <div>
+              <img alt="전생 귀족, 감정 스킬로 성공하다 3기 포스터 포스터" class="atom-poster-img visible"
+                data-src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20261005/1825/P001792736.jpg/dims/resize/F_webp,400"
+                src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20261005/1825/P001792736.jpg/dims/resize/F_webp,400" />
+            </div>
+          </div>
+          <div class="swiper-slide ranking-item">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="49" height="85" fill="none" viewBox="0 0 49 85"
+                class="css-1bhk0kg">
+                <path fill="#fff"
+                  d="M19.26 42.333h-.705l3.52-23.47c.51-3.402 3.02-6.02 6.902-6.02 3.528 0 5.684 2.095 4.926 7.155l-1.531 10.208H46.31l1.544-10.295C49.686 7.696 43.574.804 30.43.804 18.344.804 9.217 8.132 7.175 21.743L.816 64.145c-2.093 13.96 4.46 20.852 17.428 20.852s21.843-7.416 23.78-20.329l1.936-12.912c1.636-10.906-3.954-16.577-11.187-16.577-6.176 0-10.022 2.705-13.512 7.154m7.691 24.604c-.523 3.49-3.474 6.107-6.827 6.107-3.793 0-5.848-2.181-5.102-7.154l1.897-12.651c.616-4.1 3.491-6.805 6.932-6.805 3.617 0 5.77 2.704 5.154 6.805z">
+                </path>
+              </svg>
+            </div>
+            <div>
+              <img alt="최강 찌꺼기 황자의 암약 제위 쟁탈전 포스터 포스터" class="atom-poster-img visible"
+                data-src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20261002/0731/P001792594.jpg/dims/resize/F_webp,400"
+                src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20261002/0731/P001792594.jpg/dims/resize/F_webp,400" />
+            </div>
+          </div>
+          <div class="swiper-slide ranking-item">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="48" height="83" fill="none" viewBox="0 0 48 83"
+                class="css-1k5sgop">
+                <path fill="#fff"
+                  d="M7.2.44 5.553 11.432h25.06C12.171 33.769 4.493 59.073.92 82.892h14.56c4.092-24.343 13.322-49.995 30.556-73.117l1.4-9.336z">
+                </path>
+              </svg>
+            </div>
+            <div>
+              <img alt="꿈빛파티시엘 포스터 포스터" class="atom-poster-img visible"
+                data-src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20160131/P000241379.jpg/dims/resize/F_webp,400"
+                src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20160131/P000241379.jpg/dims/resize/F_webp,400" />
+            </div>
+          </div>
+          <div class="swiper-slide ranking-item">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="51" height="85" fill="none" viewBox="0 0 51 85"
+                class="css-1095gm9">
+                <path fill="#fff"
+                  d="m15.32 40.414-.104.698C8.615 42.769 4.01 48.179 2.806 56.205L1.247 66.588c-1.82 12.127 5.62 18.409 18.503 18.409s22.118-6.282 23.937-18.41l1.557-10.382c1.31-8.724-1.765-13.523-8.059-15.093l.092-.611c6.68-2.181 10.514-7.154 11.613-14.483l1.244-8.288C51.6 7.958 45.439.804 32.38.804S11.013 7.958 9.547 17.73l-1.243 8.288c-1.086 7.242 1.168 12.215 7.017 14.396m18.81-11.866c-.642 4.275-2.851 7.242-6.998 7.242-3.97 0-5.555-2.967-4.914-7.242l1.296-8.637c.628-4.188 3.014-7.155 7.073-7.155 4.147 0 5.467 2.967 4.838 7.155zM29.21 65.454c-.667 4.45-3.167 7.59-7.667 7.59-4.236 0-6.058-3.14-5.391-7.59l1.806-12.04c.68-4.537 3.433-7.591 7.668-7.591 4.5 0 6.071 3.054 5.39 7.59z">
+                </path>
+              </svg>
+            </div>
+            <div>
+              <img alt="블리치 3기 포스터 포스터" class="atom-poster-img visible"
+                data-src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20231130/0821/P001705753.jpg/dims/resize/F_webp,400"
+                src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20231130/0821/P001705753.jpg/dims/resize/F_webp,400" />
+            </div>
+          </div>
+          <div class="swiper-slide ranking-item">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="49" height="85" fill="none" viewBox="0 0 49 85"
+                class="css-15xyjr8">
+                <path fill="#fff"
+                  d="M29.732 43.467h.706l-3.52 23.47c-.51 3.402-3.02 6.02-6.901 6.02-3.53 0-5.685-2.094-4.926-7.154l1.53-10.208H2.684L1.14 65.89C-.693 78.104 5.42 84.997 18.564 84.997c12.086 0 21.213-7.329 23.254-20.94l6.36-42.401C50.27 7.696 43.717.804 30.75.804S8.906 8.22 6.97 21.132L5.033 34.045C3.397 44.95 8.987 50.622 16.221 50.622c6.175 0 10.021-2.705 13.511-7.155m-7.69-24.603c.524-3.49 3.475-6.107 6.827-6.107 3.793 0 5.848 2.18 5.102 7.154l-1.897 12.65c-.615 4.101-3.491 6.806-6.931 6.806-3.617 0-5.77-2.705-5.155-6.805z">
+                </path>
+              </svg>
+            </div>
+            <div>
+              <img alt="LV999의 마을사람 포스터 포스터" class="atom-poster-img visible"
+                data-src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260930/0432/P001792369.jpg/dims/resize/F_webp,400"
+                src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260930/0432/P001792369.jpg/dims/resize/F_webp,400" />
+            </div>
+          </div>
+          <div class="swiper-slide ranking-item">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="76" height="85" fill="none" viewBox="0 0 76 85"
+                class="css-1w5ppwh">
+                <path fill="#fff"
+                  d="M19.425 2.29C17.111 8.31 13.803 13.892 2.09 14.94L.832 23.316h10.234L1.802 85.087h14.556L28.777 2.289zM57.493.719c-12.969 0-21.655 7.329-23.696 20.94l-6.36 42.401c-2.042 13.611 4.345 21.027 17.402 21.027s21.845-7.416 23.886-21.027l6.36-42.402C77.126 8.048 70.55.718 57.493.718M53.91 65.195c-.824 5.496-3.824 7.852-7.265 7.852-3.353 0-5.545-2.443-4.733-7.852l6.7-44.671c.811-5.41 3.9-7.765 7.163-7.765 3.441 0 5.646 2.356 4.835 7.765z">
+                </path>
+              </svg>
+            </div>
+            <div>
+              <img alt="반딧불이의 혼례(자막) 포스터 포스터" class="atom-poster-img visible"
+                data-src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20261008/1829/P001792812.jpg/dims/resize/F_webp,400"
+                src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20261008/1829/P001792812.jpg/dims/resize/F_webp,400" />
+            </div>
+          </div>
+          <div class="swiper-slide ranking-item">
+            <div>
+              <svg xmlns="http://www.w3.org/2000/svg" width="60" height="85" fill="none" viewBox="0 0 60 85"
+                class="css-dknvi8">
+                <path fill="#fff"
+                  d="M19.59.719C17.232 6.847 13.865 12.53 1.941 13.597L.663 22.124h10.418L1.65 85.005h14.817L29.108.72zM49.715.719C47.36 6.847 43.992 12.53 32.068 13.597l-1.278 8.527h10.417l-9.431 62.881h14.817L59.234.72z">
+                </path>
+              </svg>
+            </div>
+            <div>
+              <img alt="우리 남동생들이 죄송합니다 포스터 포스터" class="atom-poster-img visible"
+                data-src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260712/1420/P001789437.jpg/dims/resize/F_webp,400"
+                src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260712/1420/P001789437.jpg/dims/resize/F_webp,400" />
+            </div>
+          </div>
+        </div>
+
+
+        <!-- 랭킹 전용 화살표. 배너와 선택자를 분리하며 Swiper가 이동 불가 클래스를 자동으로 붙인다. -->
+        <div class="swiper-button-prev ranking-prev"></div>
+        <div class="swiper-button-next ranking-next"></div>
+      </div>
+    </section>
+  </div>
+
+  <!-- 공통 footer: 공지, 정책 링크, details 드롭다운, 회사 정보, SNS 순서. 빈 주소와 # 링크는 연결 전 자리표시자. -->
+  <footer class="tving-footer">
+    <!-- colspan="2" 행은 좌우 셀을 합쳐 전체 너비 사용. 메뉴 행만 링크와 드롭다운으로 나뉜다. -->
+    <table class="footer-table">
+      <tr class="footer-menu-row" style="border-top : none;">
+        <td class="footer-menu" style="border-top : none;">
+          <a href="">고객센터</a>
+          <a href="">이용약관</a>
+          <a href="" class="privacy">개인정보처리방침</a>
+          <a href="">청소년 보호정책</a>
+          <a href="">법적고지</a>
+          <a href="">이벤트</a>
+          <a href="">인재채용</a>
+        </td>
+        <td class="footer-dropDown-area" style="border-top : none;">
+          <!-- details/summary는 JavaScript 없이 클릭으로 목록을 열고 닫는다. CSS는 목록을 위쪽으로 배치한다. -->
+          <details class="footer-dropDown">
+            <summary class="brand">브랜드 바로가기</summary>
+            <div class="dropDown-content">
+              <a href="#">tvN</a>
+              <a href="#">tvN SPORTS</a>
+              <a href="#">tvN STORY</a>
+              <a href="#">tvN DRAMA</a>
+              <a href="#">tvN SHOW</a>
+              <a href="#">OCN</a>
+              <a href="#">중화TV</a>
+              <a href="#">UXN</a>
+              <a href="#">CATCHON</a>
+              <a href="#">Tooniverse</a>
+            </div>
+          </details>
+          <details class="footer-dropDown">
+            <summary>그룹 계열사 바로가기</summary>
+            <div class="dropDown-content">
+              <a href="#">CJ주식회사</a>
+              <a href="#">CJ ENM 엔터테인먼트부문</a>
+              <a href="#">CJ CGV</a>
+              <a href="#">CJ제일제앋(식품)</a>
+              <a href="#">CJ프레시웨이</a>
+              <a href="#">CJ푸드빌</a>
+              <a href="#">CJ엠디원</a>
+              <a href="#">CJ제일제당(바이오)</a>
+              <a href="#">CJ ENM 커머스부문</a>
+              <a href="#">CJ대한통운</a>
+              <a href="#">CJ텔레닉스</a>
+              <a href="#">CJ올리브영</a>
+              <a href="#">CJ대한통운(건설)</a>
+              <a href="#">CJ올리브네트웍스</a>
+            </div>
+          </details>
+        </td>
+      </tr>
+      <tr class="footer-info">
+        <td colspan="2">
+          대표이사:최주희 |
+          <a href="#">사업자정보확인</a> | 사업자등록번호: 188-88-01893 |
+          통신판매신고번호: 2020-서울마포-3641호
+        </td>
+      </tr>
+      <tr class="footer-info">
+        <td colspan="2">
+          사업장: 서울특별시 마포구 상암산로 34, DMC디지털큐브 15층(상암동) |
+          호스팅사업자: 아마존웹서비시즈코리아 유한책임회사
+        </td>
+      </tr>
+      <tr class="footer-info">
+        <td colspan="2">
+          고객센터 평일 09:00~17:00(점심시간 13:00~14:00)/공휴일 휴무 |
+          <a href="#">챗봇/채팅 상담</a> | <a href="#">1:1 게시판 문의</a> |
+          대표메일:tving@cj.net | 대표번호(유료): 1670-1525
+        </td>
+      </tr>
+      <tr class="footer-info">
+        <td colspan="2">
+          ENM 시청자 상담실(편성 문의 및 시청자 의견):080-080-0780 | Mnet
+          고객센터(방송편성문의) : 1855-1631
+        </td>
+      </tr>
+      <tr class="footer-img">
+        <td colspan="2">
+          <a href="https://www.youtube.com/c/TVING_official" target="_blank"><img
+              src="../tving main gi/티빙 사진/tivingYoutube.svg" alt="" /></a>
+          <img class="insta" src="../tving main gi/티빙 사진/tvingInsta.svg" alt="" />
+          <img src="../tving main gi/티빙 사진/tvingTw.svg" alt="" />
+          <img src="../tving main gi/티빙 사진/tvingFace.svg" alt="" />
+        </td>
+      </tr>
+      <tr class="footer-bottom">
+        <td colspan="2">© TVING Corp. ALL RIGHTS RESERVED.</td>
+      </tr>
+    </table>
+  </footer>
+
+  <div class="modal alert-modal">
+    <div class="modal-box">
+      <div class="modal-title">알림</div>
+      <div class="modal-text">라이브 시작 후 시청 가능합니다.</div>
+      <div class="modal-btn" data-close=".alert-modal">확인</div>
+    </div>
+  </div>
+  <div class="modal coupon-modal">
+    <div class="modal-box">
+      <div class="modal-close" data-close=".coupon-modal">✕</div>
+      <div class="modal-text">지금 가입하고<br />무료로 이용해보세요</div>
+      <div class="modal-btn">가입하고 시작하기</div>
+      <div class="sns">
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+            <g clip-path="url(#a)">
+              <path fill="#F152D9" d="M3.168 3.877A11.96 11.96 0 0 0 .01 11.499L5.4 9.267z" />
+              <path fill="#F268DD" d="M3.877 3.168 9.267 5.4 11.5.01a11.96 11.96 0 0 0-7.622 3.157" />
+              <path fill="#ED27CF" d="m12.501.01 2.232 5.39 5.39-2.232A11.96 11.96 0 0 0 12.501.01" />
+              <path fill="#F693E7" d="M12.501.01q-.503-.021-1.002 0L9.267 5.4h5.467z" />
+              <path fill="#F47DE2" d="M5.4 9.267.01 11.499q-.022.502 0 1.002l5.39 2.232V9.265z" />
+              <path fill="#F8A9EC" d="m9.267 5.4-5.39-2.232q-.37.34-.709.709L5.4 9.267z" />
+              <path fill="#9D49F4" d="M5.4 14.733.01 12.501a11.96 11.96 0 0 0 3.156 7.622l2.232-5.39z" />
+              <path fill="#CEA4F9" d="m18.6 9.267 2.232-5.39a12 12 0 0 0-.709-.709L14.734 5.4z" />
+              <path fill="#9D49F4" d="m18.6 9.267 5.39 2.232a11.96 11.96 0 0 0-3.157-7.622z" />
+              <path fill="#CEA4F9" d="m5.4 14.733-2.232 5.39q.34.37.709.709l5.39-2.232z" />
+              <path fill="#7189FF" d="M20.832 20.123a11.96 11.96 0 0 0 3.157-7.622l-5.39 2.232 2.232 5.39z" />
+              <path fill="#617CFF" d="m9.267 18.6-5.39 2.232a11.96 11.96 0 0 0 7.622 3.157l-2.232-5.39z" />
+              <path fill="#91A4FF" d="M23.99 11.499 18.6 9.267v5.468l5.39-2.232q.021-.503 0-1.003" />
+              <path fill="#7ECDF2" d="M11.499 23.99q.503.021 1.002 0l2.232-5.39H9.266z" />
+              <path fill="#46B7EC" d="m14.733 18.6-2.232 5.39a11.96 11.96 0 0 0 7.622-3.157l-5.39-2.232z" />
+              <path fill="#A2DBF5" d="m14.733 18.6 5.39 2.232q.37-.34.71-.709l-2.233-5.39z" />
+            </g>
+            <defs>
+              <clipPath id="a">
+                <path fill="#fff" d="M0 0h24v24H0z" />
+              </clipPath>
+            </defs>
+          </svg>
+        </div>
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+            <path fill="#00C73C"
+              d="m15.288 12.644-6.84-9.831H2.775v18.363h5.943v-9.831l6.84 9.831h5.672V2.816h-5.942z" />
+          </svg>
+        </div>
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="none">
+            <path fill="#F7E317"
+              d="M9.997 2.5c-4.602 0-8.333 2.95-8.333 6.587a6.44 6.44 0 0 0 3.954 5.605c-.175.651-.632 2.358-.723 2.723-.114.456.166.447.349.325.143-.096 2.28-1.55 3.207-2.178a10.6 10.6 0 0 0 1.546.114c4.602 0 8.334-2.95 8.334-6.588S14.599 2.5 9.997 2.5" />
+          </svg>
+        </div>
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+            <path fill="#fff"
+              d="M21.199 8.118a5.8 5.8 0 0 0-1.032-1.406 4.6 4.6 0 0 0-3.213-1.2 9.5 9.5 0 0 0-2.725.803 4.2 4.2 0 0 1-1.605.316c-.643 0-1.272-.19-1.808-.545a5.34 5.34 0 0 0-2.494-.574c-3.413-.004-5.675 3.408-5.675 6.966a12.78 12.78 0 0 0 4.011 9.377 3.93 3.93 0 0 0 2.553 1.063c.46-.038.912-.135 1.347-.289a7.7 7.7 0 0 1 2.094-.631c.58.035 1.147.191 1.664.458a5.2 5.2 0 0 0 1.95.431 3.5 3.5 0 0 0 2.065-.569 11.1 11.1 0 0 0 3.36-5.104c-1.92-.516-3.097-2.724-3.097-4.79-.005-1.611 1.027-3.82 2.605-4.306m-9.15-2.468a4.2 4.2 0 0 0 3.24-1.52A5.4 5.4 0 0 0 16.582.598 5.47 5.47 0 0 0 13.37 2.32a5.2 5.2 0 0 0-1.32 3.331" />
+          </svg>
+        </div>
+        <div class="sns-item">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none">
+            <path fill="#1877F2"
+              d="M13.477 5.893v2.619h4.147l-.545 4.255h-3.6V23.13H9.116V12.767H5.625V8.512h3.49v-3.71c0-6.327 8.51-4.581 8.51-4.581V3.93h-2.182a1.82 1.82 0 0 0-1.966 1.963" />
+          </svg>
+        </div>
+      </div>
+      <div class="modal-login">
+        <div class="modal-login-text">이미 계정이 있나요?</div>
+        <div class="modal-login-link">로그인</div>
+      </div>
+    </div>
+
+</body>
+<!-- Swiper를 한 번 불러온 뒤 배너와 랭킹을 별도 인스턴스로 실행한다. -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@14.0.1/swiper-bundle.min.js"></script>
+
+<script>
+  // 배너: CSS의 슬라이드 너비를 사용하고 현재 배너를 중앙에 유지한다.
+  const swiper = new Swiper(".mySwiper", {
+    // auto는 CSS width 사용. 양옆 여백은 CSS와 함께 조정한다.
+    slidesPerView: "auto",
+
+    centeredSlides: true,
+
+    spaceBetween: 16,
+
+    navigation: {
+      nextEl: ".mySwiper .swiper-button-next",
+      prevEl: ".mySwiper .swiper-button-prev",
+    },
+
+    pagination: {
+      el: ".mySwiper .swiper-pagination",
+      clickable: true,
+    },
+
+    keyboard: {
+      enabled: true,
+    },
+  });
+</script>
+
+
+<!-- Slick은 jQuery 플러그인이므로 jQuery → Slick → slick() 실행 순서를 유지한다. -->
+<script src="https://code.jquery.com/jquery-3.7.1.min.js"></script>
+
+
+<script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+
+<script>
+  // HTML 준비 후 data-slick 설정을 읽어 카테고리 슬라이더를 실행한다.
+  $(function () {
+    $(".anime-slider").slick();
+  });
+</script>
+
+<script>
+  // 랭킹: 배너와 다른 선택자에 연결하여 화살표와 점이 서로 간섭하지 않게 한다.
+  const rankingSwiper = new Swiper(".ranking-slider", {
+    // 5개와 다음 항목 일부를 표시한다.
+    slidesPerView: 5.5,
+
+    // 현재 완성본은 한 번에 5개씩 이동하며 페이지 점도 이 그룹 단위를 따른다.
+    slidesPerGroup: 5,
+
+    spaceBetween: 12,
+
+    // 끝에서 처음으로 반복하지 않아 처음·마지막 화살표를 숨길 수 있다.
+    loop: false,
+
+    navigation: {
+      prevEl: ".ranking-slider .ranking-prev",
+      nextEl: ".ranking-slider .ranking-next",
+    },
+
+    pagination: {
+      el: ".ranking-section .ranking-pagination",
+
+      clickable: true,
+    },
+  });
+</script>
+
+<script>
+  // 상세 페이지 이동 대상. id를 변경할 때 이 선택자도 함께 수정한다.
+  const thirdRanking = document.getElementById("ranking-third");
+
+  thirdRanking.addEventListener("click", function () {
+    // 같은 탭에서 이동하며 브라우저 뒤로가기로 목록에 복귀할 수 있다.
+    location.href = "./chiikawa.html";
+  });
+</script>
+<script src="../tving main gi/modal.js"></script>
+<script src="../tving main gi/header.js"></script>
+
+</html>

@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            background-color: #1a1c27;
+            color: white;
+        }
+
+        #my-modal {
+            width: 90%;
+            max-width: 420px;
+            padding: 0;
+            border: none;
+            border-radius: 14px;
+            background: #fff;
+            color: #333;
+            box-shadow: 0 16px 48px rgba(255, 254, 254, 0.2);
+        }
+
+        #my-modal::backdrop {
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(3px);
+        }
+
+        .modal-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 20px 24px;
+            border-bottom: 1px solid #e5e7eb;
+        }
+
+        .modal-header h2 {
+            margin: 0;
+            font-size: 20px;
+        }
+
+        .close-btn {
+            padding: 0;
+            border: none;
+            background: none;
+            font-size: 28px;
+            color: #6b7280;
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 24px;
+            line-height: 1.6;
+        }
+
+        .modal-footer {
+            display: flex;
+            justify-content: flex-end;
+            gap: 10px;
+            padding: 16px 24px;
+            border-top: 1px solid #e5e7eb;
+        }
+
+        .modal-footer button,
+        #open-modal {
+            padding: 10px 16px;
+            border: none;
+            border-radius: 7px;
+            background: #263449;
+            color: #fff;
+            cursor: pointer;
+        }
+
+        .modal-footer button:hover,
+        #open-modal:hover {
+            background: #3d506b;
+        }
+
+        #cancel-modal {
+            background: #e5e7eb;
+            color: #333;
+        }
+
+        #cancel-modal:hover {
+            background: #d1d5db;
+        }
+    </style>
+</head>
+
+<body>
+
+    <button id="open-modal">모달 열기</button>
+
+    <dialog id="my-modal">
+        <div class="modal-header">
+            <h2>Modal Title</h2>
+            <button type="button" id="close-modal" class="close-btn">
+                &times;
+            </button>
+        </div>
+
+        <div class="modal-body">
+            <p>여기에 모달 내용을 작성하세요.</p>
+        </div>
+
+        <div class="modal-footer">
+            <button type="button" id="cancel-modal">취소</button>
+            <button type="button" id="confirm-modal">확인</button>
+        </div>
+    </dialog>
+
+</body>
+<script>
+
+    const modal = document.querySelector("#my-modal");
+
+    document.querySelector("#open-modal").addEventListener("click", () => {
+        modal.showModal();
+    });
+
+    document.querySelector("#close-modal").addEventListener("click", () => {
+        modal.close();
+    });
+
+    document.querySelector("#cancel-modal").addEventListener("click", () => {
+        modal.close();
+    });
+
+    document.querySelector("#confirm-modal").addEventListener("click", () => {
+        // 확인 버튼 클릭 시 실행할 작업
+        console.log("확인 버튼 클릭");
+
+        modal.close();
+    });
+
+    // 모달 바깥 영역을 클릭하면 닫기
+    modal.addEventListener("click", (event) => {
+        if (event.target === modal) {
+            modal.close();
+        }
+    });
+
+</script>
+
+</html>

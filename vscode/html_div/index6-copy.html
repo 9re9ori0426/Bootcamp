@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* =========================
+   Reset
+========================= */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family:
+                -apple-system,
+                BlinkMacSystemFont,
+                "Segoe UI",
+                Roboto,
+                sans-serif;
+
+            color: #222;
+            background: #f7f8fa;
+        }
+
+
+        /* =========================
+   Navigation
+========================= */
+
+        .nav {
+            width: 100%;
+            height: 72px;
+
+            display: flex;
+            align-items: center;
+
+            padding: 0 40px;
+
+            background: #fff;
+            border-bottom: 1px solid #eee;
+        }
+
+
+        /* =========================
+   Main Menu
+========================= */
+
+        .menu {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+
+            margin: 0;
+            padding: 0;
+
+            list-style: none;
+        }
+
+        .menu-item {
+            position: relative;
+        }
+
+        .menu-item>a {
+            position: relative;
+
+            display: flex;
+            align-items: center;
+            gap: 6px;
+
+            height: 44px;
+            padding: 0 16px;
+
+            color: #333;
+            font-size: 15px;
+            font-weight: 500;
+
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            transition:
+                color 0.2s ease,
+                background-color 0.2s ease;
+        }
+
+
+        /* Hover */
+
+        .menu-item>a:hover {
+            color: #111;
+            background: #f5f6f8;
+        }
+
+
+        /* =========================
+   Arrow
+========================= */
+
+        .arrow {
+            display: inline-block;
+
+            font-size: 16px;
+            line-height: 1;
+
+            color: #888;
+
+            transform: translateY(-1px);
+
+            transition:
+                transform 0.2s ease,
+                color 0.2s ease;
+        }
+
+
+        /* Dropdown hover 시 화살표 회전 */
+
+        .dropdown:hover .arrow,
+        .dropdown:focus-within .arrow {
+            color: #222;
+            transform: rotate(180deg) translateY(1px);
+        }
+
+
+        /* =========================
+   Dropdown
+========================= */
+
+        .dropdown-menu {
+            position: absolute;
+
+            top: calc(100% + 8px);
+            left: 0;
+
+            width: 250px;
+
+            margin: 0;
+            padding: 8px;
+
+            list-style: none;
+
+            background: #fff;
+
+            border: 1px solid #e8e8e8;
+            border-radius: 12px;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.08),
+                0 2px 8px rgba(0, 0, 0, 0.04);
+
+            /* 처음에는 숨김 */
+            opacity: 0;
+            visibility: hidden;
+
+            transform:
+                translateY(-8px) scale(0.98);
+
+            transform-origin: top left;
+
+            transition:
+                opacity 0.18s ease,
+                transform 0.18s ease,
+                visibility 0.18s ease;
+
+            z-index: 100;
+        }
+
+
+        /* =========================
+   Dropdown Open
+========================= */
+
+        .dropdown:hover .dropdown-menu,
+        .dropdown:focus-within .dropdown-menu {
+            opacity: 1;
+            visibility: visible;
+
+            transform:
+                translateY(0) scale(1);
+        }
+
+
+        /* =========================
+   Dropdown Item
+========================= */
+
+        .dropdown-menu li {
+            width: 100%;
+        }
+
+        .dropdown-menu a {
+            display: flex;
+            flex-direction: column;
+            gap: 4px;
+
+            width: 100%;
+
+            padding: 12px 13px;
+
+            color: #333;
+            text-decoration: none;
+
+            border-radius: 8px;
+
+            transition:
+                background-color 0.15s ease,
+                color 0.15s ease;
+        }
+
+
+        /* Dropdown Hover */
+
+        .dropdown-menu a:hover {
+            background: #f5f7fa;
+        }
+
+
+        /* =========================
+   Dropdown Text
+========================= */
+
+        .menu-title {
+            font-size: 14px;
+            font-weight: 600;
+            color: #222;
+        }
+
+        .menu-desc {
+            font-size: 12px;
+            line-height: 1.4;
+            color: #999;
+        }
+
+
+        /* Hover 시 제목 강조 */
+
+        .dropdown-menu a:hover .menu-title {
+            color: #111;
+        }
+
+
+        /* =========================
+   Keyboard Focus
+========================= */
+
+        .menu-item>a:focus-visible,
+        .dropdown-menu a:focus-visible {
+            outline: 2px solid #4f7cff;
+            outline-offset: 2px;
+        }
+
+
+        /* =========================
+   Mobile
+========================= */
+
+        @media (max-width: 600px) {
+
+            .nav {
+                padding: 0 16px;
+            }
+
+            .menu {
+                gap: 2px;
+            }
+
+            .menu-item>a {
+                padding: 0 10px;
+                font-size: 14px;
+            }
+
+            .dropdown-menu {
+                width: 220px;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <nav class="nav">
+        <ul class="menu">
+            <li class="menu-item">
+                <a href="#">Home</a>
+            </li>
+
+            <li class="menu-item dropdown">
+                <a href="#" class="dropdown-toggle">
+                    Products
+                    <span class="arrow">⌄</span>
+                </a>
+
+                <ul class="dropdown-menu">
+                    <li>
+                        <a href="#">
+                            <span class="menu-title">Product 1</span>
+                            <span class="menu-desc">첫 번째 상품입니다.</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="menu-title">Product 2</span>
+                            <span class="menu-desc">두 번째 상품입니다.</span>
+                        </a>
+                    </li>
+
+                    <li>
+                        <a href="#">
+                            <span class="menu-title">Product 3</span>
+                            <span class="menu-desc">세 번째 상품입니다.</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="menu-item">
+                <a href="#">About</a>
+            </li>
+
+            <li class="menu-item">
+                <a href="#">Contact</a>
+            </li>
+        </ul>
+    </nav>
+
+
+</body>
+
+</html>

@@ -1,0 +1,99 @@
+
+/* 전체 페이지 */
+body {
+  margin: 0;
+  padding: 0;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #101217;
+  font-family: "Pretendard", Arial, sans-serif;
+  color: #fff;
+}
+
+/* 로그인 박스 */
+.login-back {
+  width: 360px;
+  padding: 45px 40px;
+  background: #1c2029;
+  border: 1px solid #343a46;
+  border-radius: 16px;
+  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  box-sizing: border-box;
+}
+
+/* ID, PW 영역 */
+.id,
+.pw {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+  color: #b6bdcd;
+  font-size: 14px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+/* 입력창 */
+.id input,
+.pw input {
+  width: 100%;
+  height: 45px;
+  padding: 0 15px;
+  background: #12151c;
+  border: 1px solid #353b48;
+  border-radius: 8px;
+  outline: none;
+  box-sizing: border-box;
+  color: #fff;
+  font-size: 14px;
+  transition: all 0.3s ease;
+}
+
+/* 입력창 마우스 호버 */
+.id input:hover,
+.pw input:hover {
+  border-color: #59647c;
+}
+
+/* 입력창 클릭 효과 */
+.id input:focus,
+.pw input:focus {
+  border-color: #7185ff;
+  box-shadow: 0 0 0 3px rgba(113, 133, 255, 0.12);
+}
+
+/* 로그인 버튼 영역 */
+.btn {
+  margin-top: 35px;
+}
+
+/* 로그인 버튼 */
+.btn button {
+  width: 100%;
+  height: 48px;
+  background: #586bdd;
+  border: none;
+  border-radius: 8px;
+  color: #fff;
+  font-size: 15px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* 버튼 호버 효과 */
+.btn button:hover {
+  background: #7185ff;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(88, 107, 221, 0.25);
+}
+
+/* 버튼 클릭 효과 */
+.btn button:active {
+  transform: translateY(0);
+  box-shadow: none;
+}

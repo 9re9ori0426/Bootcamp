@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" href="/img/favicon.ico">
+    <title>뉴스 | TVING</title>
+    <link rel="stylesheet" as="style" crossorigin
+        href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    <link rel="stylesheet" href="css/main.css">
+    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="css/footer.css">
+    <link rel="stylesheet" href="css/swiper.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.css" />
+</head>
+
+<body>
+    <header>
+        <div class="header-logo">
+            <img src="img/1695032536_1.svg">
+        </div>
+        <div class="header-nav">
+            <div class="header-nav-item">드라마</div>
+            <div class="header-nav-item">예능</div>
+            <div class="header-nav-item">영화</div>
+            <div class="header-nav-item">스포츠</div>
+            <div class="header-nav-item">애니</div>
+            <div class="header-nav-item current" onclick="location.href = 'index.html'">뉴스</div>
+            <div class="header-nav-item">라이브</div>
+            <div class="header-nav-item">쇼츠</div>
+        </div>
+        <div class="header-aside">
+            <div class="header-aside-login">
+                <button>로그인</button>
+            </div>
+            <div class="header-aside-search">
+                <img src="img/icon_search.svg" id="toggle-search" onclick="handleClickSearch()">
+
+                <div class="search-modal" id="search-modal">
+                    <div class="input-flex">
+                        <input placeholder="제목, 인물명을 입력해보세요." id="search-modal-input">
+                        <img src="img/icon_search.svg">
+                    </div>
+                    <div class="search-keyword-container">
+                        <div class="recent-keyword">
+                            <div>최근 검색어</div>
+                            <div>검색 내역이 없습니다.</div>
+                        </div>
+                        <div class="vertical"></div>
+                        <div class="hot-keyword">
+                            <div>실시간 인기 검색어</div>
+                            <div class="keyword-ranking">
+                                <div>
+                                    <div>1</div>
+                                    <div>닥터 X 시즌1</div>
+                                </div>
+                                <div>
+                                    <div>2</div>
+                                    <div>오은영 리포트 - 결혼 지옥</div>
+                                </div>
+                                <div>
+                                    <div>3</div>
+                                    <div>신인감독 김연경2</div>
+                                </div>
+                                <div>
+                                    <div>4</div>
+                                    <div>심야괴담회 시즌6</div>
+                                </div>
+                                <div>
+                                    <div>5</div>
+                                    <div>로또 1등도 출근합니다</div>
+                                </div>
+                                <div>
+                                    <div>6</div>
+                                    <div>유 퀴즈 온 더 블럭</div>
+                                </div>
+                                <div>
+                                    <div>7</div>
+                                    <div>먼작귀 몰아보기</div>
+                                </div>
+                                <div>
+                                    <div>8</div>
+                                    <div>놀면 뭐하니?</div>
+                                </div>
+                                <div>
+                                    <div>9</div>
+                                    <div>100일의 거짓말</div>
+                                </div>
+                                <div>
+                                    <div>10</div>
+                                    <div>탐정들의 영업비밀</div>
+                                </div>
+                                <div class="rank-crit">2026.10.13 15:09 기준</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="back-drop" id="search-modal-back-drop"></div>
+            </div>
+            <div class="header-aside-profile" onmouseover="handleMouseOverProfile()"
+                onmouseout="handleMouseOutProfile()">
+                <div class="guest-profile">
+                    <div class="guest-profile-img"></div>
+                </div>
+                <div class="header-aside-profile-modal" id="header-aside-profile-modal">
+                    <div class="header-aside-profile-flex">
+                        <div class="guest-profile big">
+                            <div class="guest-profile-img big"></div>
+                        </div>
+                        <span class="header-aside-signin">
+                            가입하고 시작하기
+                            <img src="img/www.tving.com-5.svg" style="width: 16px; height: 16px;">
+                        </span>
+                    </div>
+                    <div class="header-aside-horizon"></div>
+                    <div class="header-aside-list">
+                        <div>MY</div>
+                        <div>이용권 목록</div>
+                        <div>쿠폰 등록</div>
+                        <div>고객센터</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <main>
+        <div class="container">
+            <div class="main-flex-box">
+                <div class="light-black-box" style="height: 263.31px;">
+                    <div class="news-header">지금 방송중인 뉴스</div>
+                    <div class="swiper swiper-live-news">
+                        <div class="swiper-wrapper" id="swiper-live-news">
+                            <!-- <div class="swiper-slide live-news-slide">
+                                <div class="live-news-wrap">
+                                    <img class="thumbnail" src="img/live-news/C00593_640x360.jpg">
+                                    <img class="free" src="img/live-news/free.svg">
+                                </div>
+                                <div class="live-news-desc">
+                                    <img src="img/live-news/ranking_1_svg__a.svg">
+
+                                    <div class="live-news-desc-list">
+                                        <div>YTN</div>
+                                        <div>뉴스퀘어 2PM</div>
+                                        <div>19.4%</div>
+                                    </div>
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <div class="custom-slider-button custom-prev">
+                            <img src="img/icon_slide_left.svg">
+                        </div>
+                        <div class="custom-slider-button custom-next">
+                            <img src="img/icon_slide_right.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="light-black-box" style="height: 629.48px;">
+                    <div class="news-header">채널 최신 뉴스</div>
+
+                    <div class="swiper swiper-tag-channel">
+                        <div class="swiper-wrapper" id="swiper-channel-category" data-channel="0">
+                            <div class="swiper-slide channel-tag-wrap">
+                                <div class="channel-tag current">
+                                    <img src="img/news-channel/YTN.png"><span>YTN</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide channel-tag-wrap">
+                                <div class="channel-tag">
+                                    <img src="img/news-channel/연합뉴스TV.png"><span>연합뉴스TV</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide channel-tag-wrap">
+                                <div class="channel-tag">
+                                    <img src="img/news-channel/채널A NEWS.png"><span>채널A NEWS</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide channel-tag-wrap">
+                                <div class="channel-tag">
+                                    <img src="img/news-channel/MBC 뉴스.png"><span>MBC 뉴스</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide channel-tag-wrap">
+                                <div class="channel-tag">
+                                    <img src="img/news-channel/한국경제TV.png"><span>한국경제TV</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide channel-tag-wrap">
+                                <div class="channel-tag">
+                                    <img src="img/news-channel/JTBC.png"><span>JTBC</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide channel-tag-wrap">
+                                <div class="channel-tag">
+                                    <img src="img/news-channel/TV CHOSUN.png"><span>TV CHOSUN</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide channel-tag-wrap">
+                                <div class="channel-tag">
+                                    <img src="img/news-channel/매일경제TV.png"><span>매일경제</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide channel-tag-wrap">
+                                <div class="channel-tag">
+                                    <img src="img/news-channel/머니투데이방송.png"><span>머니투데이방송</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide channel-tag-wrap">
+                                <div class="channel-tag">
+                                    <img src="img/news-channel/SBS No.1 뉴스라이브.png"><span>SBS No.1 뉴스라이브</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide channel-tag-wrap">
+                                <div class="channel-tag">
+                                    <img src="img/news-channel/KBS NEWS 24.png"><span>KBS NEWS 24</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide channel-tag-wrap">
+                                <div class="channel-tag">
+                                    <img src="img/news-channel/SBS Biz.png"><span>SBS Biz</span>
+                                </div>
+                            </div>
+                            <div class="swiper-slide channel-tag-wrap">
+                                <div class="channel-tag">
+                                    <img src="img/news-channel/MBN.png"><span>MBN</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news-list" id="channel-list" data-page="1">
+                        <!-- <div class="news-wrap">
+                            <div class="news-desc">
+                                <div>"경찰관 밥값 뭐시기.."</div>
+                                <div>연합뉴스 ・ 2분전</div>
+                            </div>
+                            <div>
+                                <img src="img/live-news/C00593_640x360.jpg">
+                                <div class="news-time">01:02</div>
+                            </div>
+                        </div> -->
+                    </div>
+                    <div class="news-info">
+                        <img src="img/icon/info.svg">
+                        제공되는 영상은 다르지만, 기사 제목이 동일할 수 있습니다.
+                    </div>
+                    <div class="news-pagination">
+                        <div class="pagination-button" onclick="handleChannelPrevPage()">
+                            <img src="img/icon_slide_left.svg">
+                        </div>
+                        <div class="news-pagination-num">
+                            <span id="news-channel-pagination-num">1</span>
+                            <span>/</span>
+                            <span>5</span>
+                        </div>
+                        <div class="pagination-button" onclick="handleChannelNextPage()">
+                            <img src="img/icon_slide_right.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="main-flex-box">
+                <div class="light-black-box" style="height: 629.48px;">
+                    <div class="news-header">카테고리 최신 뉴스</div>
+
+                    <div class="swiper swiper-tag">
+                        <div class="swiper-wrapper" id="swiper-category" data-category="0">
+                            <button class="swiper-slide tag current">전체</button>
+                            <button class="swiper-slide tag">사회</button>
+                            <button class="swiper-slide tag">경제</button>
+                            <button class="swiper-slide tag">국제</button>
+                            <button class="swiper-slide tag">환경</button>
+                            <button class="swiper-slide tag">문화</button>
+                            <button class="swiper-slide tag">정치</button>
+                            <button class="swiper-slide tag">엠빅뉴스</button>
+                            <button class="swiper-slide tag">스포츠</button>
+                            <button class="swiper-slide tag">연예</button>
+                            <button class="swiper-slide tag">크랩</button>
+                            <button class="swiper-slide tag">과학</button>
+                            <button class="swiper-slide tag">비디오머그</button>
+                        </div>
+                    </div>
+
+                    <div class="news-list" id="category-list" data-page="1">
+                        <!-- <div class="news-wrap">
+                            <div class="news-desc">
+                                <div>"경찰관 밥값 뭐시기.."</div>
+                                <div>연합뉴스 ・ 2분전</div>
+                            </div>
+                            <div>
+                                <img src="img/live-news/C00593_640x360.jpg">
+                                <div class="news-time">01:02</div>
+                            </div>
+                        </div>
+                        <div class="divider"></div> -->
+                    </div>
+                    <div class="news-info">
+                        <img src="img/icon/info.svg">
+                        제공되는 영상은 다르지만, 기사 제목이 동일할 수 있습니다.
+                    </div>
+                    <div class="news-pagination">
+                        <div class="pagination-button" onclick="handleCategoryPrevPage()">
+                            <img src="img/icon_slide_left.svg">
+                        </div>
+                        <div class="news-pagination-num">
+                            <span id="news-category-pagination-num">1</span>
+                            <span>/</span>
+                            <span>5</span>
+                        </div>
+                        <div class="pagination-button" onclick="handleCategoryNextPage()">
+                            <img src="img/icon_slide_right.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="light-black-box" style="height: 293.5px;">
+                    <div class="news-header">
+                        가장 빠른 VOD
+                        <div class="more">더보기</div>
+                    </div>
+
+                    <div class="swiper swiper-quick-vod">
+                        <div class="swiper-wrapper" id="swiper-vod">
+                            <!-- <div class="swiper-slide quick-vod-slide">
+                                <img
+                                    src="https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20260716/0110/P001789559.jpg/dims/resize/F_webp,400">
+                                <div class="quick">
+                                    <img src="img/icon/tving_quick.svg">
+                                </div>
+                            </div> -->
+                        </div>
+
+
+                        <div class="custom-slider-button custom-prev">
+                            <img src="img/icon_slide_left.svg">
+                        </div>
+                        <div class="custom-slider-button custom-next">
+                            <img src="img/icon_slide_right.svg">
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+            <div class="main-flex-box">
+                <div class="light-black-box" style="height: 277.35px;">
+                    <div class="news-header">
+                        최신 뉴스 쇼츠
+                        <div class="more">더보기</div>
+                    </div>
+                    <div class="swiper swiper-shorts-news">
+                        <div class="swiper-wrapper" id="swiper-shorts">
+                            <!-- <div class="swiper-slide shorts-news-slide">
+                                <img
+                                    src="https://image.tving.com/ntgs/clip/shorts/news/202610/VT0000285679/20261013112939/b0d84107c1904a82ae1b7832a05eef66.webp/dims/resize/F_webp,400">
+                                <div>
+                                    텍스트 대충 길게 텍스트 대충 길게 텍스트 대충 길게
+                                </div>
+                            </div> -->
+                        </div>
+
+                        <div class="custom-slider-button custom-prev">
+                            <img src="img/icon_slide_left.svg">
+                        </div>
+                        <div class="custom-slider-button custom-next">
+                            <img src="img/icon_slide_right.svg">
+                        </div>
+                    </div>
+                </div>
+                <div class="light-black-box" style="height: 97.5px;">
+                    <div class="news-header">채널 홈 바로가기</div>
+
+                    <div class="swiper swiper-channel">
+                        <div class="swiper-wrapper">
+                            <div class="swiper-slide channel">
+                                <img src="img/news-channel/YTN.png">
+                            </div>
+                            <div class="swiper-slide channel">
+                                <img src="img/news-channel/연합뉴스TV.png">
+                            </div>
+                            <div class="swiper-slide channel">
+                                <img src="img/news-channel/채널A NEWS.png">
+                            </div>
+                            <div class="swiper-slide channel">
+                                <img src="img/news-channel/한국경제TV.png">
+                            </div>
+                            <div class="swiper-slide channel">
+                                <img src="img/news-channel/매일경제TV.png">
+                            </div>
+                            <div class="swiper-slide channel">
+                                <img src="img/news-channel/MBC 뉴스.png">
+                            </div>
+                            <div class="swiper-slide channel">
+                                <img src="img/news-channel/SBS No.1 뉴스라이브.png">
+                            </div>
+                            <div class="swiper-slide channel">
+                                <img src="img/news-channel/JTBC.png">
+                            </div>
+                            <div class="swiper-slide channel">
+                                <img src="img/news-channel/머니투데이방송.png">
+                            </div>
+                            <div class="swiper-slide channel">
+                                <img src="img/news-channel/KBS NEWS 24.png">
+                            </div>
+                            <div class="swiper-slide channel">
+                                <img src="img/news-channel/SBS Biz.png">
+                            </div>
+                            <div class="swiper-slide channel">
+                                <img src="img/news-channel/MBN.png">
+                            </div>
+                            <div class="swiper-slide channel">
+                                <img src="img/news-channel/TV CHOSUN.png">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="light-black-box sports-background" style="height: 393.72px;">
+                    <div class="news-header">오늘의 스포츠 하이라이트</div>
+
+                    <div class="sports-row" id="sports-highlight" data-page="1">
+                        <div class="sports-col">
+                            <div class="sports-wrap">
+                                <div class="sports-thumbnail">
+                                    <img src="img/thumbnail/sports/1.webp">
+                                    <div class="news-time">21:57</div>
+                                </div>
+                                <div class="sports-desc">
+                                    <img src="img/icon_num/1.svg">
+                                    <div>[LG vs KIA] 2026/10/12 하이라이트</div>
+                                </div>
+                            </div>
+                            <div class="sports-wrap">
+                                <div class="sports-thumbnail">
+                                    <img src="img/thumbnail/sports/2.webp">
+                                    <div class="news-time">01:56</div>
+                                </div>
+                                <div class="sports-desc">
+                                    <img src="img/icon_num/2.svg">
+                                    <div>[아이러브 베이스볼] 2026/10/12 KIA 김도영 - 준PO 직행 이끈 슈퍼스타의 한 방</div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="sports-col">
+                            <div class="sports-wrap">
+                                <div class="sports-thumbnail">
+                                    <img src="img/thumbnail/sports/3.webp">
+                                    <div class="news-time">2:21:40</div>
+                                </div>
+                                <div class="sports-desc">
+                                    <img src="img/icon_num/3.svg">
+                                    <div>[LG vs KIA] 2026/10/12 다시보기</div>
+                                </div>
+                            </div>
+                            <div class="sports-wrap">
+                                <div class="sports-thumbnail">
+                                    <img src="img/thumbnail/sports/4.webp">
+                                    <div class="news-time">00:42</div>
+                                </div>
+                                <div class="sports-desc">
+                                    <img src="img/icon_num/4.svg">
+                                    <div>[베이스볼 투나잇] 2026/10/12 '라이트한 사운드' KIA만을 위해 쏘아 올린 김도영의 100호 홈런</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="news-pagination">
+                        <div class="pagination-button" onclick="handleSportsPrevPage()">
+                            <img src="img/icon_slide_left.svg">
+                        </div>
+                        <div class="news-pagination-num">
+                            <span id="sports-pagination-num">1</span>
+                            <span>/</span>
+                            <span>5</span>
+                        </div>
+                        <div class="pagination-button" onclick="handleSportsNextPage()">
+                            <img src="img/icon_slide_right.svg">
+                        </div>
+                    </div>
+                </div>
+            </div>
+    </main>
+</body>
+<footer>
+    <div class="divider"></div>
+    <div class="footer-flex-wrap">
+        <div class="footer-flex">
+            <div>고객센터</div>
+            <div>이용약관</div>
+            <div>개인정보처리방침</div>
+            <div>청소년 보호정책</div>
+            <div>법적고지</div>
+            <div>이벤트</div>
+            <div>인재채용</div>
+        </div>
+        <div class="footer-dropDown">
+            <button onclick="handleClickDropDown(0)">브랜드 바로가기</button>
+            <div class="footer-dropDown-box">
+                <div>tvN</div>
+                <div>tvN SPORTS</div>
+                <div>tvN STORY</div>
+                <div>tvN DRAMA</div>
+                <div>tvN SHOW</div>
+                <div>OCN</div>
+                <div>중화TV</div>
+                <div>UXN</div>
+                <div>CATCHON</div>
+                <div>Tonniverse</div>
+            </div>
+        </div>
+        <div> | </div>
+        <div class="footer-dropDown">
+            <button onclick="handleClickDropDown(1)">그룹 계열사 바로가기</button>
+            <div class="footer-dropDown-box">
+                <div>CJ주식회사</div>
+                <div>CJ ENM 엔터테인먼트부문</div>
+                <div>CJ CGV</div>
+                <div>CJ제일제당(식품)</div>
+                <div>CJ프레시웨이</div>
+                <div>CJ푸드빌</div>
+                <div>CJ엠디원</div>
+                <div>CJ제일제당(바이오)</div>
+                <div>CJ ENM 커머스부문</div>
+                <div>CJ대한통운</div>
+            </div>
+        </div>
+    </div>
+    <div class="footer-desc">
+        <p>
+            <span>대표이사 : 최주희</span>
+            <span>사업자정보확인</span>
+            <span>사업자등록번호 : 188-88-01893</span>
+            <span>통신판매신고번호 : 2020-서울마포-3641호</span>
+        </p>
+        <p>
+            <span>사업장 : 서울특별시 마포구 상암산로 34, DMC디지털큐브 15층(상암동)</span>
+            <span>사업장 : 서울특별시 마포구 상암산로 34, DMC디지털큐브 15층(상암동)</span>
+        </p>
+        <p>
+            <span>고객센터 평일 09:00~17:00 (점심시간 13:00~14:00) / 공휴일 휴무</span>
+            <span>챗봇/채팅 상담</span>
+            <span>1:1 게시판 문의</span>
+            <span>대표메일 : tving@cj.net</span>
+            <span>대표번호(유료) : 1670-1525</span>
+        </p>
+        <p>
+            <span>ENM 시청자 상담실 (편성 문의 및 시청자 의견) : 080-080-0780</span>
+            <span>Mnet 고객센터(방송편성문의) : 1855-1631</span>
+        </p>
+    </div>
+    <div class="footer-sns">
+        <a href="https://www.youtube.com/c/TVING_official" target="_blank">
+            <img src="img/icon_sns/youtube.svg">
+        </a>
+        <a href="https://www.instagram.com/tving.official/" target="_blank">
+            <img src="img/icon_sns/instagram.svg">
+        </a>
+        <a href="https://x.com/tvingdotcom" target="_blank">
+            <img src="img/icon_sns/twitter.svg">
+        </a>
+        <a href="https://www.facebook.com/CJTVING/" target="_blank">
+            <img src="img/icon_sns/facebook.svg">
+        </a>
+    </div>
+    <div class="footer-rights">© TVING Corp. ALL RIGHTS RESERVED</div>
+</footer>
+
+<script src="js/header.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/swiper@12/swiper-bundle.min.js"></script>
+<script src="js/main.js"></script>
+<script src="js/footer.js"></script>
+
+<script src="js/articles.js"></script>
+<script src="js/index_data.js"></script>
+
+</html>

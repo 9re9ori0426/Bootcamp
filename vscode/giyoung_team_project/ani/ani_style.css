@@ -1,0 +1,971 @@
+/* 공통 초기화: 브라우저 기본 여백 제거. border-box는 패딩과 테두리를 지정 너비에 포함한다. */
+* {
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  box-sizing: border-box;
+  font-family: "Pretendard", normal;
+}
+
+/* 가로·세로 스크롤바 공간을 항상 확보하는 현재 설정. */
+html {
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
+/* 페이지 기본 배경. 각 영역의 반투명 요소 뒤에도 이 색이 보인다. */
+body {
+  background-color: black;
+}
+
+/* 상단 메뉴: sticky와 top으로 스크롤 중에도 상단 유지. z-index로 슬라이더 위에 표시한다. */
+header {
+  position: sticky;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.9);
+  height: 70px;
+  padding-top: 0px;
+  padding-right: 48px;
+  padding-bottom: 0px;
+  padding-left: 36px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 999;
+}
+
+/* 헤더의 TVING 로고 크기. 자식 선택자로 다른 영역 이미지에는 적용하지 않는다. */
+.menu_bar > img {
+  height: 50px;
+  cursor: pointer;
+}
+
+/* 콘텐츠 메뉴를 Flex로 가로 배치하고 세로 중앙 정렬. */
+.menu_c {
+  margin-left: 24px;
+  margin-right: 24px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+/* 메뉴 항목의 기본 글자색과 항목 사이 여백. */
+.menu_c > div {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 12pt;
+  margin-right: 30px;
+}
+
+/* 메뉴에 마우스를 올리면 흰색 글씨와 손 모양 커서 표시. */
+.menu_c > div:hover {
+  color: white;
+  cursor: pointer;
+}
+
+/* margin-left: auto로 남는 공간을 앞쪽에 배분하여 로그인·검색·프로필을 오른쪽 정렬. */
+.menu_r {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* 로그인 표시의 크기와 색상. nowrap 설정은 글자가 두 줄로 나뉘는 것을 방지한다. */
+.login {
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-color: rgb(255, 21, 60);
+  border-top-left-radius: 42px;
+  border-top-right-radius: 42px;
+  border-bottom-right-radius: 42px;
+  border-bottom-left-radius: 42px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 61px;
+  height: 33px;
+  white-space-collapse: collapse;
+  text-wrap-mode: nowrap;
+}
+
+/* 검색 아이콘 영역의 크기와 기본 투명도. */
+/* .search {
+  width: 24px;
+  height: 24px;
+  opacity: 0.7;
+  font-size: 12px;
+  margin-left: 30px;
+  cursor: pointer;
+} */
+
+/* 검색 영역에 마우스를 올리면 아이콘을 선명하게 표시. */
+.search:hover {
+  opacity: 1;
+}
+
+/* 검색 이미지를 부모 아이콘 영역에 맞춘다. */
+.search > img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 프로필의 원형 표시와 배경색. 현재는 시각적 표시이며 별도 메뉴 동작은 없다. */
+.profile {
+  margin-left: 30px;
+  background-image: linear-gradient(
+    240deg,
+    rgb(20, 255, 255) 8.0068%,
+    rgb(255, 21, 60) 90.363%
+  );
+  height: 28px;
+  width: 28px;
+  cursor: pointer;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+  border-bottom-left-radius: 100%;
+}
+
+/* 배너가 보이는 창: 높이를 고정하고 바깥으로 넘어간 슬라이드를 숨긴다. */
+.banner {
+  width: 100%;
+  height: 450px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* Swiper가 자동으로 추가하는 기본 화살표 SVG만 숨긴다. */
+.banner .swiper-button-next svg,
+.banner .swiper-button-prev svg {
+  display: none;
+}
+
+/* Swiper가 생성하는 페이지 점의 기본 크기·색·투명도. */
+.banner .swiper-pagination-bullet {
+  width: 8px;
+  height: 8px;
+  background-color: white;
+  opacity: 0.4;
+}
+
+/* 현재 배너에 해당하는 점을 선명하게 표시. */
+.banner .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+/* Swiper가 이동 불가 상태를 표시하면 해당 화살표를 숨기고 클릭도 차단. */
+.banner .swiper-button-prev.swiper-button-disabled,
+.banner .swiper-button-next.swiper-button-disabled {
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* 배너 한 장: 양옆 공간 확보. 기본 투명도는 0.4이며 현재 슬라이드만 별도 규칙으로 복원한다. */
+.banner .swiper-slide {
+  width: calc(100% - 128px);
+  position: relative;
+  border-top-left-radius: 30px;
+  border-top-right-radius: 30px;
+  border-bottom-right-radius: 30px;
+  border-bottom-left-radius: 30px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  opacity: 0.4;
+  transition-behavior: normal;
+  transition-duration: 0.3s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: opacity;
+}
+
+/* Swiper가 실행 중 붙이는 활성 클래스. 기본 규칙보다 구체적으로 선택하여 현재 배너만 밝게 유지한다. */
+.banner .swiper-slide.swiper-slide-active {
+  opacity: 1;
+}
+
+/* 이미지 아래쪽 40%를 어둡게 하는 장식 레이어. pointer-events: none으로 드래그·클릭을 막지 않는다. */
+.banner .swiper-slide::after {
+  content: "";
+  position: absolute;
+  left: 0px;
+  bottom: 0px;
+  width: 100%;
+  height: 40%;
+  background-image: linear-gradient(transparent, rgba(0, 0, 0, 0.5));
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+  z-index: 1;
+  pointer-events: none;
+}
+
+/* 배경 사진은 비율을 유지하며 배너를 채운다. cover 때문에 일부 가장자리가 잘릴 수 있다. */
+.banner .banner-bg {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* 제목 이미지와 설명을 그라데이션 레이어보다 위에 표시. */
+.banner .banner-title,
+.banner .banner-text {
+  z-index: 2;
+}
+
+/* 작품 제목 이미지를 배너 왼쪽 아래에 겹친다. 크기는 비율과 최대 너비로 제한한다. */
+.banner .banner-title {
+  position: absolute;
+  left: 48px;
+  bottom: 100px;
+  width: 35%;
+  max-width: 450px;
+  height: auto;
+}
+
+/* 배너 설명 문구의 위치와 글자 크기. */
+.banner-text {
+  color: white;
+  font-size: 1.2rem;
+  width: 31.667rem;
+  position: absolute;
+  left: 48px;
+  bottom: 30px;
+}
+
+/* 배너 화살표의 클릭 영역과 반투명 흰색 설정. */
+.banner .swiper-button-next,
+.banner .swiper-button-prev {
+  width: 48px;
+  height: 64px;
+  color: rgba(255, 255, 255, 0.7);
+}
+
+/* 다음 배너 화살표를 오른쪽 끝에 배치. */
+.banner .swiper-button-next {
+  right: 0px;
+}
+
+/* 이전 배너 화살표의 왼쪽 위치. */
+.banner .swiper-button-prev {
+  left: 8px;
+}
+
+/* 위·오른쪽 테두리를 회전시켜 두꺼운 화살표를 만든다. 테두리 너비가 선 두께다. */
+.banner .swiper-button-next::after,
+.banner .swiper-button-prev::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-top-width: 5px;
+  border-top-style: solid;
+  border-top-color: currentcolor;
+  border-right-width: 5px;
+  border-right-style: solid;
+  border-right-color: currentcolor;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+/* 다음 방향의 화살표 모양. */
+.banner .swiper-button-next::after {
+  transform: rotate(45deg);
+}
+
+/* 이전 방향의 화살표 모양. */
+.banner .swiper-button-prev::after {
+  transform: rotate(-135deg);
+}
+
+/* 배너 페이지 이동 점을 오른쪽 아래에 배치. */
+.banner .swiper-pagination {
+  left: auto;
+  right: 88px;
+  bottom: 24px;
+  width: auto;
+}
+
+/* 카테고리 목록: 좌우 패딩은 미리보기·화살표 공간이며 그 바깥은 잘라낸다. */
+.content-row {
+  padding-top: 40px;
+  padding-right: 48px;
+  padding-bottom: 40px;
+  padding-left: 48px;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* 목록 끝에 도달하면 이동할 수 없는 방향의 화살표 숨김. */
+.content-row .slick-arrow.slick-disabled {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* Slick이 생성하는 표시 영역. overflow를 풀어 좌우 패딩 쪽에 이전·다음 항목을 노출한다. */
+.anime-slider .slick-list {
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
+/* Slick이 생성하는 각 칸에 내부 여백을 주어 항목끼리 분리. */
+.anime-slider .slick-slide {
+  padding-top: 0px;
+  padding-right: 5px;
+  padding-bottom: 0px;
+  padding-left: 5px;
+}
+
+/* 움직이지 않는 바깥 칸에서 hover를 감지하여 안쪽 항목만 위로 이동. */
+.anime-slider .slick-slide:hover .genre-item {
+  transform: translateY(-10px);
+}
+
+/* Slick 테마가 넣는 기본 화살표 문자를 제거. */
+.anime-slider .slick-arrow::before {
+  content: none;
+}
+
+/* 카테고리 화살표와 어두운 배경. 평소에는 숨기고 목록 hover 시 표시한다. */
+.anime-slider .slick-arrow {
+  width: 48px;
+  height: 64px;
+  z-index: 2;
+  color: rgba(255, 255, 255, 0.7);
+  background-image: initial;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: rgba(0, 0, 0, 0.7);
+  opacity: 0;
+  pointer-events: none;
+  transition-behavior: normal;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: opacity;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* 카테고리 화살표를 배너와 동일한 테두리 방식으로 생성. */
+.anime-slider .slick-arrow::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-top-width: 5px;
+  border-top-style: solid;
+  border-top-color: currentcolor;
+  border-right-width: 5px;
+  border-right-style: solid;
+  border-right-color: currentcolor;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+/* 카테고리 이전 화살표의 방향. */
+.anime-slider .slick-prev::after {
+  transform: rotate(-135deg);
+}
+
+/* 카테고리 다음 화살표의 방향. */
+.anime-slider .slick-next::after {
+  transform: rotate(45deg);
+}
+
+/* 이전 화살표를 목록 왼쪽 48px 미리보기 공간에 배치. */
+.anime-slider .slick-prev {
+  left: -48px;
+}
+
+/* 다음 화살표를 목록 오른쪽 48px 미리보기 공간에 배치. */
+.anime-slider .slick-next {
+  right: -48px;
+}
+
+/* Slick 테마의 hover·focus 스타일 대신 현재 화살표 색과 배경 유지. */
+.anime-slider .slick-arrow:hover,
+.anime-slider .slick-arrow:focus {
+  color: rgba(255, 255, 255, 0.7);
+  background-image: initial;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* 카테고리 개별 항목 디자인. transform 전환은 주변 배치를 밀지 않고 떠오르는 효과를 만든다. */
+.genre-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 50px;
+  padding-top: 8px;
+  padding-right: 4px;
+  padding-bottom: 8px;
+  padding-left: 4px;
+  background-color: rgb(38, 38, 38);
+  color: white;
+  font-size: 15px;
+  text-align: center;
+  overflow-wrap: anywhere;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+  cursor: pointer;
+  transform: translateY(0px);
+  transition-behavior: normal;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: transform;
+}
+
+/* 랭킹 전체 영역: 제목과 목록을 포함하며 양옆 여백 바깥의 미리보기를 잘라낸다. */
+.ranking-section {
+  padding-top: 0px;
+  padding-right: 48px;
+  padding-bottom: 40px;
+  padding-left: 48px;
+  color: white;
+  overflow-x: hidden;
+  overflow-y: hidden;
+}
+
+/* 랭킹 제목과 페이지 도구를 한 줄의 양 끝에 배치. */
+.ranking-heading {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  row-gap: 20px;
+  column-gap: 20px;
+  margin-bottom: 20px;
+}
+
+/* 랭킹 제목 아래 간격. heading 바깥 여백과 함께 목록까지의 거리를 결정한다. */
+.ranking-section h3 {
+  margin-bottom: 20px;
+}
+
+/* 페이지 점과 더보기 묶음. 공간은 유지하면서 기본 상태에서는 보이지 않게 한다. */
+.ranking-tools {
+  display: flex;
+  align-items: center;
+  row-gap: 16px;
+  column-gap: 16px;
+  flex-shrink: 0;
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+  transition-behavior: normal;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: opacity;
+}
+
+/* 제목 또는 랭킹 목록에 마우스가 있으면 오른쪽 도구 표시. */
+.ranking-section:hover .ranking-tools {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+}
+
+/* 랭킹 전용 점 영역. Swiper 기본 절대 배치 대신 제목 줄의 Flex 배치를 사용한다. */
+.ranking-pagination {
+  position: static;
+  width: auto;
+  display: flex;
+  align-items: center;
+  row-gap: 6px;
+  column-gap: 6px;
+}
+
+/* 랭킹 페이지 점의 기본 모양. 클릭 동작은 HTML 하단 pagination 설정과 연결된다. */
+.ranking-pagination .swiper-pagination-bullet {
+  width: 6px;
+  height: 6px;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  background-color: white;
+  opacity: 0.35;
+}
+
+/* 현재 랭킹 페이지에 해당하는 점을 강조. */
+.ranking-pagination .swiper-pagination-bullet-active {
+  opacity: 1;
+}
+
+/* 더보기의 기본 색과 커서. 현재 HTML은 span으로 클릭 이동 기능은 없다. */
+.ranking-more {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 14px;
+  white-space-collapse: collapse;
+  text-wrap-mode: nowrap;
+  cursor: pointer;
+  transition-behavior: normal;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: color;
+}
+
+/* 더보기에 직접 마우스를 올리면 글씨를 밝게 표시. */
+.ranking-more:hover {
+  color: white;
+}
+
+/* 슬라이더 밖의 이전·다음 항목이 section의 좌우 여백에도 보이도록 허용. */
+.ranking-slider {
+  overflow-x: visible;
+  overflow-y: visible;
+}
+
+/* Swiper의 끝 상태 클래스: 처음의 왼쪽·마지막의 오른쪽 화살표를 숨긴다. */
+.ranking-slider .swiper-button-disabled {
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* 랭킹 한 칸은 숫자와 포스터 묶음. 아래쪽 끝을 맞추고 둘 사이에 간격을 둔다. */
+.ranking-slider .ranking-item {
+  display: flex;
+  align-items: flex-end;
+  row-gap: 12px;
+  column-gap: 12px;
+  cursor: pointer;
+  transform: translateY(0px);
+  transition-behavior: normal;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: transform;
+}
+
+/* 랭킹 항목에 마우스를 올리면 위로 이동. 벗어나면 기본 transform으로 복귀. */
+.ranking-slider .ranking-list .ranking-item:hover {
+  transform: translateY(-10px);
+}
+
+/* 모든 숫자 영역을 같은 너비로 고정하여 두 자리 순위도 포스터 너비를 밀어내지 않도록 한다. */
+.ranking-item > div:first-child {
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: 60px;
+  min-width: 0px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+
+/* 순위 SVG를 고정 영역 안에서 비율 유지하며 오른쪽 아래에 정렬. */
+.ranking-item > div:first-child > svg {
+  display: block;
+  width: 100%;
+  height: 87px;
+  object-fit: contain;
+  object-position: right bottom;
+}
+
+/* 포스터 묶음은 숫자와 간격을 제외한 나머지 너비 사용. */
+.ranking-item > div:nth-child(2) {
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+  min-width: 0px;
+}
+
+/* 포스터 이미지는 칸 너비에 맞추되 원본 비율 유지. */
+.ranking-item > div:nth-child(2) > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+}
+
+/* 랭킹 화살표도 배너와 같은 크기·테두리 두께로 생성. */
+.ranking-prev::after,
+.ranking-next::after {
+  content: "";
+  width: 20px;
+  height: 20px;
+  border-top-width: 5px;
+  border-top-style: solid;
+  border-top-color: currentcolor;
+  border-right-width: 5px;
+  border-right-style: solid;
+  border-right-color: currentcolor;
+  border-top-left-radius: 2px;
+  border-top-right-radius: 2px;
+  border-bottom-right-radius: 2px;
+  border-bottom-left-radius: 2px;
+}
+
+/* 랭킹 이전 화살표 방향. */
+.ranking-prev::after {
+  transform: rotate(-135deg);
+}
+
+/* 순위 숫자가 아니라 화살표 안에 자동 생성된 SVG만 숨긴다. */
+.ranking-prev > svg,
+.ranking-next > svg {
+  display: none;
+}
+
+/* 랭킹 다음 화살표 방향. */
+.ranking-next::after {
+  transform: rotate(45deg);
+}
+
+/* 랭킹 화살표 공통 설정. 뒤쪽 동일 선택자 규칙에서 최종 높이·표시 상태가 결정된다. */
+.ranking-slider .ranking-prev,
+.ranking-slider .ranking-next {
+  width: 48px;
+  height: 100%;
+  top: 0px;
+  bottom: 0px;
+  margin-top: 0px;
+  transform: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, 0.7);
+  z-index: 10;
+  opacity: 0;
+  pointer-events: none;
+  transition-behavior: normal;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: opacity;
+}
+
+/* 목록 왼쪽 바깥 여백에 화살표 배치. 그라데이션은 바깥이 어둡고 안쪽이 투명하다. */
+.ranking-slider .ranking-prev {
+  left: -48px;
+  background-image: linear-gradient(to right, rgba(0, 0, 0, 0.85), transparent);
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+}
+
+/* 목록 오른쪽 바깥 여백에 화살표 배치. 그라데이션은 바깥이 어둡고 안쪽이 투명하다. */
+.ranking-slider .ranking-next {
+  right: -48px;
+  background-image: linear-gradient(to left, rgba(0, 0, 0, 0.85), transparent);
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+}
+
+/* 랭킹 section에 마우스가 있으면 이동 가능한 화살표와 배경 표시. */
+.ranking-section:hover .ranking-prev,
+.ranking-section:hover .ranking-next {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 목록에 마우스를 올리거나 내부 요소에 키보드 초점이 있으면 화살표 표시. */
+.content-row:hover .slick-arrow {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* Footer 전체 */
+.tving-footer {
+  width: 100%;
+  background-color: black;
+  padding: 0 4% 40px;
+  box-sizing: border-box;
+  font-size: 13px;
+  color: #888;
+}
+
+/* footer 전체를 구성하는 표의 너비와 셀 경계 처리. */
+.footer-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+/* footer 링크의 기본 색과 밑줄 설정. */
+.footer-table a {
+  color: #999;
+  text-decoration: none;
+}
+
+/* footer 링크에 마우스를 올리면 글씨 강조. */
+.footer-table a:hover {
+  color: white;
+}
+
+/* 공지 행의 배경·여백과 오른쪽 화살표 위치 기준. */
+.footer-notice td {
+  background-color: #252525;
+  position: relative;
+  padding: 22px 35px;
+  border-bottom: 1px solid #333;
+}
+
+/* 공지 제목과 본문 사이 간격 및 제목 색상. */
+.footer-notice strong {
+  color: rgb(115 115 115);
+  opacity: 0.7;
+  font-size: 15px;
+  margin-right: 20px;
+}
+
+/* 공지 링크 안의 두 번째 요소인 안내 문구 글자 크기. */
+.footer-notice span:nth-child(2) {
+  font-size: 15px;
+}
+
+/* 공지 행의 오른쪽 화살표 배치. */
+.notice-arrow {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-30%);
+  font-size: 28px;
+  color: #aaa;
+}
+
+/* footer 정책 메뉴 행의 위쪽 경계선. */
+.footer-menu-row {
+  border-top: 0.7px solid white;
+}
+/* 정책 메뉴와 드롭다운이 들어가는 셀의 위쪽 여백·경계선. */
+.footer-menu-row td {
+  padding: 65px 0px 0;
+  border-top: 1px solid white;
+}
+
+/* 정책 링크 목록에 할당할 너비. */
+.footer-menu {
+  width: 70%;
+}
+
+/* 정책 링크를 가로로 배치하고 항목 사이 간격 확보. */
+.footer-menu a {
+  display: inline-block;
+  margin-right: 19px;
+  font-size: 13px;
+}
+
+/* 개인정보처리방침 링크의 기본 강조 스타일. */
+.footer-menu .privacy {
+  color: white;
+  opacity: 0.5;
+  font-weight: bold;
+}
+/* 개인정보처리방침에 마우스를 올리면 선명하게 표시. */
+.footer-menu .privacy:hover {
+  opacity: 1;
+}
+
+/* 브랜드·그룹 드롭다운 두 개를 한 줄의 오른쪽에 배치. */
+.footer-dropDown-area {
+  width: 440px;
+  min-width: 440px;
+  text-align: right;
+  white-space: nowrap;
+  overflow: visible;
+}
+
+/* 각 details 드롭다운의 크기와 펼쳐질 목록의 위치 기준. */
+.footer-dropDown {
+  position: relative;
+  display: inline-block;
+  width: 205px;
+  margin-left: 8px;
+  text-align: left;
+  vertical-align: middle;
+}
+
+/* 브라우저 기본 details 마커 대신 직접 디자인한 펼침 버튼 사용. */
+.footer-dropDown summary {
+  position: relative;
+  display: block;
+
+  background-color: black;
+  color: #999;
+
+  padding: 13px 40px 13px 15px;
+
+  border: none;
+  border-radius: 3px;
+
+  font-size: 13px;
+  cursor: pointer;
+  list-style: none;
+}
+/* 첫 번째 드롭다운 오른쪽에 구분선 표시. */
+.footer-dropDown-area > details:nth-child(1) summary {
+  border-right: 1px solid #292922;
+}
+/* WebKit 계열 브라우저의 기본 details 마커 제거. */
+.footer-dropDown summary::-webkit-details-marker {
+  display: none;
+}
+
+/* 드롭다운 제목 hover 시 테두리 색 설정. */
+.footer-dropDown summary:hover {
+  border-color: #555;
+}
+
+/* 드롭다운 제목 오른쪽에 더하기 기호 표시. */
+.footer-dropDown summary::after {
+  content: "+";
+
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  font-size: 19px;
+  font-weight: 300;
+  color: #aaa;
+}
+
+/* 열린 details 안의 링크 목록을 위쪽으로 펼침. 긴 목록은 내부 스크롤 처리. */
+.dropDown-content {
+  position: absolute;
+
+  bottom: calc(100% + 5px);
+  left: 0;
+
+  width: 100%;
+
+  max-height: 250px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background-color: #252525;
+  border: 1px solid #444;
+  border-radius: 3px;
+
+  z-index: 100;
+}
+
+/* 드롭다운의 각 링크를 한 줄의 클릭 영역으로 배치. */
+.dropDown-content a {
+  display: block;
+
+  padding: 12px 15px;
+
+  color: #aaa;
+  font-size: 13px;
+  text-decoration: none;
+
+  white-space: nowrap;
+}
+
+/* 드롭다운 링크에 마우스를 올리면 배경과 글씨 강조. */
+.dropDown-content a:hover {
+  background-color: #383838;
+  color: white;
+}
+
+/* 드롭다운 내부 스크롤바 너비. */
+.dropDown-content::-webkit-scrollbar {
+  width: 6px;
+}
+
+/* 드롭다운 스크롤바의 바탕색. */
+.dropDown-content::-webkit-scrollbar-track {
+  background-color: #252525;
+}
+
+/* 드롭다운 스크롤바 손잡이 모양. */
+.dropDown-content::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 10px;
+}
+
+/* 스크롤바 손잡이 hover 색상. */
+.dropDown-content::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+
+/* 사업자·고객센터 정보의 글자 크기와 줄 간격. */
+.footer-info td {
+  padding: 3px 0;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #888;
+}
+
+/* 정책 메뉴 바로 다음 정보 행에 위쪽 간격 추가. */
+.footer-menu-row + .footer-info td {
+  padding-top: 25px;
+}
+
+/* 회사 정보 안의 링크에 밑줄과 좌우 간격 적용. */
+.footer-info a {
+  text-decoration: underline;
+  margin: 0 5px;
+}
+
+/* 최하단 저작권 문구의 여백과 색상. */
+.footer-bottom td {
+  padding-top: 28px;
+  color: #666;
+  font-size: 12px;
+}
+/* footer SNS 이미지 행의 배치. */
+.footer-img {
+  display: flex;
+}
+/* SNS 이미지의 크기와 간격. */
+.footer-img img {
+  width: 40px;
+  height: 40px;
+  margin: 20px 5px 0px;
+}
+/* SNS 이미지에 손 모양 커서 표시. 실제 이동 여부는 HTML의 링크 유무에 따른다. */
+.footer-img img:hover {
+  cursor: pointer;
+}

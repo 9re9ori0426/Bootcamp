@@ -1,0 +1,64 @@
+package com.bo.io;
+
+import java.io.IOException;
+import java.io.PrintWriter;
+
+import javax.servlet.ServletException;
+import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.HttpServlet;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+@WebServlet("/Calc2")
+public class Calc2 extends HttpServlet {
+
+	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+		int x = Integer.parseInt(request.getParameter("x"));
+		int y = Integer.parseInt(request.getParameter("y"));
+		String[] ops = request.getParameterValues("operator");
+
+		response.setCharacterEncoding("utf-8");
+		PrintWriter out = response.getWriter();
+
+		out.print("<html>");
+		out.print("<head>");
+		out.print("<meta charset=\"UTF-8\">");
+		out.print("<link rel='stylesheet' href='test.css'>");
+		out.print("</head>");
+		out.print("<body>");
+		out.print("<div class='flex-box'>");
+		
+		for(String op : ops) {
+			String msg = String.format("<h1>%d %s %d = ", x, op, y);
+			switch(op) {
+				case "+":
+					msg += String.format("%d</h1>", x+y);
+					break;
+				case "-":
+					msg += String.format("%d</h1>", x-y);
+					break;
+				case "*":
+					msg += String.format("%d</h1>", x*y);
+					break;
+				case "/":
+					if( y == 0) {
+						msg = "<h1>0으로는 나눌 수 없습니다.</h1>";
+					}
+					else {						
+						msg += String.format("%.1f</h1>", x/(double)y);
+					}
+					break;
+			}
+			out.print(msg);
+		}
+		
+		out.print("</div>");
+		out.print("</body>");
+		out.print("</html>");
+	}
+
+	protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+	}
+
+}

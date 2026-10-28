@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text"> <br>
+    <input type="password"> <br>
+    <input type="checkbox"> <br>
+    <input type="radio"> <br>
+    <input type="number"> <br>
+    <input type="datetime-local"> <br>
+    <input type="file"> <br>
+    <button>asdf</button> <br>
+
+    <select name="" id="">
+        <option>html</option>
+        <option>css</option>
+        <option>js</option>
+    </select>
+    <hr>
+    <input list="jobs">
+    <datalist id="jobs">
+        <option value="학생"></option>
+        <option value="디자이너"></option>
+        <option value="퍼블리셔"></option>
+    </datalist>
+
+    <progress id="progressBar" max="100" min="0" value="0"></progress>
+    <button id="progressBarStartBtn" type="button" onclick="
+        let pb = document.getElementById('progressBar');
+        pb.setAttribute('value', Number(pb.getAttribute('value')) + 10);
+    ">시작</button>
+</body>
+</html>

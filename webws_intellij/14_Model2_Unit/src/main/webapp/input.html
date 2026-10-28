@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link href="index.css" rel="stylesheet">
+</head>
+<body>
+<form class="flex-box blue_back" action="hc" method="post" id="form" onsubmit="return handleConvert()">
+    <div>단위변환</div>
+    <div class="label">변환할 값</div>
+    <div>
+        <input name="convert_value" id="input" type="text" autocomplete="off" oninput="handleOnChangeInput()">
+        <div class="warn_text">숫자만 입력하세요</div>
+    </div>
+    <div class="label">단위</div>
+    <select name="convert_type">
+        <option value="CtoI">cm -> inch</option>
+        <option value="MtoP">㎡ -> 평</option>
+        <option value="CtoF">℃ -> ℉</option>
+        <option value="KtoM">km/h -> mi/h</option>
+    </select>
+
+    <button type="submit">변환</button>
+</form>
+</body>
+<script src="index.js"></script>
+<script>
+    const input = document.querySelector("#input");
+    input.focus();
+</script>
+</html>

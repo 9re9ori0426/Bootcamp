@@ -1,0 +1,838 @@
+/* 공통 초기화: 브라우저 기본 여백 제거. border-box는 패딩과 테두리를 지정 너비에 포함한다. */
+* {
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  margin-left: 0px;
+  padding-top: 0px;
+  padding-right: 0px;
+  padding-bottom: 0px;
+  padding-left: 0px;
+  box-sizing: border-box;
+  font-family: "Pretendard", normal;
+}
+
+/* 가로·세로 스크롤바 공간을 항상 확보하는 현재 설정. */
+html {
+  overflow-x: scroll;
+  overflow-y: scroll;
+}
+
+/* 페이지 기본 배경. 각 영역의 반투명 요소 뒤에도 이 색이 보인다. */
+body {
+  background-color: black;
+}
+
+/* 상단 메뉴: sticky와 top으로 스크롤 중에도 상단 유지. z-index로 슬라이더 위에 표시한다. */
+header {
+  position: sticky;
+  top: 0px;
+  background-color: rgba(0, 0, 0, 0.9);
+  height: 70px;
+  padding-top: 0px;
+  padding-right: 48px;
+  padding-bottom: 0px;
+  padding-left: 36px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  z-index: 999;
+}
+
+/* 헤더의 TVING 로고 크기. 자식 선택자로 다른 영역 이미지에는 적용하지 않는다. */
+.menu_bar > img {
+  height: 50px;
+  cursor: pointer;
+}
+
+/* 콘텐츠 메뉴를 Flex로 가로 배치하고 세로 중앙 정렬. */
+.menu_c {
+  margin-left: 24px;
+  margin-right: 24px;
+  display: flex;
+  justify-content: left;
+  align-items: center;
+}
+
+/* 메뉴 항목의 기본 글자색과 항목 사이 여백. */
+.menu_c > div {
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 12pt;
+  margin-right: 30px;
+}
+
+/* 메뉴에 마우스를 올리면 흰색 글씨와 손 모양 커서 표시. */
+.menu_c > div:hover {
+  color: white;
+  cursor: pointer;
+}
+
+/* margin-left: auto로 남는 공간을 앞쪽에 배분하여 로그인·검색·프로필을 오른쪽 정렬. */
+.menu_r {
+  margin-left: auto;
+  display: flex;
+  align-items: center;
+  flex-shrink: 0;
+}
+
+/* 로그인 표시의 크기와 색상. nowrap 설정은 글자가 두 줄로 나뉘는 것을 방지한다. */
+.login {
+  color: white;
+  font-weight: 700;
+  font-size: 14px;
+  padding-left: 12px;
+  padding-right: 12px;
+  background-color: rgb(255, 21, 60);
+  border-top-left-radius: 42px;
+  border-top-right-radius: 42px;
+  border-bottom-right-radius: 42px;
+  border-bottom-left-radius: 42px;
+  display: inline-flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  width: 61px;
+  height: 33px;
+  white-space-collapse: collapse;
+  text-wrap-mode: nowrap;
+}
+
+/* 검색 아이콘 영역의 크기와 기본 투명도. */
+/* .search {
+  width: 24px;
+  height: 24px;
+  opacity: 0.7;
+  font-size: 12px;
+  margin-left: 30px;
+  cursor: pointer;
+} */
+
+/* 검색 영역에 마우스를 올리면 아이콘을 선명하게 표시. */
+.search:hover {
+  opacity: 1;
+}
+
+/* 검색 이미지를 부모 아이콘 영역에 맞춘다. */
+.search > img {
+  width: 100%;
+  height: 100%;
+}
+
+/* 프로필의 원형 표시와 배경색. 현재는 시각적 표시이며 별도 메뉴 동작은 없다. */
+.profile {
+  margin-left: 30px;
+  background-image: linear-gradient(
+    240deg,
+    rgb(20, 255, 255) 8.0068%,
+    rgb(255, 21, 60) 90.363%
+  );
+  height: 28px;
+  width: 28px;
+  cursor: pointer;
+  border-top-left-radius: 100%;
+  border-top-right-radius: 100%;
+  border-bottom-right-radius: 100%;
+  border-bottom-left-radius: 100%;
+}
+
+/* 상세 소개 영역: Flex 배치와 좌우 여백. 뒤의 동일 선택자에서 배경의 기준과 겹침 범위를 설정한다. */
+.desc-wrap {
+  display: flex;
+  align-items: flex-start;
+  justify-content: space-between;
+  row-gap: 40px;
+  column-gap: 40px;
+  padding-top: 60px;
+  padding-right: 100px;
+  padding-bottom: 60px;
+  padding-left: 60px;
+}
+
+/* 소개 배경의 위치 기준과 독립적인 겹침 영역 설정. overflow로 흐린 배경을 영역 안에서 자른다. */
+.desc-wrap {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: hidden;
+  isolation: isolate;
+}
+
+/* 포스터와 같은 이미지를 흐린 배경으로 사용. 현재 높이는 소개 영역의 100%이며 배경만 흐리게 처리한다. */
+.desc-wrap::before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  height: 100%;
+  background-image: url("https://image.tving.com/ntgs/contents/CTC/caip/CAIP0900/ko/20251219/0831/P001780494.jpg/dims/resize/480");
+  background-size: cover;
+  background-position-x: center;
+  background-position-y: center;
+  background-repeat: no-repeat;
+  filter: blur(100px) brightness(0.6);
+  clip-path: inset(0px);
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* HTML 순서와 달리 order: 2로 포스터를 오른쪽에 배치. 기준 너비는 300px. */
+.poster {
+  order: 2;
+  flex-grow: 0;
+  flex-shrink: 1;
+  flex-basis: 300px;
+  min-width: 0px;
+}
+
+/* 포스터 비율을 유지하고 사방에 그림자를 표시. */
+.poster > img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-top-left-radius: 4px;
+  border-top-right-radius: 4px;
+  border-bottom-right-radius: 4px;
+  border-bottom-left-radius: 4px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 0px 15px;
+}
+
+/* 설명은 order: 1로 왼쪽에 배치하며 남는 가로 공간 사용. */
+.desc {
+  order: 1;
+  flex-grow: 1;
+  flex-shrink: 1;
+  flex-basis: 0%;
+  min-width: 0px;
+  color: white;
+  line-height: 1.5;
+}
+
+/* 작품 제목 이미지만 크기를 제한하여 비율 유지. */
+.desc > img {
+  display: block;
+  width: 100%;
+  max-width: 400px;
+  max-height: 100px;
+  object-fit: contain;
+  object-position: left center;
+}
+
+/* 작품 정보 태그를 간격을 두고 가로 배치하며 필요하면 줄바꿈. */
+.tags {
+  display: flex;
+  flex-wrap: wrap;
+  row-gap: 8px;
+  column-gap: 8px;
+  margin-top: 30px;
+}
+
+/* 태그별 테두리·글자색·안쪽 여백. 상하·좌우 패딩이 글씨와 테두리 사이 간격을 결정한다. */
+.tags > div {
+  display: flex;
+  align-items: center;
+  padding-top: 1px;
+  padding-right: 5px;
+  padding-bottom: 1px;
+  padding-left: 5px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: rgba(255, 255, 255, 0.3);
+  border-right-color: rgba(255, 255, 255, 0.3);
+  border-bottom-color: rgba(255, 255, 255, 0.3);
+  border-left-color: rgba(255, 255, 255, 0.3);
+  border-image-source: none;
+  border-image-slice: 100%;
+  border-image-width: 1;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+  border-top-left-radius: 5px;
+  border-top-right-radius: 5px;
+  border-bottom-right-radius: 5px;
+  border-bottom-left-radius: 5px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 15px;
+}
+
+/* 첫 번째 빈 태그에는 전체 관람가 SVG를 CSS 배경으로 표시. */
+.tags > div:first-child {
+  width: 46px;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  border-top-color: currentcolor;
+  border-right-color: currentcolor;
+  border-bottom-color: currentcolor;
+  border-left-color: currentcolor;
+  border-image-source: none;
+  border-image-slice: 100%;
+  border-image-width: 1;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+  background-image: url("https://www.tving.com/img/tag_cptg_all.svg");
+  background-position-x: center;
+  background-position-y: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+}
+
+/* 두 번째 태그인 더빙 표시는 별도 배경과 밝은 글씨 적용. */
+.tags > div:nth-child(2) {
+  background-color: black;
+  color: white;
+  border-top-left-radius: 7px;
+  border-top-right-radius: 7px;
+  border-bottom-right-radius: 7px;
+  border-bottom-left-radius: 7px;
+}
+
+/* 구독 버튼과 찜·공유를 가로로 배치. 공간이 부족하면 다음 줄로 이동. */
+.buttons {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  row-gap: 24px;
+  column-gap: 24px;
+  margin-top: 32px;
+}
+
+/* 직접 자식인 구독 버튼만 디자인하여 social 내부 버튼과 구분. */
+.buttons > button {
+  padding-top: 20px;
+  padding-right: 75px;
+  padding-bottom: 20px;
+  padding-left: 75px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: rgb(255, 21, 60);
+  border-right-color: rgb(255, 21, 60);
+  border-bottom-color: rgb(255, 21, 60);
+  border-left-color: rgb(255, 21, 60);
+  border-image-source: none;
+  border-image-slice: 100%;
+  border-image-width: 1;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  background-image: linear-gradient(96deg, rgb(255, 36, 135), rgb(255, 21, 60));
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: initial;
+  color: rgba(255, 255, 255, 0.87);
+  font-size: 18px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+/* 찜·공유 두 버튼 사이 간격. */
+.social {
+  display: flex;
+  row-gap: 15px;
+  column-gap: 15px;
+}
+
+/* 각 버튼의 아이콘과 글씨를 세로 배치. 버튼 전체 opacity로 아이콘과 글씨 밝기를 함께 조절. */
+.social > button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  row-gap: 5px;
+  column-gap: 5px;
+  width: 56px;
+  min-height: 64px;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  border-top-color: currentcolor;
+  border-right-color: currentcolor;
+  border-bottom-color: currentcolor;
+  border-left-color: currentcolor;
+  border-image-source: none;
+  border-image-slice: 100%;
+  border-image-width: 1;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+  background-image: initial;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: transparent;
+  color: white;
+  font-size: 15px;
+  line-height: 1.5;
+  cursor: pointer;
+  opacity: 0.8;
+  transition-behavior: normal;
+  transition-duration: 0.2s;
+  transition-timing-function: ease;
+  transition-delay: 0s;
+  transition-property: opacity;
+}
+
+/* 마우스를 올린 버튼만 선명하게 표시. */
+.social > button:hover {
+  opacity: 1;
+}
+
+/* 찜 SVG는 내부에서 100% 크기이므로 감싸는 div 크기로 아이콘 크기 조절. */
+.social > button > div {
+  width: 30px;
+  height: 30px;
+}
+
+/* 공유 SVG는 버튼의 직접 자식이므로 SVG 크기를 직접 조절. */
+.social > button > svg {
+  display: block;
+  width: 30px;
+  height: 30px;
+}
+
+/* 제작진 정보와 줄거리의 공통 스타일. 너비와 keep-all로 단어 단위 줄바꿈 유도. */
+.sul {
+  padding-top: 4px;
+  padding-right: 8px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 16px;
+  margin-top: 15px;
+  width: 550px;
+  max-width: 100%;
+  word-break: keep-all;
+}
+
+/* 크리에이터·출연 등의 제목과 뒤의 이름 사이 간격. */
+.info-label {
+  display: inline-block;
+  margin-right: 15px;
+}
+
+/* Footer 전체 */
+.tving-footer {
+  width: 100%;
+  background-color: black;
+  padding: 0 4% 40px;
+  box-sizing: border-box;
+  font-size: 13px;
+  color: #888;
+}
+/* footer 전체를 구성하는 표의 너비와 셀 경계 처리. */
+
+.footer-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+/* footer 링크의 기본 색과 밑줄 설정. */
+
+.footer-table a {
+  color: #999;
+  text-decoration: none;
+}
+/* footer 링크에 마우스를 올리면 글씨 강조. */
+
+.footer-table a:hover {
+  color: white;
+}
+/* 공지 행의 배경·여백과 오른쪽 화살표 위치 기준. */
+
+.footer-notice td {
+  background-color: #252525;
+  position: relative;
+  padding: 22px 35px;
+  border-bottom: 1px solid #333;
+}
+/* 공지 제목과 본문 사이 간격 및 제목 색상. */
+
+.footer-notice strong {
+  color: rgb(115 115 115);
+  opacity: 0.7;
+  font-size: 15px;
+  margin-right: 20px;
+}
+/* 공지 링크 안의 두 번째 요소인 안내 문구 글자 크기. */
+
+.footer-notice span:nth-child(2) {
+  font-size: 15px;
+}
+/* 공지 행의 오른쪽 화살표 배치. */
+
+.notice-arrow {
+  position: absolute;
+  right: 5px;
+  top: 50%;
+  transform: translateY(-30%);
+  font-size: 28px;
+  color: #aaa;
+}
+/* footer 정책 메뉴 행의 위쪽 경계선. */
+
+.footer-menu-row {
+  border-top: 0.7px solid white;
+}
+/* 정책 메뉴와 드롭다운이 들어가는 셀의 위쪽 여백·경계선. */
+.footer-menu-row td {
+  padding: 65px 0px 0;
+  border-top: 1px solid white;
+}
+/* 정책 링크 목록에 할당할 너비. */
+
+.footer-menu {
+  width: 70%;
+}
+/* 정책 링크를 가로로 배치하고 항목 사이 간격 확보. */
+
+.footer-menu a {
+  display: inline-block;
+  margin-right: 19px;
+  font-size: 13px;
+}
+/* 개인정보처리방침 링크의 기본 강조 스타일. */
+
+.footer-menu .privacy {
+  color: white;
+  opacity: 0.5;
+  font-weight: bold;
+}
+/* 개인정보처리방침에 마우스를 올리면 선명하게 표시. */
+.footer-menu .privacy:hover {
+  opacity: 1;
+}
+/* 브랜드·그룹 드롭다운 두 개를 한 줄의 오른쪽에 배치. */
+
+.footer-dropDown-area {
+  width: 440px;
+  min-width: 440px;
+  text-align: right;
+  white-space: nowrap;
+  overflow: visible;
+}
+/* 각 details 드롭다운의 크기와 펼쳐질 목록의 위치 기준. */
+
+.footer-dropDown {
+  position: relative;
+  display: inline-block;
+  width: 205px;
+  margin-left: 8px;
+  text-align: left;
+  vertical-align: middle;
+}
+/* 브라우저 기본 details 마커 대신 직접 디자인한 펼침 버튼 사용. */
+
+.footer-dropDown summary {
+  position: relative;
+  display: block;
+
+  background-color: black;
+  color: #999;
+
+  padding: 13px 40px 13px 15px;
+
+  border: none;
+  border-radius: 3px;
+
+  font-size: 13px;
+  cursor: pointer;
+  list-style: none;
+}
+/* 첫 번째 드롭다운 오른쪽에 구분선 표시. */
+.footer-dropDown-area > details:nth-child(1) summary {
+  border-right: 1px solid #292922;
+}
+/* WebKit 계열 브라우저의 기본 details 마커 제거. */
+.footer-dropDown summary::-webkit-details-marker {
+  display: none;
+}
+/* 드롭다운 제목 hover 시 테두리 색 설정. */
+
+.footer-dropDown summary:hover {
+  border-color: #555;
+}
+/* 드롭다운 제목 오른쪽에 더하기 기호 표시. */
+
+.footer-dropDown summary::after {
+  content: "+";
+
+  position: absolute;
+  right: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+
+  font-size: 19px;
+  font-weight: 300;
+  color: #aaa;
+}
+/* 열린 details 안의 링크 목록을 위쪽으로 펼침. 긴 목록은 내부 스크롤 처리. */
+
+.dropDown-content {
+  position: absolute;
+
+  bottom: calc(100% + 5px);
+  left: 0;
+
+  width: 100%;
+
+  max-height: 250px;
+
+  overflow-y: auto;
+  overflow-x: hidden;
+
+  background-color: #252525;
+  border: 1px solid #444;
+  border-radius: 3px;
+
+  z-index: 100;
+}
+/* 드롭다운의 각 링크를 한 줄의 클릭 영역으로 배치. */
+
+.dropDown-content a {
+  display: block;
+
+  padding: 12px 15px;
+
+  color: #aaa;
+  font-size: 13px;
+  text-decoration: none;
+
+  white-space: nowrap;
+}
+/* 드롭다운 링크에 마우스를 올리면 배경과 글씨 강조. */
+
+.dropDown-content a:hover {
+  background-color: #383838;
+  color: white;
+}
+/* 드롭다운 내부 스크롤바 너비. */
+
+.dropDown-content::-webkit-scrollbar {
+  width: 6px;
+}
+/* 드롭다운 스크롤바의 바탕색. */
+
+.dropDown-content::-webkit-scrollbar-track {
+  background-color: #252525;
+}
+/* 드롭다운 스크롤바 손잡이 모양. */
+
+.dropDown-content::-webkit-scrollbar-thumb {
+  background-color: #555;
+  border-radius: 10px;
+}
+/* 스크롤바 손잡이 hover 색상. */
+
+.dropDown-content::-webkit-scrollbar-thumb:hover {
+  background-color: #777;
+}
+/* 사업자·고객센터 정보의 글자 크기와 줄 간격. */
+
+.footer-info td {
+  padding: 3px 0;
+  font-size: 12px;
+  line-height: 1.8;
+  color: #888;
+}
+/* 정책 메뉴 바로 다음 정보 행에 위쪽 간격 추가. */
+
+.footer-menu-row + .footer-info td {
+  padding-top: 25px;
+}
+/* 회사 정보 안의 링크에 밑줄과 좌우 간격 적용. */
+
+.footer-info a {
+  text-decoration: underline;
+  margin: 0 5px;
+}
+/* 최하단 저작권 문구의 여백과 색상. */
+
+.footer-bottom td {
+  padding-top: 28px;
+  color: #666;
+  font-size: 12px;
+}
+/* footer SNS 이미지 행의 배치. */
+.footer-img {
+  display: flex;
+}
+/* SNS 이미지의 크기와 간격. */
+.footer-img img {
+  width: 40px;
+  height: 40px;
+  margin: 20px 5px 0px;
+}
+/* SNS 이미지에 손 모양 커서 표시. 실제 이동 여부는 HTML의 링크 유무에 따른다. */
+.footer-img img:hover {
+  cursor: pointer;
+}
+
+/* 구독 안내 dialog. showModal() 호출 시 브라우저 최상위 레이어에 열리며 margin: auto로 중앙 배치. */
+#subscribe-modal {
+  position: fixed;
+  margin-top: auto;
+  margin-right: auto;
+  margin-bottom: auto;
+  margin-left: auto;
+  width: 400px;
+  height: 450px;
+  max-width: calc(100% - 32px);
+  max-height: calc(100% - 32px);
+  overflow-y: auto;
+  scrollbar-width: none;
+  padding-top: 48px;
+  padding-right: 32px;
+  padding-bottom: 32px;
+  padding-left: 32px;
+  border-top-width: 1px;
+  border-right-width: 1px;
+  border-bottom-width: 1px;
+  border-left-width: 1px;
+  border-top-style: solid;
+  border-right-style: solid;
+  border-bottom-style: solid;
+  border-left-style: solid;
+  border-top-color: rgba(255, 255, 255, 0.2);
+  border-right-color: rgba(255, 255, 255, 0.2);
+  border-bottom-color: rgba(255, 255, 255, 0.2);
+  border-left-color: rgba(255, 255, 255, 0.2);
+  border-image-source: none;
+  border-image-slice: 100%;
+  border-image-width: 1;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+  border-top-left-radius: 50px;
+  border-top-right-radius: 50px;
+  border-bottom-right-radius: 50px;
+  border-bottom-left-radius: 50px;
+  background-color: black;
+  color: white;
+}
+
+#subscribe-modal::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* 모달 내부 오른쪽 위 닫기 버튼. */
+#subscribe-close {
+  position: absolute;
+  top: 25px;
+  right: 25px;
+  border-top-width: 0px;
+  border-right-width: 0px;
+  border-bottom-width: 0px;
+  border-left-width: 0px;
+  border-top-style: none;
+  border-right-style: none;
+  border-bottom-style: none;
+  border-left-style: none;
+  border-top-color: currentcolor;
+  border-right-color: currentcolor;
+  border-bottom-color: currentcolor;
+  border-left-color: currentcolor;
+  border-image-source: none;
+  border-image-slice: 100%;
+  border-image-width: 1;
+  border-image-outset: 0;
+  border-image-repeat: stretch;
+  background-image: initial;
+  background-position-x: initial;
+  background-position-y: initial;
+  background-size: initial;
+  background-repeat: initial;
+  background-attachment: initial;
+  background-origin: initial;
+  background-clip: initial;
+  background-color: transparent;
+  color: white;
+  font-size: 28px;
+  cursor: pointer;
+}
+
+/* 모달 안내 제목의 두 줄 문구를 가운데 정렬. */
+#subscribe-modal h2 {
+  margin-bottom: 16px;
+  text-align: center;
+}
+
+/* 모달 이미지 영역을 고정 크기로 만들고 좌우 자동 여백으로 가운데 배치. */
+#subscribe-modal div {
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-left: auto;
+  margin-bottom: 20px;
+}
+
+/* 모달 이미지를 영역 너비에 맞추고 모서리 처리. */
+#subscribe-modal div > img {
+  width: 100%;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+
+/* 계속하기 버튼의 너비·가운데 정렬·디자인. 현재 별도 클릭 동작은 연결되어 있지 않다. */
+#continue {
+  display: block;
+  margin-top: 0px;
+  margin-right: auto;
+  margin-bottom: 0px;
+  margin-left: auto;
+  color: white;
+  background-color: rgb(255, 56, 72);
+  border-top-left-radius: 6rem;
+  border-top-right-radius: 6rem;
+  border-bottom-right-radius: 6rem;
+  border-bottom-left-radius: 6rem;
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+  padding-left: 4rem;
+  padding-right: 4rem;
+  border-top-color: transparent;
+  border-right-color: transparent;
+  border-bottom-color: transparent;
+  border-left-color: transparent;
+  font-weight: 700;
+  font-size: 1.2rem;
+  max-width: 30rem;
+  width: 100%;
+  cursor: pointer;
+}

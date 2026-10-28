@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="AAA">
+		<input name="bb">
+		<input name="cc">
+		<button>확인(누르면 action으로 감)</button>
+	</form>
+	<hr>
+	<form action="">
+		<input name="">
+		<input name="">
+		<button>확인</button>
+	</form>
+</body>
+</html>

@@ -1,0 +1,381 @@
+header {
+  background-color: black;
+  border: none;
+  display: flex;
+  color: white;
+  position: relative;
+  justify-content: left;
+  height: 70px;
+  padding: 0 48px 0 36px;
+  align-items: center;
+  margin: 0;
+  position: sticky;
+  top: 0;
+  z-index: 999;
+}
+.header-nav {
+  display: flex;
+  align-items: center;
+  /* width: 1260px; */
+  justify-content: start;
+  margin: 0 24px;
+  flex-grow: 1;
+}
+.logo {
+  justify-content: center;
+  align-items: center;
+  height: 70px;
+  width: 127px;
+}
+.logo img {
+  background-color: black;
+  height: 70px;
+  width: 127px;
+}
+.logo img:hover {
+  cursor: pointer;
+}
+.drama {
+  font-size: 16px;
+  margin-right: 30px;
+  opacity: 0.7;
+}
+.drama:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.variety {
+  font-size: 16px;
+  margin-right: 30px;
+  opacity: 0.7;
+}
+.variety:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.movie {
+  font-size: 16px;
+  margin-right: 30px;
+  opacity: 0.7;
+}
+.movie:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.sports {
+  font-size: 16px;
+  margin-right: 30px;
+  opacity: 0.7;
+}
+.sports:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.ani {
+  font-size: 16px;
+  margin-right: 30px;
+  opacity: 0.7;
+}
+.ani:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.news {
+  font-size: 16px;
+  margin-right: 30px;
+  opacity: 0.7;
+}
+.news:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.live {
+  font-size: 16px;
+  margin-right: 30px;
+  opacity: 0.7;
+}
+.live:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.short {
+  font-size: 16px;
+  margin-right: 30px;
+  opacity: 0.7;
+}
+.short:hover {
+  opacity: 1;
+  cursor: pointer;
+}
+.login > button {
+  background-color: #ff153c;
+  border: none;
+  border-radius: 25px;
+  width: 61px;
+  height: 33px;
+  color: white;
+  font-size: 12pt;
+  font: bold;
+  cursor: pointer;
+}
+.header-nav2 {
+  display: flex;
+  width: 173px;
+  height: 33px;
+  justify-content: space-between;
+}
+.search {
+  left: 50%;
+}
+.search-icon {
+  color: white;
+}
+#search-toggle {
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+}
+#search-toggle:hover {
+  opacity: 1;
+}
+#close-toggle {
+  background-color: black;
+  border: none;
+  cursor: pointer;
+  opacity: 0.7;
+}
+#close-toggle:hover {
+  opacity: 1;
+}
+.icon-group {
+  height: 70px;
+}
+.icon {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: linear-gradient(240deg, #14ffef 8.0068%, #ff153c 90.363%);
+}
+.icon:hover {
+  cursor: pointer;
+}
+.dropDown {
+  display: none;
+  position: absolute;
+  z-index: 1;
+  width: 250px;
+  height: 260px;
+  border-radius: 20px;
+  top: 100%;
+  right: 42px;
+  border: 0.5px solid black;
+  display: flex;
+  opacity: 0.9;
+  visibility: hidden;
+  background-color: black;
+}
+.group {
+  width: 206px;
+  height: 42px;
+}
+.icon-menu {
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background: linear-gradient(240deg, #14ffef 8.0068%, #ff153c 90.363%);
+  left: 15px;
+  top: 15px;
+  opacity: 1;
+}
+.menu {
+  display: flex;
+  position: relative;
+  left: 70px;
+  top: 20px;
+  margin: 0 0 24px;
+}
+.menu > img {
+  align-items: center;
+  width: 16px;
+  height: 16px;
+  top: 5px;
+}
+.line {
+  position: relative;
+  top: 20px;
+  border-bottom: 1px solid white;
+  opacity: 0.7;
+  left: 20px;
+}
+.my {
+  position: relative;
+  font-size: 12pt;
+  height: 0.5px;
+  top: 40px;
+  left: 20px;
+  color: gray;
+}
+.my:hover {
+  cursor: pointer;
+  color: white;
+}
+.ticket {
+  position: relative;
+  font-size: 12pt;
+  height: 0.5px;
+  top: 80px;
+  left: 20px;
+  color: gray;
+}
+.ticket:hover {
+  cursor: pointer;
+  color: white;
+}
+.sale {
+  position: relative;
+  font-size: 12pt;
+  height: 0.5px;
+  top: 120px;
+  left: 20px;
+  color: gray;
+}
+.sale:hover {
+  cursor: pointer;
+  color: white;
+}
+.serviceCenter {
+  position: relative;
+  font-size: 12pt;
+  height: 0.5px;
+  top: 160px;
+  left: 20px;
+  color: gray;
+}
+.serviceCenter:hover {
+  cursor: pointer;
+  color: white;
+}
+
+/* modal */
+
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 100;
+  justify-content: center;
+  align-items: center;
+  background-color: rgba(0, 0, 0, 0.8);
+}
+.modal.open {
+  display: flex;
+}
+.modal-box {
+  position: relative;
+  min-width: 320px;
+  padding: 50px 30px;
+  border-radius: 40px;
+  background-color: #0b0b17;
+  text-align: center;
+  color: white;
+}
+.modal-box::before {
+  content: "";
+  position: absolute;
+  inset: -50px;
+  background: linear-gradient(
+    to right,
+    rgba(255, 0, 76, 0.5) 10%,
+    rgba(1, 130, 250, 0.25) 60%
+  );
+  filter: blur(80px);
+  z-index: -1;
+  pointer-events: none;
+}
+.modal-text {
+  font-size: 23px;
+  margin-bottom: 30px;
+}
+.modal-btn {
+  display: inline-block;
+  padding: 15px 80px;
+  border-radius: 30px;
+  background-color: #ff156f;
+  font-size: 15px;
+  cursor: pointer;
+}
+.modal-close {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  font-size: 15px;
+  cursor: pointer;
+}
+.sns {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  margin: 20px 0;
+  font-size: 12px;
+}
+.sns-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: #444;
+}
+.modal-login {
+  display: flex;
+  justify-content: center;
+  gap: 6px;
+}
+.modal-login-link {
+  color: #15fff3;
+  cursor: pointer;
+}
+
+.alert-modal .modal-box {
+  min-width: 0;
+  width: 400px;
+  padding: 36px 28px;
+  border-radius: 50px;
+  background-color: #27272e;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
+
+.alert-modal .modal-box::before {
+  display: none;
+}
+
+.modal-title {
+  font-size: 25px;
+  margin-bottom: 10px;
+}
+.alert-modal .modal-text {
+  margin-bottom: 28px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: rgb(184, 183, 183);
+}
+
+.alert-modal .modal-btn {
+  display: block;
+  padding: 15px 20px;
+  border-radius: 30px;
+  background-color: white;
+  color: black;
+  font-size: 15px;
+  cursor: pointer;
+}
+
+.alert-modal .modal-btn:hover {
+  background-color: rgb(219, 219, 219);
+}

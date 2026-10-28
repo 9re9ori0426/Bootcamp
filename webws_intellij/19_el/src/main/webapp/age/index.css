@@ -1,0 +1,295 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Han+Sans&family=Jua&display=swap');
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    margin: 0;
+    padding: 30px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+
+    font-family: 'Jua', sans-serif;
+    color: #fff;
+
+    background:
+            repeating-linear-gradient(
+                    45deg,
+                    transparent 0 20px,
+                    rgba(255, 0, 255, 0.15) 20px 22px
+            ),
+            repeating-linear-gradient(
+                    -45deg,
+                    transparent 0 30px,
+                    rgba(0, 255, 255, 0.15) 30px 33px
+            ),
+            linear-gradient(135deg, #ff0080, #7000ff, #00d9ff, #c6ff00);
+
+    background-size: 100% 100%, 100% 100%, 400% 400%;
+    animation: rainbow-bg 5s ease infinite;
+}
+
+/* 입력 폼 */
+form {
+    position: relative;
+    width: min(90vw, 520px);
+    padding: 45px 30px;
+
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+
+    background: #16002b;
+    border: 5px dashed #00ffff;
+    outline: 6px solid #ff00aa;
+
+    box-shadow:
+            12px 12px 0 #c6ff00,
+            -12px -12px 0 #ff4d00,
+            0 0 40px #fff;
+
+    transform: rotate(-2deg);
+    animation: wobble 2s ease-in-out infinite alternate;
+}
+
+/* 위아래 장식 문구 */
+form::before {
+    content: '★ AGE MACHINE ★ 생년월일 입력 ★';
+    display: block;
+    padding: 12px 5px;
+
+    color: #16002b;
+    background: #c6ff00;
+    border: 3px solid #ff00aa;
+
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(17px, 4vw, 24px);
+    text-align: center;
+    letter-spacing: 2px;
+
+    transform: rotate(2deg);
+    text-shadow: 2px 2px #ff00aa;
+}
+
+/* 생년월일 입력 */
+form input {
+    width: 100%;
+    min-width: 0;
+    padding: 20px 15px;
+
+    color: #00ffff;
+    background: #000;
+    border: 4px ridge #ff00aa;
+    border-radius: 0;
+
+    font-family: 'Jua', sans-serif;
+    font-size: 22px;
+    text-align: center;
+    letter-spacing: 3px;
+
+    outline: none;
+    box-shadow: 5px 5px 0 #00ffff;
+
+    transition: 0.2s;
+}
+
+form input::placeholder {
+    color: #ff77cc;
+    text-shadow: 2px 2px #7000ff;
+}
+
+form input:focus {
+    color: #c6ff00;
+    border-color: #c6ff00;
+    box-shadow:
+            0 0 10px #c6ff00,
+            0 0 25px #ff00aa,
+            8px 8px 0 #ff4d00;
+
+    transform: scale(1.04) rotate(1deg);
+}
+
+/* 나이는? 버튼 */
+button {
+    position: relative;
+    width: 100%;
+    padding: 20px 10px;
+
+    overflow: hidden;
+    cursor: pointer;
+
+    color: #fff;
+    background: linear-gradient(90deg, #ff0080, #7000ff, #00bfff);
+    border: 4px outset #ffff00;
+    border-radius: 15px 0 15px 0;
+
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: 30px;
+    letter-spacing: 5px;
+
+    text-shadow:
+            3px 3px #ff0080,
+            -3px -3px #00ffff;
+
+    box-shadow:
+            0 0 10px #fff,
+            7px 7px 0 #c6ff00;
+
+    transition: 0.15s;
+}
+
+button::after {
+    content: '!!!';
+    position: absolute;
+    right: 12px;
+    top: 50%;
+
+    color: #c6ff00;
+    font-size: 22px;
+
+    transform: translateY(-50%) rotate(15deg);
+}
+
+button:hover {
+    color: #000;
+    background: #c6ff00;
+    border-color: #ff0080;
+
+    transform: scale(1.07) rotate(2deg);
+    box-shadow:
+            0 0 25px #fff,
+            -7px -7px 0 #ff00aa;
+}
+
+button:active {
+    transform: scale(0.92) rotate(-3deg);
+    filter: invert(1);
+}
+
+/* 결과 페이지: h1 메시지 */
+h1 {
+    max-width: 95vw;
+    margin: 0;
+    padding: 20px 30px;
+
+    color: #ffff00;
+    background: #ff0080;
+    border: 6px double #00ffff;
+
+    font-family: 'Black Han Sans', sans-serif;
+    font-size: clamp(28px, 6vw, 52px);
+    text-align: center;
+    overflow-wrap: anywhere;
+
+    text-shadow:
+            4px 4px #7000ff,
+            -4px -4px #00ffff;
+
+    box-shadow:
+            10px 10px 0 #c6ff00,
+            -10px -10px 0 #ff4d00;
+
+    transform: rotate(2deg);
+    animation: glitch 0.35s steps(2) infinite;
+}
+
+/* 나이 결과 */
+h2 {
+    max-width: 95vw;
+    margin: 10px 0;
+    padding: 25px;
+
+    color: #16002b;
+    background: #c6ff00;
+    border: 5px dotted #ff0080;
+
+    font-family: 'Jua', sans-serif;
+    font-size: clamp(20px, 4vw, 34px);
+    line-height: 1.7;
+    text-align: center;
+    overflow-wrap: anywhere;
+
+    box-shadow:
+            8px 8px 0 #00ffff,
+            -8px -8px 0 #ff0080;
+
+    transform: rotate(-1deg);
+    animation: result-pop 0.7s ease-out both;
+}
+
+/* 무지개 배경 */
+@keyframes rainbow-bg {
+    0%   { background-position: 0 0, 0 0, 0% 50%; }
+    50%  { background-position: 0 0, 0 0, 100% 50%; }
+    100% { background-position: 0 0, 0 0, 0% 50%; }
+}
+
+/* 폼 흔들기 */
+@keyframes wobble {
+    from { transform: rotate(-2deg) translateX(-3px); }
+    to   { transform: rotate(2deg) translateX(3px); }
+}
+
+/* 글리치 효과 */
+@keyframes glitch {
+    0%, 100% {
+        text-shadow: 4px 4px #7000ff, -4px -4px #00ffff;
+    }
+    50% {
+        text-shadow: -4px 3px #00ffff, 4px -3px #c6ff00;
+    }
+}
+
+/* 결과 등장 */
+@keyframes result-pop {
+    from {
+        opacity: 0;
+        transform: scale(0.5) rotate(10deg);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1) rotate(-1deg);
+    }
+}
+
+/* 작은 화면 */
+@media (max-width: 480px) {
+    body {
+        padding: 25px;
+        gap: 20px;
+    }
+
+    form {
+        padding: 28px 18px;
+    }
+
+    form input {
+        font-size: 18px;
+        padding: 16px 8px;
+    }
+
+    button {
+        font-size: 25px;
+        letter-spacing: 2px;
+    }
+
+    h1, h2 {
+        padding: 18px;
+    }
+}
+
+/* 애니메이션 최소화 설정 */
+@media (prefers-reduced-motion: reduce) {
+    *,
+    *::before,
+    *::after {
+        animation: none !important;
+        transition: none !important;
+    }
+}

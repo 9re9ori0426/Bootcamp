@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Insert title here</title>
+</head>
+<body>
+<!-- 
+
+	lib(도구) - 누군가 쓰기 편하게 미리 만들어 놓은 것. -> mvn repo
+	cos.jar
+	
+	web(플젝) -> web-inf -> lib
+	
+	파일 업로드 하는 경우 html 에서 신경쓸게 2개
+	1. post
+	2. enctype(포장방식)을 multipart/form-data (박스포장)으로
+
+ -->
+
+
+	<form action="FileUpload" method="post" enctype="multipart/form-data">
+		이름 : <input name="name"> <br>
+		사진 : <input name="pic" type="file"> <br>
+		기타 : <input name="etc" type="file"> <br>
+		<button>upload</button>
+	</form>
+
+</body>
+</html>
