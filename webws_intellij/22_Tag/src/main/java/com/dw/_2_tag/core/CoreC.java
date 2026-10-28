@@ -15,6 +15,10 @@ public class CoreC extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        // 일?
+        CoreM.work(req);
+        // 어디로?
+        req.setAttribute("content", "core/core_result.jsp");
+        req.getRequestDispatcher("main.jsp").forward(req, resp);
     }
 }

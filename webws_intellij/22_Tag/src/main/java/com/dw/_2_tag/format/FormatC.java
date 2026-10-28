@@ -9,6 +9,8 @@ import javax.servlet.annotation.*;
 public class FormatC extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
+        FormatM.dataMaker(request);
+
         request.setAttribute("content", "format/format.jsp");
         request.getRequestDispatcher("main.jsp").forward(request, response);
     }
