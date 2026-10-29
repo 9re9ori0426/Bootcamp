@@ -1,0 +1,30 @@
+.member-list-wrap {
+    width: 100%;
+    max-width: 600px;
+    margin: 20px auto;
+    font-family: Arial, sans-serif;
+}
+
+.member-row {
+    display: flex;
+    padding: 10px 15px;
+    border-bottom: 1px solid #ddd;
+    align-items: center;
+}
+.member-row:hover{
+    background-color: rgb(255, 188, 176);
+}
+
+.member-row.header {
+    font-weight: bold;
+    background-color: #f0f0f0;
+}
+
+.member-name {
+    flex: 2;
+}
+
+.member-age {
+    flex: 1;
+    text-align: right;
+}
