@@ -1,0 +1,166 @@
+/* Movie registration form and card list: movie.jsp */
+.movie-reg {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 20px;
+    padding: 28px;
+    border: 1px solid #e4eaf5;
+    border-radius: 16px;
+    background: #f8faff;
+}
+
+.movie-reg > div {
+    min-width: 0;
+}
+
+.movie-reg > div:nth-child(3),
+.movie-reg > div:nth-child(4),
+.movie-reg > button {
+    grid-column: 1 / -1;
+}
+
+.movie-reg > div > div:first-child {
+    margin-bottom: 8px;
+    color: #344054;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.movie-reg input[type="text"],
+.movie-reg input[type="file"],
+.movie-reg textarea {
+    width: 100%;
+    min-height: 46px;
+    padding: 11px 13px;
+    border: 1px solid #d7deea;
+    border-radius: 10px;
+    outline: none;
+    background: #ffffff;
+    color: #1d2939;
+    font: inherit;
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-reg input:focus,
+.movie-reg textarea:focus {
+    border-color: #4263eb;
+    box-shadow: 0 0 0 3px rgba(66, 99, 235, 0.12);
+}
+
+.movie-reg textarea {
+    min-height: 125px;
+    resize: vertical;
+}
+
+.movie-reg input[type="file"] {
+    padding: 8px 10px;
+    font-size: 13px;
+}
+
+.movie-reg input[type="file"]::file-selector-button {
+    margin-right: 12px;
+    padding: 7px 13px;
+    border: 0;
+    border-radius: 7px;
+    background: #e8eeff;
+    color: #304dcc;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.movie-reg > button {
+    justify-self: end;
+    min-width: 132px;
+    padding: 12px 24px;
+    border: 0;
+    border-radius: 10px;
+    background: #4263eb;
+    color: #ffffff;
+    font: inherit;
+    font-weight: 800;
+    cursor: pointer;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.movie-reg > button:hover {
+    background: #304dcc;
+    transform: translateY(-1px);
+}
+
+.movie-reg > button:focus-visible {
+    outline: 3px solid rgba(66, 99, 235, 0.28);
+    outline-offset: 3px;
+}
+
+.movie-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+    gap: 22px;
+    width: 100%;
+    margin-top: 34px;
+}
+
+.movie-wrap {
+    overflow: hidden;
+    min-width: 0;
+    border: 1px solid #e5eaf2;
+    border-radius: 15px;
+    background: #ffffff;
+    box-shadow: 0 8px 24px rgba(31, 45, 80, 0.05);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.movie-wrap:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 16px 32px rgba(31, 45, 80, 0.11);
+}
+
+.movie-img {
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    background: #eef2f8;
+}
+
+.movie-img img {
+    display: block;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.movie-title {
+    padding: 16px 16px 4px;
+    color: #202c42;
+    font-size: 17px;
+    font-weight: 800;
+    overflow-wrap: anywhere;
+}
+
+.movie-actor {
+    padding: 0 16px 18px;
+    color: #667085;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+@media (max-width: 640px) {
+    .movie-reg {
+        grid-template-columns: 1fr;
+        padding: 18px;
+        gap: 16px;
+    }
+
+    .movie-reg > button {
+        justify-self: stretch;
+    }
+
+    .movie-container {
+        grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
+        gap: 14px;
+        margin-top: 24px;
+    }
+
+    .movie-title {
+        font-size: 15px;
+    }
+}

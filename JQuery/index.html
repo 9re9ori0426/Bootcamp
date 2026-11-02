@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
+    ></script>
+  </head>
+  <body>
+    <h1>asdf</h1>
+    <button class="btn">btn</button>
+    <button class="btn">btn</button>
+    <button class="btn">btn</button>
+    <button class="j-btn">jquerybtn</button>
+    <button class="j-btn">jquerybtn</button>
+    <button class="j-btn">jquerybtn</button>
+    <script>
+      const h1El = document.querySelector("h1");
+      console.log(h1El);
+      h1El.addEventListener("click", function () {
+        console.log("clicked!");
+      });
+
+      document.querySelectorAll(".btn").forEach((b) => {
+        b.addEventListener("click", () => {
+          alert("btn clicked!");
+        });
+      });
+
+      /////////////////////////////////////////////////
+
+      const h1El2 = $("h1");
+      console.log(h1El2);
+      $(h1El2).click(() => {
+        console.log("clicked! jquery");
+      });
+
+      $(".j-btn").click(() => {
+        alert("jquery btn clicked!");
+      });
+    </script>
+  </body>
+</html>

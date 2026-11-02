@@ -49,6 +49,13 @@
             <version>1.18.48</version>
             <scope>provided</scope>
         </dependency>
+        <!-- Source: https://mvnrepository.com/artifact/com.jfinal/cos -->
+        <dependency>
+            <groupId>com.jfinal</groupId>
+            <artifactId>cos</artifactId>
+            <version>2022.2</version>
+            <scope>compile</scope>
+        </dependency>
     </dependencies>
 
     <build>
