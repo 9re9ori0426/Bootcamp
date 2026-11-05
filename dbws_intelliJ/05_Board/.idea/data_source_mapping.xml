@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourcePerFileMappings">
+    <file url="file://$PROJECT_DIR$/src/main/java/com/dw/_5_board/main/account.sql" value="8947c776-566c-4dcb-bca3-1dcb4cc8f3a2" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/dw/_5_board/main/review.sql" value="8947c776-566c-4dcb-bca3-1dcb4cc8f3a2" />
+  </component>
+</project>

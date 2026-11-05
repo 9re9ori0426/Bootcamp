@@ -1,4 +1,4 @@
-package com.dw._5_board.menu;
+package com.dw._5_board.account;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
@@ -7,15 +7,16 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 
-@WebServlet("/menu")
-public class MenuC extends HttpServlet {
+@WebServlet("/user-info")
+public class AccountInfoC extends HttpServlet {
 
     public void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
-        request.setAttribute("content", "jsp/menu1/menu1.jsp");
+
+        AccountDAO.ADAO.loginCheck(request);
+        request.setAttribute("content", "jsp/account/mypage.jsp");
         request.getRequestDispatcher("index.jsp").forward(request, response);
     }
 
-    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
+    public void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException, ServletException {
     }
 }

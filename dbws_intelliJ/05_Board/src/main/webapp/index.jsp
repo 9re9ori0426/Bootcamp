@@ -8,11 +8,15 @@
     <link rel="stylesheet" href="css/movie_detail.css">
 </head>
 <body>
+<div class="login-area">
+    <span style="color: red">${msg}</span>
+    <jsp:include page="${loginPage}"></jsp:include>
+</div>
 <div class="container">
     <header onclick="location.href='main'">dw's place</header>
     <nav class="menu">
         <div>
-            <a href="menu">[Menu1]</a>
+            <a href="menu1">[Menu1]</a>
         </div>
         <div>
             <a href="movie">[Movie]</a>

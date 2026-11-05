@@ -1,124 +1,103 @@
-/* Movie registration form and card list: movie.jsp */
+/* Movie page — index.jsp 공통 레이아웃 안에서 사용 */
+.movie-reg, .movie-container, .movie-wrap {
+    box-sizing: border-box;
+}
+
+/* 영화 등록 폼 */
 .movie-reg {
-    display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    gap: 20px;
+    width: min(100% - 32px, 760px);
+    margin: 32px auto 44px;
     padding: 28px;
-    border: 1px solid #e4eaf5;
+    background: #fff;
+    border: 1px solid #e1e7f0;
     border-radius: 16px;
-    background: #f8faff;
+    box-shadow: 0 8px 24px rgba(24, 42, 72, .07);
 }
 
 .movie-reg > div {
-    min-width: 0;
-}
-
-.movie-reg > div:nth-child(3),
-.movie-reg > div:nth-child(4),
-.movie-reg > button {
-    grid-column: 1 / -1;
+    display: grid;
+    grid-template-columns: 110px minmax(0, 1fr);
+    align-items: start;
+    gap: 14px;
+    margin-bottom: 18px;
 }
 
 .movie-reg > div > div:first-child {
-    margin-bottom: 8px;
-    color: #344054;
-    font-size: 14px;
+    padding-top: 11px;
     font-weight: 700;
+    color: #293b59;
 }
 
-.movie-reg input[type="text"],
-.movie-reg input[type="file"],
-.movie-reg textarea {
+.movie-reg input[type="text"], .movie-reg input[type="file"], .movie-reg textarea {
+    box-sizing: border-box;
     width: 100%;
-    min-height: 46px;
+    min-width: 0;
     padding: 11px 13px;
-    border: 1px solid #d7deea;
-    border-radius: 10px;
-    outline: none;
-    background: #ffffff;
-    color: #1d2939;
     font: inherit;
-    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+    color: #24324a;
+    background: #fbfcff;
+    border: 1px solid #ccd6e4;
+    border-radius: 9px;
 }
 
-.movie-reg input:focus,
-.movie-reg textarea:focus {
-    border-color: #4263eb;
-    box-shadow: 0 0 0 3px rgba(66, 99, 235, 0.12);
+.movie-reg input[type="file"] {
+    padding: 9px;
 }
 
 .movie-reg textarea {
     min-height: 125px;
     resize: vertical;
+    line-height: 1.6;
 }
 
-.movie-reg input[type="file"] {
-    padding: 8px 10px;
-    font-size: 13px;
+.movie-reg input:focus, .movie-reg textarea:focus {
+    outline: 2px solid #9ebbf0;
+    outline-offset: 1px;
+    border-color: #4479cb;
 }
 
-.movie-reg input[type="file"]::file-selector-button {
-    margin-right: 12px;
-    padding: 7px 13px;
+.movie-reg > button {
+    display: block;
+    margin-left: auto;
+    padding: 11px 28px;
     border: 0;
-    border-radius: 7px;
-    background: #e8eeff;
-    color: #304dcc;
+    border-radius: 9px;
+    background: #2b538d;
+    color: #fff;
+    font: inherit;
     font-weight: 700;
     cursor: pointer;
 }
 
-.movie-reg > button {
-    justify-self: end;
-    min-width: 132px;
-    padding: 12px 24px;
-    border: 0;
-    border-radius: 10px;
-    background: #4263eb;
-    color: #ffffff;
-    font: inherit;
-    font-weight: 800;
-    cursor: pointer;
-    transition: background 0.2s ease, transform 0.2s ease;
-}
-
 .movie-reg > button:hover {
-    background: #304dcc;
-    transform: translateY(-1px);
+    background: #1d3e70;
 }
 
-.movie-reg > button:focus-visible {
-    outline: 3px solid rgba(66, 99, 235, 0.28);
-    outline-offset: 3px;
-}
-
+/* 영화 목록 */
 .movie-container {
+    width: min(100% - 32px, 1180px);
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
-    gap: 22px;
-    width: 100%;
-    margin-top: 34px;
+    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+    gap: 24px;
+    margin: 0 auto 50px;
 }
 
 .movie-wrap {
-    overflow: hidden;
     min-width: 0;
-    border: 1px solid #e5eaf2;
+    overflow: hidden;
+    background: #fff;
+    border: 1px solid #e1e7f0;
     border-radius: 15px;
-    background: #ffffff;
-    box-shadow: 0 8px 24px rgba(31, 45, 80, 0.05);
-    transition: transform 0.2s ease, box-shadow 0.2s ease;
-}
-
-.movie-wrap:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 16px 32px rgba(31, 45, 80, 0.11);
+    box-shadow: 0 5px 18px rgba(24, 42, 72, .06);
+    display: flex;
+    flex-direction: column;
 }
 
 .movie-img {
-    overflow: hidden;
     aspect-ratio: 3 / 4;
-    background: #eef2f8;
+    overflow: hidden;
+    background: #e8edf5;
+    cursor: pointer;
 }
 
 .movie-img img {
@@ -126,41 +105,125 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
+    transition: transform .2s ease;
+}
+
+.movie-img:hover img {
+    transform: scale(1.035);
 }
 
 .movie-title {
-    padding: 16px 16px 4px;
-    color: #202c42;
-    font-size: 17px;
-    font-weight: 800;
+    padding: 15px 16px 5px;
+    font-size: 1.08rem;
+    font-weight: 700;
+    color: #24324a;
     overflow-wrap: anywhere;
 }
 
 .movie-actor {
-    padding: 0 16px 18px;
-    color: #667085;
-    font-size: 13px;
+    padding: 0 16px 14px;
+    color: #68768b;
+    font-size: .9rem;
     overflow-wrap: anywhere;
 }
 
-@media (max-width: 640px) {
+.movie-wrap > div:last-child {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: auto;
+    padding: 12px 14px 15px;
+    border-top: 1px solid #edf0f5;
+}
+
+.movie-btn {
+    flex: 1 1 auto;
+    padding: 8px 10px;
+    border: 1px solid #cbd7e8;
+    border-radius: 7px;
+    background: #f3f6fb;
+    color: #304d76;
+    font: inherit;
+    font-size: .8rem;
+    cursor: pointer;
+}
+
+.movie-btn:hover {
+    background: #e3ebf8;
+}
+
+.movie-btn:first-child {
+    border-color: #e6bfc3;
+    background: #fff1f2;
+    color: #a33340;
+}
+
+.movie-btn:first-child:hover {
+    background: #ffe1e4;
+}
+
+@media (max-width: 600px) {
     .movie-reg {
-        grid-template-columns: 1fr;
-        padding: 18px;
-        gap: 16px;
+        padding: 20px;
+        margin: 20px auto 30px;
     }
 
-    .movie-reg > button {
-        justify-self: stretch;
+    .movie-reg > div {
+        grid-template-columns: 1fr;
+        gap: 5px;
+    }
+
+    .movie-reg > div > div:first-child {
+        padding-top: 0;
     }
 
     .movie-container {
-        grid-template-columns: repeat(auto-fill, minmax(145px, 1fr));
-        gap: 14px;
-        margin-top: 24px;
+        grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+        gap: 16px;
     }
+}
 
-    .movie-title {
-        font-size: 15px;
-    }
+/* 좌우 페이지 화살표 */
+.page-arrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 0 15px;
+    font-size: 28px;
+    color: #263859;
+    cursor: pointer;
+    user-select: none;
+
+    transition: color 0.2s, transform 0.2s;
+}
+
+.page-arrow:hover {
+    color: #3b82f6;
+    transform: scale(1.2);
+}
+
+/* 하단 prev / next 버튼 */
+.page-btn {
+    padding: 10px 25px;
+    margin: 15px 5px;
+
+    background-color: #263859;
+    color: white;
+    border: none;
+    border-radius: 8px;
+
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+
+    transition: background-color 0.2s;
+}
+
+.page-btn:hover {
+    background-color: #3b82f6;
+}
+
+.page-btn:active {
+    transform: scale(0.97);
 }

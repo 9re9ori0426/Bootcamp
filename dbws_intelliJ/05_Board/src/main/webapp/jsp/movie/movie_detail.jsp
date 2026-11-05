@@ -11,7 +11,7 @@
             <div class="col-2">${movie.no}</div>
         </div>
         <div>
-            <div><img src="movieFile/${movie.img}" alt=""></div>
+            <div><img src="${movie.img}" alt=""></div>
         </div>
         <div>
             <div class="col-1">Title.</div>
@@ -23,7 +23,7 @@
         </div>
         <div>
             <div class="col-1">Story.</div>
-            <div class="col-2">${movie.story}</div>
+            <div class="col-2" style="white-space: pre-wrap">${movie.story}</div>
         </div>
     </div>
 </div>

@@ -24,10 +24,10 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Class" />
-        <option value="Jsp File" />
         <option value="TypeScript File" />
         <option value="CSS File" />
+        <option value="Class" />
+        <option value="Jsp File" />
       </list>
     </option>
   </component>
@@ -45,10 +45,10 @@
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 6,
-  "fromUser": false
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 6,
+  &quot;fromUser&quot;: false
+}</component>
   <component name="ProjectId" id="3LXB4oGB7qPjys0fTgmo8Ier6qy" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -63,6 +63,7 @@
     "Tomcat Server.Tomcat 9.0.123.executor": "Run",
     "codeWithMe.voiceChat.enabledByDefault": "false",
     "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/dw/dbws_intelliJ/05_Board/src/main/webapp/jsp/account",
     "list.type.of.created.stylesheet": "CSS",
     "node.js.detected.package.jshint": "true",
     "node.js.selected.package.jshint": "",
@@ -71,15 +72,28 @@
   }
 }]]></component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\dw\dbws_intelliJ\05_Board\src\main\webapp\css" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.dw._5_board.account" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\dw\dbws_intelliJ\05_Board\src\main\webapp\jsp\account" />
+      <recent name="C:\dw\dbws_intelliJ\05_Board\src\main\java\com\dw\_5_board\main" />
+      <recent name="C:\dw\dbws_intelliJ\05_Board\src\main\java\com\dw\_5_board\review" />
       <recent name="C:\dw\dbws_intelliJ\05_Board\src\main\webapp\jsp\movie" />
     </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\dw\dbws_intelliJ\05_Board\src\main\java\com\dw\_5_board\main" />
+      <recent name="C:\dw\dbws_intelliJ\05_Board\src\main\java\com\dw\_5_board\movie" />
+      <recent name="C:\dw\dbws_intelliJ\05_Board\src\main\webapp\jsp\review" />
+      <recent name="C:\dw\dbws_intelliJ\05_Board\src\main\webapp\static-img" />
+      <recent name="C:\dw\dbws_intelliJ\05_Board\src\main\webapp\css" />
+    </key>
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="com.dw._5_board.account" />
+      <recent name="com.dw._5_board" />
       <recent name="com.dw._5_board.movie" />
       <recent name="com.dw._5_board.main" />
       <recent name="com.dw._5_board.menu" />
-      <recent name="com.dw._5_board" />
     </key>
   </component>
   <component name="RunDashboard">
