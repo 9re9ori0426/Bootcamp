@@ -52,7 +52,7 @@ public class AccountDAO {
                     accountVO.setName(rs.getString("l_name"));
 //                    request.setAttribute("user", accountVO);
                     request.getSession().setAttribute("user", accountVO);
-                    request.getSession().setMaxInactiveInterval(5*60);
+                    request.getSession().setMaxInactiveInterval(5 * 60);
                     System.out.println("login OK");
                     msg = "로그인 성공";
                 } else {
@@ -102,6 +102,37 @@ public class AccountDAO {
                 // 추천
                 user.setName(name);
                 user.setPw(pw);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        } finally {
+            DBManager.close(conn, pstmt, null);
+        }
+    }
+
+    public void deleteUser(HttpServletRequest request) {
+        Connection conn = null;
+        PreparedStatement pstmt = null;
+
+        AccountVO user = (AccountVO) request.getSession().getAttribute("user");
+
+        // 마지막 입력한 pw가 기존꺼랑 같을때.
+        String pw = request.getParameter("pw");
+
+        String sql = "delete from LOGIN_TEST where l_id = ?";
+        try {
+            conn = DBManager.connect();
+            pstmt = conn.prepareStatement(sql);
+            pstmt.setString(1, user.getId());
+
+            if (pw.equals(user.getPw())) {
+                if (pstmt.executeUpdate() == 1) {
+                    System.out.println("delete success");
+                    logout(request);
+                }
+            }
+            else {
+                System.out.println("pw error");
             }
         } catch (Exception e) {
             e.printStackTrace();

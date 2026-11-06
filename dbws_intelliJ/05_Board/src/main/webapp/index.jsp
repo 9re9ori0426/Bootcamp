@@ -22,10 +22,10 @@
             <a href="movie">[Movie]</a>
         </div>
         <div>
-            [Menu1]
+            <a href="review">[Review]</a>
         </div>
         <div>
-            [Menu1]
+            <a href="jquery">[jquery ajax]</a>
         </div>
     </nav>
     <main>
